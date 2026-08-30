@@ -39,7 +39,13 @@ const LIVE_SITE = "https://lagrinding.com/";
 const RUNTIME_PANELS = {
   shopOpen: "shop",
   servicesOpen: "services",
-  searchOpen: "search"
+  searchOpen: "search",
+  // Mobile drawer and its accordion groups (V2 responsive design).
+  drawerOpen: "drawer",
+  accCat: "acc-cat",
+  accInd: "acc-ind",
+  accBrand: "acc-brand",
+  accSvc: "acc-svc"
 };
 
 const VOID_ELEMENTS = new Set([
