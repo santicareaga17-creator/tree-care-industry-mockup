@@ -65,3 +65,15 @@ The pieces a future developer would need are already in the repository:
 Implementing it would mean removing the `min-width: 1280px` constraint on the page wrapper
 and introducing real breakpoints — a material change to the current design, and therefore
 out of scope until requested.
+
+---
+
+## Superseded by Mobile Design V2
+
+The responsive implementation now shipping is based on **Mobile Design V2**, exported to
+`reference/mobile-design-v2/`. That export is the source of the breakpoints, the mobile
+header and drawer, and the mobile grid/typography rules described in the main `README.md`
+under *Responsive Behavior*.
+
+The concept described above — the two static phone mockups rendered as a page section —
+remains reference only and is still not rendered on the live site.

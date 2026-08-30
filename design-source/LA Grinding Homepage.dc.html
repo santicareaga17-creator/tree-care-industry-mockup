@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style data-omelette-injected>html,body{background:transparent}</style><script data-omelette-injected>(()=>{{const n=new URLSearchParams(location.search).get("theme");if(n==="light"||n==="dark"){document.documentElement.dataset.theme=n}}{if(new URLSearchParams(location.search).get("_omthumb")==="1"){const n=(f)=>{const g=f.focus;if(!g)return;f.focus=function(h){g.call(this,{...h,preventScroll:true})}};n(HTMLElement.prototype);n(SVGElement.prototype);if(typeof MathMLElement!=="undefined"){n(MathMLElement.prototype)}const d=(f)=>{f.removeAttribute("autofocus");f.inert=true;if(!(f instanceof HTMLElement))f.removeAttribute("tabindex")};const p=(f)=>{if(f.hasAttribute("autofocus"))d(f);for(const g of f.querySelectorAll("[autofocus]")){d(g)}};p(document.documentElement);new MutationObserver((f)=>{for(const g of f){for(const h of g.addedNodes){if(h.nodeType===1)p(h)}}}).observe(document,{childList:true,subtree:true})}}{const n=()=>{try{if(document.querySelector('meta[name="color-scheme"]'))return;const d=getComputedStyle(document.documentElement).getPropertyValue("color-scheme").trim();if(d&&d!=="normal")return;const p=(y)=>{if(!y)return null;const m=getComputedStyle(y).backgroundColor.match(/^rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.]+%?))?\s*\)$/);if(!m)return null;const w=m[4]==null?1:parseFloat(m[4])/(m[4].endsWith("%")?100:1);if(w<0.99)return null;return[+m[1],+m[2],+m[3]]};const f=p(document.body)||p(document.documentElement);if(!f)return;const g=(y)=>{const m=y/255;return m<=0.04045?m/12.92:((m+0.055)/1.055)**2.4};const h=0.2126*g(f[0])+0.7152*g(f[1])+0.0722*g(f[2]);document.documentElement.style.setProperty("color-scheme",h<0.4?"dark":"light")}catch{}};if(document.readyState==="complete")n();else window.addEventListener("load",n)}var I=["https://claude.ai","https://preview.claude.ai","https://3e062872-0ca5-4ac8-9eff-97cbfc851137.claudeusercontent.com"];var B=true;var K=false;var C=()=>{};if(K===true){try{const n=setTimeout.bind(window);const d=1e4;const p=15;const f=1e4;const g=120000;const h=200;const y=(o)=>{try{let r;if(typeof o==="string")r=o;else if(o instanceof URL)r=o.href;else if(typeof Request!=="undefined"&&o instanceof Request)r=o.url;else return null;if(!r)return null;const l=document.baseURI;const i=new URL(r,l);if(i.protocol!=="http:"&&i.protocol!=="https:")return null;if(i.origin!==new URL(l).origin)return null;return i.origin+i.pathname}catch{return null}};const m=new Map;const w=(o)=>{let r=m.get(o);if(!r){if(m.size>=h){const l=m.keys().next().value;if(l!==undefined)m.delete(l)}r={fails:[],until:0,cooldown:f,hard:false};m.set(o,r)}return r};const R=(o)=>{const r=m.get(o);return r!==undefined&&r.until>Date.now()};const O=(o,r)=>{const l=Date.now();const i=w(o);if(r)i.hard=true;if(i.until>l)return;i.fails.push(l);while(i.fails.length>0&&i.fails[0]<=l-d)i.fails.shift();if(i.fails.length>=p){i.until=l+i.cooldown;if(i.hard)i.cooldown=Math.min(i.cooldown*2,g);i.fails.length=0;try{n(()=>{try{S(true)}catch{}},i.until-l+100)}catch{}console.warn("[omelette] asset circuit breaker: pausing requests to "+o+" for "+Math.round((i.until-l)/1000)+"s after "+p+" failures in "+d/1000+"s")}};const e=(o)=>{m.delete(o)};const t=100;const a=new WeakMap;const u=new Set;let s=null;const S=(o)=>{for(const r of Array.from(u)){try{const l=a.get(r);if(l===undefined){u.delete(r);continue}if(o){const i=y(l);if(i!==null&&R(i))continue}a.delete(r);u.delete(r);if(s!==null)s.call(r,l)}catch{}}};C=()=>{try{m.clear();S(false)}catch{}};document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")C()});const _=window.fetch;if(typeof _==="function"){const o=function(...r){let l=null;try{l=y(r[0])}catch{}if(l!==null&&R(l)){let c;try{if(r[1]&&r[1].signal!==undefined){c=r[1].signal||undefined}else if(typeof Request!=="undefined"&&r[0]instanceof Request){c=r[0].signal||undefined}}catch{c=undefined}return new Promise((k,b)=>{const E=()=>{try{return c.reason!==undefined?c.reason:new DOMException("The operation was aborted.","AbortError")}catch{return new DOMException("The operation was aborted.","AbortError")}};try{if(c&&c.aborted){b(E());return}}catch{}let T=false;const j=()=>{if(T)return;T=true;b(E())};try{if(c)c.addEventListener("abort",j,{once:true})}catch{}n(()=>{if(T)return;T=true;try{if(c)c.removeEventListener("abort",j)}catch{}let L;try{L=new Response(null,{status:429,statusText:"Too Many Requests",headers:{"Retry-After":"10"}})}catch{L={ok:false,status:429}}k(L)},250)})}const i=_.apply(window,r);if(l!==null){const c=l;i.then((k)=>{try{if(k.ok)e(c);else if(k.status===401||k.status===403||k.status===404||k.status===429){O(c,k.status!==404)}}catch{}},()=>{})}return i};window.fetch=o}const v=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,"src");if(v!==undefined&&v.set!==undefined&&v.get!==undefined){const o=v.set;s=o;Object.defineProperty(HTMLImageElement.prototype,"src",{configurable:true,enumerable:v.enumerable,get:v.get,set(r){const l=`${r}`;try{const i=y(l);if(i!==null&&R(i)){a.set(this,l);if(u.size<t)u.add(this);return}}catch{}try{a.delete(this);u.delete(this)}catch{}o.call(this,l)}})}try{const o=HTMLImageElement.prototype.setAttribute;HTMLImageElement.prototype.setAttribute=function(r,l){if(arguments.length<2){o.apply(this,arguments);return}if(typeof r==="string"&&r.toLowerCase()==="src"){const i=`${l}`;try{const c=y(i);if(c!==null&&R(c)){a.set(this,i);if(u.size<t)u.add(this);return}a.delete(this);u.delete(this)}catch{}o.call(this,r,i);return}o.call(this,r,l)}}catch{}window.addEventListener("error",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)O(l,true)}}catch{}},true);window.addEventListener("load",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)e(l);const i=a.get(r);if(i!==undefined){let c=false;try{c=new URL(i,document.baseURI).href===new URL(r.currentSrc||r.src||"",document.baseURI).href}catch{c=false}if(c){a.delete(r);u.delete(r)}}}}catch{}},true)}catch{}}var J=30000;var G=3000;document.addEventListener("DOMContentLoaded",()=>{const n=window.Babel;const d="om-src-id";if(n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[d])){n.registerPlugin(d,({types:h})=>({visitor:{JSXOpeningElement(y,m){const w=y.node;if(w.name&&w.name.type==="JSXMemberExpression")return;for(let t=0;t<w.attributes.length;t++){const a=w.attributes[t];if(a.type==="JSXAttribute"&&a.name&&a.name.name==="data-om-id")return}const R=m.file&&m.file.opts&&m.file.opts.filename||"?";const O=w.loc&&w.loc.start;const e=`jsx:${R}:${w.start??0}:${O?O.line:0}:${O?O.column+1:0}`;w.attributes.push(h.jsxAttribute(h.jsxIdentifier("data-om-id"),h.stringLiteral(e)))}}}))}const p="om-text-extract";let f=false;if(B&&n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[p])){const h=window.React;if(h&&h.useSyncExternalStore&&h.createElement){f=true;const y={};const m=new Set;let w=0;window.__omTextO=y;window.__omTextSet=(e)=>{for(const t in e){const a=e[t];if(a==null)delete y[t];else y[t]=a}w++;m.forEach((t)=>t())};const R=(e)=>{m.add(e);return()=>m.delete(e)};const O=()=>w;window.__OmT=function e(t){h.useSyncExternalStore(R,O,O);return h.createElement("span",{"data-om-text":t.i,className:"__om-t"},t.i in y?y[t.i]:t.children)};n.registerPlugin(p,({types:e})=>{const t={style:1,script:1,noscript:1,textarea:1,title:1,option:1,text:1,tspan:1,textPath:1};const a={placeholder:1,alt:1,title:1,label:1,"aria-label":1,"aria-description":1,"aria-placeholder":1};const u=(o,r)=>e.logicalExpression("??",e.memberExpression(e.logicalExpression("||",e.memberExpression(e.identifier("window"),e.identifier("__omTextO")),e.objectExpression([])),e.stringLiteral(o),true),r);const s=(o)=>o.file&&o.file.opts&&o.file.opts.filename||"?";const S=(o)=>o.file&&o.file.code||"";const _=(o,r)=>{const l=(c)=>c&&c.start!=null&&c.end!=null&&(c.type==="StringLiteral"||c.type==="TemplateLiteral"&&c.expressions.length===0)?[c.start,c.end]:null;const i=l(r);if(i)return i;if(r&&r.type==="Identifier"){const c=o.scope.getBinding(r.name);if(c&&c.constant&&c.path.node.type==="VariableDeclarator"){return l(c.path.node.init)}}return null};const v=(o,r,l)=>{const i=o.node;let c=false;const k=(E,T)=>{c=true;return e.jsxElement(e.jsxOpeningElement(e.jsxIdentifier("__OmT"),[e.jsxAttribute(e.jsxIdentifier("i"),e.stringLiteral(E))],false),e.jsxClosingElement(e.jsxIdentifier("__OmT")),[T],false)};const b=i.children.map((E)=>{if(E.type==="JSXText"){if(E.start==null||E.end==null)return E;const T=l.slice(E.start,E.end);const j=T.length-T.trimStart().length;const L=T.length-T.trimEnd().length;if(j+L>=T.length)return E;return k(`txt:${r}:${E.start+j}:${E.end-L}`,E)}if(E.type==="JSXExpressionContainer"){const T=_(o,E.expression);if(T)return k(`str:${r}:${T[0]}:${T[1]}`,E)}return E});if(c)i.children=b};return{visitor:{JSXOpeningElement(o,r){const l=o.node;const i=s(r);const c={};for(let k=0;k<l.attributes.length;k++){const b=l.attributes[k];if(b.type!=="JSXAttribute"||!b.name)continue;const E=b.name.name;if(!a[E])continue;if(!b.value||b.value.type!=="StringLiteral")continue;if(b.value.start==null||b.value.end==null)continue;const T=`txt:${i}:${b.value.start}:${b.value.end}`;c[E]=T;b.value=e.jsxExpressionContainer(u(T,e.stringLiteral(b.value.value)))}if(Object.keys(c).length){l.attributes.push(e.jsxAttribute(e.jsxIdentifier("data-om-text-attrs"),e.stringLiteral(JSON.stringify(c))))}},JSXElement(o,r){const l=o.node.openingElement;const i=l&&l.name&&l.name.name;if(i==="__OmT")return;if(typeof i==="string"&&t[i])return;v(o,s(r),S(r))},JSXFragment(o,r){v(o,s(r),S(r))}}}})}}const g=f?["transform-react-jsx-source",d,p]:["transform-react-jsx-source",d];document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((h,y)=>{const m=h.getAttribute("data-plugins")||"";const w=g.filter((R)=>m.indexOf(R)<0);if(w.length){h.setAttribute("data-plugins",m?`${m},${w.join(",")}`:w.join(","))}if(!h.hasAttribute("data-filename")){h.setAttribute("data-filename",h.getAttribute("src")||`inline-${y}`)}})});var A=window.parent;var U="not editable here — open the project in the Claude Design editor to save";var W=()=>Promise.resolve({persisted:false,noHost:true,reason:U});var H=W;var M="data/storage.json";var z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.match(/\/projects\/([^/]+)\/serve\//);if(d)return d[1];return n.hostname.split(".")[0]||""}catch{return location.hostname.split(".")[0]||""}};var Z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.indexOf("/serve/");if(d>=0)return n.origin+n.pathname.slice(0,d+"/serve/".length)+M}catch{}return"./"+M};var x=null;var N=()=>{if(!x){x=fetch(Z(),{cache:"no-store"}).then((n)=>{if(n.ok)return n.text();return n.status===404?"":null}).catch(()=>null).then((n)=>{if(n===null){x=null;return null}const d=new Map;if(!n)return d;let p;try{p=JSON.parse(n)}catch{console.warn("[omelette.storage] "+M+" is not valid JSON; treating the store as unreadable so a save cannot overwrite the "+"hand-edited bytes. Fix the JSON (or delete the file) to re-enable persistence.");x=null;return null}if(p===null||typeof p!=="object"||Array.isArray(p)){console.warn("[omelette.storage] "+M+" doesn't hold a JSON object; treating the store as unreadable so a save cannot "+"overwrite the hand-edited bytes. Make the top level a JSON object to re-enable persistence.");x=null;return null}const f=p;if("data"in f){const g=f.data;if(g===null||typeof g!=="object"||Array.isArray(g)){console.warn("[omelette.storage] "+M+' has a "data" field that is not a JSON object; treating the store as unreadable so a '+'save cannot overwrite the hand-edited bytes. Make "data" a JSON object to re-enable persistence.');x=null;return null}const h=f._meta;const y=h!==null&&typeof h==="object"?h.project:undefined;if(typeof y==="string"&&y!==""&&y!==z())return d;for(const m of Object.keys(g))d.set(m,g[m]);return d}for(const g of Object.keys(f)){if(g!=="_meta")d.set(g,f[g])}return d})}return x};var F=(n)=>H(M,JSON.stringify({_meta:{project:z(),version:1},data:Object.fromEntries(n)},null,2));var D=Promise.resolve();var $=(n)=>{const d=D.then(n);D=d.then(()=>{return},()=>{return});return d};var V=/sk-(?:ant-)?[A-Za-z0-9_-]{16,}|AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{20,}|xox[a-z]-[A-Za-z0-9][A-Za-z0-9-]{9,}|AIza[0-9A-Za-z_-]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----/;var Y=/password|passwd|secret|api[_-]?key|access[_-]?token|auth[_-]?token|credential/i;var Q=(n,d,p)=>{if(V.test(d)||Y.test(n)&&typeof p==="string"&&p.length>=8){console.warn('[omelette.storage] the value for "'+n+'" looks like a credential. The storage file is a plaintext project file — visible to '+"everyone with project access and copied when the project is duplicated. Do not store secrets here.")}};var q={persisted:false,reason:"could not load the existing store — not overwriting it"};var X={persisted:false,reason:"stored value changed since a failed read — re-read this key before saving"};var P=new Set;var ee={get:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.get: key must be a string"))}return $(N).then((d)=>{if(d===null){P.add(n);return null}P.delete(n);if(!d.has(n))return null;const p=d.get(n);return p==null?null:JSON.parse(JSON.stringify(p))})},set:(n,d)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.set: key must be a string"))}let p;try{p=JSON.stringify(d)}catch(g){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable ("+String(g)+")"))}if(p===undefined){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable"))}Q(n,p,d);const f=JSON.parse(p);return $(()=>N().then((g)=>{if(g===null)return q;if(P.has(n)){if(g.has(n))return X;P.delete(n)}g.set(n,f);return F(g)}))},delete:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.delete: key must be a string"))}return $(()=>N().then((d)=>{if(d===null)return q;if(P.has(n)){if(d.has(n))return X;P.delete(n)}d.delete(n);return F(d)}))},keys:()=>$(N).then((n)=>n===null?[]:Array.from(n.keys()))};window.omelette={writeFile:(n,d)=>H(n,d).then((p)=>{if(!p.persisted&&!p.noHost){throw new Error(p.reason||"write failed")}}),storage:ee};if(A&&A!==window){const n=(e,t)=>{try{A.postMessage({__omelette_log:true,type:e,data:t},"*")}catch{}};["log","warn","error"].forEach((e)=>{const t=console[e];console[e]=(...a)=>{const u=a.map((s)=>{try{return typeof s==="object"?JSON.stringify(s):String(s)}catch{try{return String(s)}catch{return"[unstringifiable]"}}}).join(" ");n(e,u);t.apply(console,a)}});window.addEventListener("error",(e)=>{const t=e.target;if(t&&t!==window&&t.tagName){const a=t.src||t.href||"";n("resource_error",`${t.tagName} failed to load: ${a}`)}else{n("error",`${e.message||"Unknown error"} at ${e.filename||"?"}:${e.lineno||0}:${e.colno||0}`)}},true);window.addEventListener("unhandledrejection",(e)=>{const t=e.reason;const a=t instanceof Error?`${t.message} ${t.stack}`:String(t);n("error",`Unhandled rejection: ${a}`)});window.addEventListener("click",(e)=>{if(e.defaultPrevented||e.button!==0)return;if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;const t=e.composedPath?e.composedPath():[];const a=["button","input","select","textarea","summary","label"];let u=null;for(const v of t){if(!(v instanceof Element))continue;if(v.localName==="a"){if(!(v instanceof HTMLAnchorElement))return;u=v;break}if(a.indexOf(v.localName)!==-1)return}if(!u)return;if(u.isContentEditable)return;const s=u.closest("[contenteditable]");if(s&&s.getAttribute("contenteditable")!=="false")return;const S=(u.getAttribute("target")||"_self").toLowerCase();if(S!=="_self"&&S!=="_top"&&S!=="_parent")return;let _;try{_=new URL(u.href)}catch{return}if(_.protocol!=="http:"&&_.protocol!=="https:")return;if(location.origin==="null")return;if(_.origin===location.origin)return;e.preventDefault();window.open(_.href,"_blank","noopener,noreferrer")});const d=()=>{try{A.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(window.ResizeObserver)new ResizeObserver(d).observe(document.documentElement);const p=()=>{d();if(!document.querySelector('script[type="text/babel"],script[type="text/jsx"]'))return;const e=()=>document.getElementById("root")||document.querySelector("body > div[id]");const t=e()?.firstElementChild??null;let a=0;const u=()=>{const s=e();if(s&&s.firstElementChild!==t||++a>30){d();return}setTimeout(u,100)};setTimeout(u,100)};if(document.readyState==="complete")p();else window.addEventListener("load",p);const f={};let g=0;const h=(e)=>new Promise((t,a)=>{if(!I.length){a(new Error("claude.complete: no parent origin"));return}const u=`c${++g}`;const s=()=>setTimeout(()=>{delete f[u];a(new Error(`claude.complete: no data for ${J/1000}s`))},J);const S=s();f[u]={resolve:t,reject:a,text:"",t:S,arm:s};try{for(const _ of I){A.postMessage({__om_api:true,id:u,body:e},_)}}catch(_){clearTimeout(S);delete f[u];a(_)}});const y=8;const m=async(e,t)=>{if(!Array.isArray(e.messages)){throw new Error("claude.complete: tools require a messages array")}const a=e.messages.slice();const u={...e,tools:e.tools.map((_)=>{if(_===null||typeof _!=="object")return _;const v={};for(const o of Object.keys(_)){if(typeof _[o]!=="function")v[o]=_[o]}return v})};const s=u.tool_choice;const S=s!=null&&(s.type==="any"||s.type==="tool")?{...u,tool_choice:s.disable_parallel_tool_use!==undefined?{type:"auto",disable_parallel_tool_use:s.disable_parallel_tool_use}:{type:"auto"}}:u;for(let _=0;_<y;_++){const v=await h({..._===0?u:S,messages:a});const o=v.message;const r=o&&Array.isArray(o.content)?o.content:null;const l=r?r.filter((c)=>c?.type==="tool_use"):[];if(o?.stop_reason!=="tool_use"||l.length===0){return v.text}const i=[];for(const c of l){const k=t.get(c.name);if(!k){i.push({type:"tool_result",tool_use_id:c.id,content:`no handler for tool "${c.name}"`,is_error:true});continue}try{const b=await k(c.input);const E=typeof b==="string"?b:O(b)??"";i.push({type:"tool_result",tool_use_id:c.id,content:E})}catch(b){i.push({type:"tool_result",tool_use_id:c.id,content:String(b?.message??b??"tool handler failed"),is_error:true})}}a.push({role:"assistant",content:r},{role:"user",content:i})}throw new Error(`claude.complete: exceeded ${y} tool turns`)};window.claude={complete(e){const t=e;if(t!==null&&typeof t==="object"&&Array.isArray(t.tools)&&t.tools.some((a)=>a!==null&&typeof a==="object"&&typeof a.run==="function")){const a=new Map;for(const u of t.tools){if(u!==null&&typeof u==="object"&&typeof u.run==="function"){a.set(String(u.name),u.run)}}return m(t,a)}return h(e).then((a)=>a.text)}};const w={};let R=0;H=(e,t)=>new Promise((a)=>{if(!I.length){a({persisted:false,noHost:true,reason:U});return}const u=`f${++R}`;const s=setTimeout(()=>{delete w[u];a({persisted:false,noHost:true,reason:U})},G);w[u]={settle:a,t:s};try{for(const S of I){A.postMessage({__om_file:true,id:u,op:"write",path:e,content:t},S)}}catch{clearTimeout(s);delete w[u];a({persisted:false,noHost:true,reason:U})}});const O=(e)=>{try{return JSON.stringify(e)}catch{return JSON.stringify(String(e))}};window.addEventListener("message",(e)=>{if(I.indexOf(e.origin)<0)return;if(e.source!==A)return;const t=e.data;if(!t)return;if(t.type==="omelette-preview-refresh"){if(typeof t.token!=="string"||!/^[0-9a-f.-]+(\.(rc|pr-[0-9]+))?(\.[0-9]+\.[0-9a-f]{16})?$/.test(t.token))return;const s=Math.max(1,Math.floor((t.expiresAt||0)-Date.now()/1000));document.cookie="__Host-omelette-preview="+t.token+"; Path=/; Secure; SameSite=None; Partitioned; Max-Age="+s;C();return}if(t.__om_file_r){const s=w[t.id];if(!s)return;clearTimeout(s.t);delete w[t.id];s.settle(t.ok?{persisted:true}:{persisted:false,reason:t.error||"write failed"});return}if(t.__om_api_r){const s=f[t.id];if(!s)return;if(t.error!=null){clearTimeout(s.t);delete f[t.id];s.reject(new Error(t.error));return}if(t.chunk!=null){clearTimeout(s.t);s.t=s.arm();s.text+=t.chunk;return}if(t.done){clearTimeout(s.t);delete f[t.id];s.resolve({text:t.text!=null?t.text:s.text,message:t.message});return}return}if(!t.__om_eval)return;const a=t;const u=(s)=>{e.source.postMessage({...s,__om_eval_r:1,id:a.id},e.origin)};try{const s=(0,eval)(a.code);if(s&&typeof s.then==="function"){s.then((S)=>u({ok:1,v:O(S)}),(S)=>u({ok:0,e:String(S)}))}else{u({ok:1,v:O(s)})}}catch(s){u({ok:0,e:String(s)})}})}})();
-</script>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
@@ -36,80 +33,135 @@
   #stickyNav.is-stuck .util-row { min-height: 40px !important; padding-top: 2px !important; padding-bottom: 2px !important; }
   #stickyNav.is-stuck .nav-row { height: 76px !important; }
   #stickyNav.is-stuck .nav-menu-col { height: 76px !important; }
-  @media (max-width: 900px) { #stickyNav.is-stuck .nav-row { height: auto !important; } }
+  .m-nav { display: none; }
+
+  /* ===== tablet / mobile ===== */
+  @media (max-width: 1279px) {
+    /* `clip` instead of `hidden`: hidden makes body a scroll container, which breaks
+       position: sticky on #stickyNav. clip contains overflow without that side effect. */
+    html, body { overflow-x: clip; }
+    #page { min-width: 0 !important; }
+    #page [style*="max-width: 1360px"] { padding-left: 16px !important; padding-right: 16px !important; }
+    #page section > div[style*="max-width: 1360px"] { padding-top: 48px !important; padding-bottom: 48px !important; }
+    #page section[style*="margin-top"] { margin-top: 0 !important; }
+    #page footer > div { padding-left: 16px !important; padding-right: 16px !important; }
+    #page [style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 16px !important; }
+    #page .g-mob-2 { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+    #page .g-mob-3 { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
+    #page .logos { gap: 1px !important; }
+    #page .logos > div { height: 84px !important; padding: 12px !important; }
+    #page .strip { gap: 0 !important; }
+    #page .strip img { height: 132px !important; }
+    #page .tiles > a { height: 172px !important; }
+    #page div[style*="max-width: 1360px"] > div[style*="space-between"][style*="gap: 40px"] { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; }
+    #page h1 { font-size: 42px !important; line-height: 1 !important; }
+    #page h2 { font-size: 30px !important; line-height: 1.04 !important; }
+    #page p[style*="font-size: 25px"], #page p[style*="font-size: 16.5px"] { font-size: 18px !important; line-height: 1.45 !important; margin: 16px 0 12px !important; }
+    #page span[style*="font-size: 25px"], #page span[style*="font-size: 27px"] { font-size: 19px !important; }
+    #page a[style*="font-size: 27px"] { font-size: 19px !important; }
+    #page .hero-cta { flex-direction: column !important; align-items: stretch !important; gap: 12px !important; }
+    #page .hero-cta a { justify-content: center !important; font-size: 19px !important; padding: 15px 20px !important; }
+    #page [style*="overflow-x: auto"] > a { flex: 0 0 78% !important; }
+    #page section [style*="grid-template-columns: 1.2fr"] a, #page section [style*="grid-template-columns: 1.05fr"] a { width: 100% !important; }
+    /* header */
+    #stickyNav .mega { display: none !important; }
+    #stickyNav .util-row { padding: 4px 16px !important; min-height: 0 !important; gap: 8px !important; flex-wrap: wrap !important; justify-content: center !important; }
+    #stickyNav .util-row > div:first-child { margin-right: 0 !important; gap: 10px !important; width: 100% !important; justify-content: center !important; }
+    #stickyNav .util-row > div:first-child > span { display: none !important; }
+    #stickyNav .util-row > div:first-child > div { gap: 14px !important; flex-wrap: wrap !important; justify-content: center !important; }
+    #stickyNav .util-row > div:first-child a { font-size: 13.5px !important; }
+    #stickyNav .util-row > div:last-child { display: none !important; }
+    #stickyNav .nav-row { height: auto !important; padding: 8px 16px 10px !important; flex-wrap: wrap !important; gap: 8px !important; }
+    #stickyNav .nav-row > a:first-child img { height: 38px !important; }
+    #stickyNav .nav-row > div:nth-child(2) { order: 3 !important; flex: 1 0 100% !important; max-width: none !important; }
+    #stickyNav .nav-row > div:nth-child(2) > div { height: 44px !important; }
+    #stickyNav .nav-row input { font-size: 13px !important; padding: 0 16px !important; }
+    #stickyNav .nav-row button[type="button"] { min-height: 0 !important; }
+    #stickyNav .nav-menu-col { height: auto !important; margin-left: auto !important; }
+    #stickyNav .nav-menu-col > div, #stickyNav .nav-menu-col > button { display: none !important; }
+    #stickyNav .nav-menu-col .m-nav { display: flex !important; }
+    #stickyNav.is-stuck .nav-row, #stickyNav.is-stuck .nav-menu-col, #stickyNav.is-stuck .util-row { height: auto !important; }
+    #stickyNav.is-stuck .nav-row { padding-top: 6px !important; padding-bottom: 6px !important; }
+    #stickyNav.is-stuck .nav-row > a:first-child img { height: 34px !important; }
+  }
+
+  @media (max-width: 640px) {
+    #page section > div[style*="max-width: 1360px"] { padding-top: 44px !important; padding-bottom: 44px !important; }
+    #page [style*="grid-template-columns"] { gap: 14px !important; }
+    #page .g-mob-2 { gap: 10px !important; }
+    #page h1 { font-size: 38px !important; }
+    #page h2 { font-size: 28px !important; }
+    #page [style*="overflow-x: auto"] > a { flex: 0 0 84% !important; }
+    #page .g-mob-3 > a { padding: 10px 8px !important; }
+    #page .g-mob-3 > a span:first-child { font-size: 12px !important; }
+    #page .g-mob-3 > a span:last-child { font-size: 16px !important; }
+  }
+
+  @media (max-width: 1279px) {
+    #page .ind-card { min-height: 0 !important; padding: 16px 10px 14px !important; }
+    #page .ind-card > span:first-child { height: 96px !important; margin-bottom: 8px !important; }
+    #page .ind-card img { max-height: 96px !important; }
+    #page .brand-card { min-height: 0 !important; padding: 14px 10px 12px !important; }
+    #page .brand-card > span:first-child { height: 46px !important; }
+    #page .brand-card img { max-height: 46px !important; }
+  }
+
+  /* ===== mobile: photo strip stays one row + logo carousel ===== */
+  @media (max-width: 640px) {
+    #page .strip { display: grid !important; grid-template-columns: repeat(5, 1fr) !important; gap: 0 !important; }
+    #page .strip img { height: 62px !important; }
+    #page .logos { display: flex !important; grid-template-columns: none !important; overflow-x: auto !important; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; gap: 1px !important; border: 1px solid #e7e7ea !important; }
+    #page .logos::-webkit-scrollbar { display: none; }
+    #page .logos > div { flex: 0 0 calc(25% - 1px) !important; scroll-snap-align: start; height: 76px !important; padding: 10px !important; }
+  }
+
+  /* ===== mobile footer (matches client footer stack) ===== */
+  @media (max-width: 640px) {
+    #page footer .f-grid { grid-template-columns: 1fr !important; gap: 44px !important; padding: 44px 20px 40px !important; text-align: center !important; }
+    #page footer .f-grid > div { min-width: 0 !important; }
+    #page footer .f-grid > div:nth-child(1) img { width: 176px !important; margin: 0 auto !important; }
+    #page footer .f-grid > div:nth-child(1) > div { justify-content: center !important; gap: 20px !important; margin-top: 22px !important; }
+    #page footer .f-grid > div:nth-child(2) > div,
+    #page footer .f-grid > div:nth-child(3) > div { align-items: center !important; }
+    #page footer .f-grid > div:nth-child(2) > div { gap: 14px !important; }
+    #page footer .f-grid > div:nth-child(3) a,
+    #page footer .f-grid > div:nth-child(3) > div > div { justify-content: center !important; align-items: center !important; }
+    #page footer .f-grid > div:nth-child(4) > div:first-child { max-width: none !important; }
+    #page footer .f-grid > div:nth-child(4) > div:nth-child(2) { grid-template-columns: 1fr !important; gap: 26px !important; margin-top: 24px !important; }
+    #page footer .f-grid ul { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 10px 12px !important; text-align: left !important; padding-left: 22px !important; margin-top: 14px !important; }
+    #page footer .f-grid > div:nth-child(5) { text-align: left !important; gap: 20px !important; }
+    #page footer .f-grid > div:nth-child(5) > a:last-child { text-align: center !important; }
+    #page footer .f-legal { padding: 18px 20px !important; flex-direction: column !important; text-align: center !important; gap: 12px !important; justify-content: center !important; }
+    #page footer .f-legal { align-items: center !important; }
+    #page footer .f-legal > div { justify-content: center !important; flex-wrap: wrap !important; text-align: center !important; margin-left: 0 !important; margin-right: 0 !important; align-self: center !important; }
+    #page footer .f-grid > div:nth-child(5) > a > div:last-child { height: 5px !important; }
+  }
+
+  /* ===== tablet tier ===== */
+  @media (min-width: 641px) and (max-width: 1279px) {
+    #page [style*="max-width: 1360px"] { padding-left: 24px !important; padding-right: 24px !important; }
+    #page footer > div { padding-left: 24px !important; padding-right: 24px !important; }
+    #page section > div[style*="max-width: 1360px"] { padding-top: 56px !important; padding-bottom: 56px !important; }
+    #page [style*="grid-template-columns"] { grid-template-columns: 1fr 1fr !important; gap: 20px !important; }
+    #page .g-mob-2 { grid-template-columns: repeat(3, 1fr) !important; gap: 16px !important; }
+    #page .g-mob-3 { grid-template-columns: repeat(3, 1fr) !important; gap: 12px !important; }
+    #page .logos { grid-template-columns: repeat(5, 1fr) !important; gap: 1px !important; }
+    #page .logos > div { height: 96px !important; }
+    #page .strip { grid-template-columns: repeat(5, 1fr) !important; gap: 0 !important; }
+    #page .strip img { height: 168px !important; }
+    #page .tiles > a { height: 196px !important; }
+    #page [style*="overflow-x: auto"] > a { flex: 0 0 42% !important; }
+    #page .ind-card > span:first-child, #page .ind-card img { height: 120px !important; max-height: 120px !important; }
+    #page .hero-cta { flex-direction: row !important; align-items: center !important; gap: 16px !important; }
+    #page .hero-cta a { flex: 0 0 auto !important; }
+    #page h1 { font-size: 62px !important; }
+    #page h2 { font-size: 40px !important; }
+    #stickyNav .nav-row > a:first-child img { height: 48px !important; }
+  }
 </style>
-<meta name="ext-resource-dependency" content="uploads/logo-la-arizona-grinding.webp">
-<meta name="ext-resource-dependency" content="uploads/lag-tree-care-background.png">
-<meta name="ext-resource-dependency" content="uploads/blade-orange.png">
-<meta name="ext-resource-dependency" content="uploads/lag-tree-industry-hdr_new.webp">
-<meta name="ext-resource-dependency" content="uploads/2026/05/lag-bottom04.webp">
-<meta name="ext-resource-dependency" content="uploads/2025/12/map-service.webp">
-<meta name="ext-resource-dependency" content="uploads/2026/05/lag-tree-industry-hdr_new.webp">
-<meta name="ext-resource-dependency" content="uploads/2026/03/Brush-Chipper-Knife.jpg">
-<meta name="ext-resource-dependency" content="uploads/2026/05/bgslide_01-1.webp">
-<meta name="ext-resource-dependency" content="uploads/2026/05/granulators-slide-bg02.webp">
-<meta name="ext-resource-dependency" content="uploads/lag-bottom01.webp">
-<meta name="ext-resource-dependency" content="uploads/lag-bottom02.webp">
-<meta name="ext-resource-dependency" content="uploads/2026/05/image002.webp">
-<meta name="ext-resource-dependency" content="uploads/lag-bottom04.webp">
-<meta name="ext-resource-dependency" content="uploads/lag-bottom05.webp">
-<meta name="ext-resource-dependency" content="uploads/2022/02/ftr-logo.png">
-<meta name="ext-resource-dependency" content="uploads/jast-media-logo-white.png">
-<meta name="ext-resource-dependency" content="uploads/12-x-96-teeth-saw-blade-for-medium-aluminum-600x600-61cfc156.jpg">
-<meta name="ext-resource-dependency" content="uploads/granulator.jpg">
-<meta name="ext-resource-dependency" content="uploads/download-1.jpg">
-<meta name="ext-resource-dependency" content="uploads/3-pc-universal-fit-carbide-oscillating-blade-set-3-piece-600x600.jpg">
-<meta name="ext-resource-dependency" content="uploads/A753-300x300.webp">
-<meta name="ext-resource-dependency" content="uploads/9-5-7-tpi-amped-demo-demon-carbide-teeth-reciprocating-saw-blade-for-nail-embedded-woodd-600x600.jpg">
-<meta name="ext-resource-dependency" content="uploads/1-11-16-dia-premier-adjustable-rail-stile-bit-bevel-600x600.jpg">
-<meta name="ext-resource-dependency" content="uploads/2-3-4-x-5-assorted-sandnet-reusable-sanding-sheets-10-piece-600x600.jpg">
-<meta name="ext-resource-dependency" content="uploads/12-x-96-teeth-saw-blade-for-medium-aluminum-600x600.jpg">
-<meta name="ext-resource-dependency" content="uploads/1-4-hex-to-1-2-square-socket-adapter-600x600.jpg">
-<meta name="ext-resource-dependency" content="uploads/tree-care.png">
-<meta name="ext-resource-dependency" content="uploads/shear-blades.png">
-<meta name="ext-resource-dependency" content="uploads/W74-300x300.webp">
-<meta name="ext-resource-dependency" content="uploads/icon-woodworking.png">
-<meta name="ext-resource-dependency" content="uploads/menu-construction.png">
-<meta name="ext-resource-dependency" content="uploads/icon-corrugated.png">
-<meta name="ext-resource-dependency" content="uploads/menu-corrugated.png">
-<meta name="ext-resource-dependency" content="uploads/icon-food.png">
-<meta name="ext-resource-dependency" content="uploads/menu-food.png">
-<meta name="ext-resource-dependency" content="uploads/icon-icerink.png">
-<meta name="ext-resource-dependency" content="uploads/menu-icerink.png">
-<meta name="ext-resource-dependency" content="uploads/icon-metal.png">
-<meta name="ext-resource-dependency" content="uploads/menu-metal.png">
-<meta name="ext-resource-dependency" content="uploads/icon-paper.png">
-<meta name="ext-resource-dependency" content="uploads/menu-plastic.png">
-<meta name="ext-resource-dependency" content="uploads/icon-printing.png">
-<meta name="ext-resource-dependency" content="uploads/menu-printing.png">
-<meta name="ext-resource-dependency" content="uploads/icon-plastic.png">
-<meta name="ext-resource-dependency" content="uploads/menu-recycling.png">
-<meta name="ext-resource-dependency" content="uploads/icon-treecare.png">
-<meta name="ext-resource-dependency" content="uploads/menu-treecare.png">
-<meta name="ext-resource-dependency" content="uploads/menu-woodworking.png">
-<meta name="ext-resource-dependency" content="uploads/mulcher-teeth-nologo.png">
-<meta name="ext-resource-dependency" content="uploads/8-dial-a-width-stacked-dado-sets-300x300.jpg">
-<meta name="ext-resource-dependency" content="uploads/shopping.webp">
-<meta name="ext-resource-dependency" content="uploads/LA-Corrugated-1.webp">
-<meta name="ext-resource-dependency" content="uploads/LA-Packaging-1.webp">
-<meta name="ext-resource-dependency" content="uploads/LA-MetalIndustry-1.webp">
-<meta name="ext-resource-dependency" content="uploads/LA-Paper-1.webp">
-<meta name="ext-resource-dependency" content="uploads/LA-Printing-1.webp">
-<meta name="ext-resource-dependency" content="uploads/LA-plastic-1.webp">
-<meta name="ext-resource-dependency" content="uploads/LA-IceRinks.webp">
-<meta name="ext-resource-dependency" content="uploads/LA-TreeCare.webp">
-<meta name="ext-resource-dependency" content="uploads/lag-home-construction.webp">
-<meta name="ext-resource-dependency" content="uploads/lag-home-sharpening.webp">
-<meta name="ext-resource-dependency" content="uploads/sharpening.png">
-<meta name="ext-resource-dependency" content="uploads/paper-knives.png">
-<meta name="ext-resource-dependency" content="uploads/granulators.png">
 </helmet>
-<template id="__bundler_thumbnail">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="400" height="400" fill="#0B2A4A"/><rect x="120" y="120" width="160" height="160" fill="none" stroke="#EA4E32" stroke-width="14"/><text x="200" y="228" text-anchor="middle" font-family="Barlow Condensed, Arial, sans-serif" font-weight="700" font-size="86" fill="#ffffff">LAG</text></svg>
-</template>
 
-
-<div style="min-width: 1280px; background: #ffffff">
+<div id="page" style="min-width: 1280px; background: #ffffff">
 
   <div id="stickyNav">
   <div style="background: #071F36; color: #cfd8e3; font-size: 12.5px; letter-spacing: 0.02em">
@@ -177,11 +229,64 @@
           <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3.5h2v11h13"></path><path d="M6.5 7.5h12v6.5h-12z"></path><circle cx="9.5" cy="19" r="1.5"></circle><circle cx="17" cy="19" r="1.5"></circle></svg>
           Cart
         </button>
+        <div class="m-nav" style="align-items: center; gap: 8px">
+          <button type="button" aria-label="Cart" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: transparent; border: 1px solid rgba(255,255,255,0.32); border-radius: 999px; color: #ffffff; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3.5h2v11h13"></path><path d="M6.5 7.5h12v6.5h-12z"></path><circle cx="9.5" cy="19" r="1.5"></circle><circle cx="17" cy="19" r="1.5"></circle></svg></button>
+          <button type="button" onClick="{{ toggleDrawer }}" aria-label="Menu" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #EA4E32; border: 0; border-radius: 999px; color: #ffffff; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+        </div>
       </div>
     </div>
 
+    <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ false }}">
+      <div class="m-drawer" style="position: absolute; left: 0; right: 0; top: 100%; z-index: 95; background: #ffffff; border-top: 3px solid #EA4E32; box-shadow: 0 22px 40px rgba(7,31,54,0.28); max-height: 76vh; overflow-y: auto">
+        <div class="g-mob-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #e7e7ea">
+          <a href="#requestModal" style="background: #EA4E32; color: #ffffff; text-align: center; padding: 15px 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px">Request Quote</a>
+          <a href="#pickupModal" style="background: #0B2A4A; color: #ffffff; text-align: center; padding: 15px 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px">Schedule Pickup</a>
+          <a href="https://pci.jotform.com/form/261734971116661" style="background: #F2F2F3; color: #0B2A4A; text-align: center; padding: 15px 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px">Pay My Bill</a>
+          <a href="https://form.jotform.com/240656874741465" style="background: #F2F2F3; color: #0B2A4A; text-align: center; padding: 15px 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px">Credit Application</a>
+        </div>
+        <button type="button" onClick="{{ accCatT }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px; min-height: 52px; background: #ffffff; border: 0; border-bottom: 1px solid #e7e7ea; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 16px; color: #0B2A4A">Shop by Category<span style="color: #EA4E32; font-size: 20px; line-height: 1">+</span></button>
+        <sc-if value="{{ accCat }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; background: #F2F2F3">
+            <sc-for list="{{ cats }}" as="c" hint-placeholder-count="15">
+              <a href="{{ c.href }}" style="padding: 13px 16px; font-size: 15px; color: #1d1f20; border-bottom: 1px solid #e7e7ea">{{ c.name }}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+        <button type="button" onClick="{{ accIndT }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px; min-height: 52px; background: #ffffff; border: 0; border-bottom: 1px solid #e7e7ea; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 16px; color: #0B2A4A">Shop by Industry<span style="color: #EA4E32; font-size: 20px; line-height: 1">+</span></button>
+        <sc-if value="{{ accInd }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; background: #F2F2F3">
+            <sc-for list="{{ shopIndustries }}" as="i" hint-placeholder-count="10">
+              <a href="{{ i.href }}" style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; font-size: 15px; color: #1d1f20; border-bottom: 1px solid #e7e7ea"><img src="{{ i.menuIcon }}" alt="" style="width: 24px; height: 24px; object-fit: contain; flex: 0 0 24px">{{ i.name }}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+        <button type="button" onClick="{{ accBrandT }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px; min-height: 52px; background: #ffffff; border: 0; border-bottom: 1px solid #e7e7ea; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 16px; color: #0B2A4A">Shop by Brand<span style="color: #EA4E32; font-size: 20px; line-height: 1">+</span></button>
+        <sc-if value="{{ accBrand }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; background: #F2F2F3">
+            <sc-for list="{{ brands }}" as="b" hint-placeholder-count="18">
+              <a href="{{ b.href }}" style="padding: 13px 16px; font-size: 15px; color: #1d1f20; border-bottom: 1px solid #e7e7ea">{{ b.name }}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+        <button type="button" onClick="{{ accSvcT }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px; min-height: 52px; background: #ffffff; border: 0; border-bottom: 1px solid #e7e7ea; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 16px; color: #0B2A4A">Services<span style="color: #EA4E32; font-size: 20px; line-height: 1">+</span></button>
+        <sc-if value="{{ accSvc }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; background: #F2F2F3">
+            <a href="https://lagrinding.com/sharpening/" style="padding: 13px 16px; font-size: 15px; color: #1d1f20; border-bottom: 1px solid #e7e7ea">All Sharpening Services</a>
+            <a href="https://lagrinding.com/shear-blades-for-metal-fabrication/" style="padding: 13px 16px; font-size: 15px; color: #1d1f20; border-bottom: 1px solid #e7e7ea">Shear Blade Sharpening</a>
+            <a href="https://lagrinding.com/paper-knife-cutters-accessories/" style="padding: 13px 16px; font-size: 15px; color: #1d1f20; border-bottom: 1px solid #e7e7ea">Paper Knife Cutters &amp; Accessories</a>
+            <a href="https://lagrinding.com/granulators/" style="padding: 13px 16px; font-size: 15px; color: #1d1f20; border-bottom: 1px solid #e7e7ea">Granulator Knives</a>
+            <a href="https://lagrinding.com/tree-care-industry/" style="padding: 13px 16px; font-size: 15px; color: #1d1f20; border-bottom: 1px solid #e7e7ea">Chipper Knife Fitting</a>
+            <a href="https://lagrinding.com/stitching-wire-despooling/" style="padding: 13px 16px; font-size: 15px; color: #1d1f20; border-bottom: 1px solid #e7e7ea">Stitching Wire DeSpooling</a>
+            <a href="https://lagrinding.com/contact/" style="padding: 13px 16px; font-size: 15px; color: #1d1f20; border-bottom: 1px solid #e7e7ea">Contact</a>
+            <a href="https://lagrinding.com/hours-and-directions/" style="padding: 13px 16px; font-size: 15px; color: #1d1f20; border-bottom: 1px solid #e7e7ea">Hours &amp; Directions</a>
+          </div>
+        </sc-if>
+        <a href="https://lagrinding.com/shop/" style="display: block; text-align: center; padding: 16px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 15px; color: #0B2A4A">View the full catalog</a>
+      </div>
+    </sc-if>
+
     <sc-if value="{{ shopOpen }}" hint-placeholder-val="{{ false }}">
-      <div onMouseEnter="{{ openShop }}" onMouseLeave="{{ closeMenus }}" style="position: absolute; left: 0; right: 0; top: 100%; background: #ffffff; border-top: 3px solid #EA4E32; box-shadow: 0 24px 48px rgba(7,31,54,0.22)">
+      <div onMouseEnter="{{ openShop }}" onMouseLeave="{{ closeMenus }}" class="mega" style="position: absolute; left: 0; right: 0; top: 100%; background: #ffffff; border-top: 3px solid #EA4E32; box-shadow: 0 24px 48px rgba(7,31,54,0.22)">
         <div style="max-width: 1360px; margin: 0 auto; padding: 34px 40px 36px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 44px">
           <div>
             <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12.5px; color: #EA4E32; padding-bottom: 10px; border-bottom: 1px solid #d4d4d7">Shop by Category</div>
@@ -213,7 +318,7 @@
     </sc-if>
 
     <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
-      <div onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeMenus }}" style="position: absolute; right: 0; left: 0; top: 100%; background: #ffffff; border-top: 3px solid #EA4E32; box-shadow: 0 24px 48px rgba(7,31,54,0.22)">
+      <div onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeMenus }}" class="mega" style="position: absolute; right: 0; left: 0; top: 100%; background: #ffffff; border-top: 3px solid #EA4E32; box-shadow: 0 24px 48px rgba(7,31,54,0.22)">
         <div style="max-width: 1360px; margin: 0 auto; padding: 32px 40px 34px; display: grid; grid-template-columns: 1fr 1fr 1.1fr; gap: 44px">
           <div>
             <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12.5px; color: #EA4E32; padding-bottom: 10px; border-bottom: 1px solid #d4d4d7">Sharpening</div>
@@ -252,7 +357,7 @@
     <img src="uploads/lag-tree-care-background.png" alt="Brush chipper knife on a log" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
     <div style="position: absolute; inset: 0; background: linear-gradient(90deg, #0A1E33 0%, rgba(10,30,51,0.92) 26%, rgba(10,30,51,0.55) 44%, rgba(10,30,51,0) 62%)"></div>
     <div style="position: relative; max-width: 1360px; margin: 0 auto; padding: 56px 40px 92px">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 640px">
+      <div class="g-mob-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 640px">
         <a href="#requestModal" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.05; background: #12325A; color: #ffffff; border-radius: 999px; padding: 12px 18px; min-height: 62px; transition: background 200ms ease; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase" style-hover="background: #EA4E32; color: #ffffff" style-active="background: #c8480f; color: #ffffff"><span style="font-size: 14px; letter-spacing: 0.04em; white-space: nowrap">Request</span><span style="font-size: 25px; letter-spacing: 0.01em; white-space: nowrap">Quote</span></a>
         <a href="#pickupModal" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.05; background: #12325A; color: #ffffff; border-radius: 999px; padding: 12px 18px; min-height: 62px; transition: background 200ms ease; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase" style-hover="background: #EA4E32; color: #ffffff" style-active="background: #c8480f; color: #ffffff"><span style="font-size: 14px; letter-spacing: 0.04em; white-space: nowrap">Schedule</span><span style="font-size: 25px; letter-spacing: 0.01em; white-space: nowrap">Pickup</span></a>
         <a href="https://pci.jotform.com/form/261734971116661" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.05; background: #12325A; color: #ffffff; border-radius: 999px; padding: 12px 18px; min-height: 62px; transition: background 200ms ease; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase" style-hover="background: #EA4E32; color: #ffffff" style-active="background: #c8480f; color: #ffffff"><span style="font-size: 14px; letter-spacing: 0.04em; white-space: nowrap">Have a card on file?</span><span style="font-size: 25px; letter-spacing: 0.01em; white-space: nowrap">Pay My Bill</span></a>
@@ -262,7 +367,7 @@
         <h1 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; color: #ffffff; font-size: 104px; line-height: 0.9; letter-spacing: -0.01em; margin: 0; text-transform: uppercase">Tree Care<br>Industry</h1>
         <p style="color: #ffffff; font-size: 25px; line-height: 1.35; max-width: 600px; margin: 34px 0 18px; text-wrap: pretty">LA Grinding is a premier source for industry-grade professional sharpening services.</p>
         <p style="color: #b9c6d4; font-size: 17px; line-height: 1.55; max-width: 600px; margin: 0 0 40px; text-wrap: pretty">Replacement parts, blades, fitting, and more - everything for the Tree Care Industry. Shop our precision ground exact match OEM replacement parts, now shipping nationwide!</p>
-        <div style="display: flex; align-items: center; gap: 18px">
+        <div class="hero-cta" style="display: flex; align-items: center; gap: 18px">
           <a href="https://lagrinding.com/shop/?swoof=1&amp;product_cat=tree-care" style="display: inline-flex; align-items: center; gap: 10px; background: #EA4E32; color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 24px; padding: 18px 42px" style-hover="background: #c93d24; color: #ffffff">Shop Now</a>
           <a href="https://lagrinding.com/contact/" style="display: inline-flex; align-items: center; background: transparent; border: 1px solid rgba(255,255,255,0.6); color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 24px; padding: 17px 38px" style-hover="border-color: #EA4E32; color: #ffffff">Contact Us</a>
         </div>
@@ -394,7 +499,7 @@
         </div>
         <a href="https://lagrinding.com/contact/" style="flex: 0 0 auto; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 14px; color: #0B2A4A; border-bottom: 2px solid #EA4E32; padding-bottom: 4px">Talk to a specialist</a>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 36px">
+      <div class="g-mob-2 tiles" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 36px">
         <sc-for list="{{ industryTiles }}" as="t" hint-placeholder-count="10">
           <a href="{{ t.href }}" style="position: relative; display: block; height: 230px; overflow: hidden; background: #0B2A4A">
             <img src="{{ t.img }}" alt="{{ t.name }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.82" style-hover="opacity: 1">
@@ -525,7 +630,7 @@
     <div style="max-width: 1360px; margin: 0 auto; padding: 64px 40px 0">
       <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 46px; line-height: 1; color: #0B2A4A; margin: 0">Shop by industry</h2>
       <p style="font-size: 16px; color: #4b5563; margin: 12px 0 0">Filter the catalog to the products your operation runs.</p>
-      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 32px">
+      <div class="g-mob-2" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 32px">
         <sc-for list="{{ shopIndustries }}" as="i" hint-placeholder-count="10">
           <a href="{{ i.href }}" class="ind-card" style="border: 1px solid #d4d4d7; background: #ffffff; padding: 24px 16px 22px; color: #1d1f20; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; min-height: 250px; justify-content: flex-start" style-hover="border-color: #EA4E32; background: #F2F2F3">
             <span style="width: 100%; height: 156px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px">
@@ -547,7 +652,7 @@
         </div>
         <a href="https://lagrinding.com/shop/" style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 14px; color: #0B2A4A; border-bottom: 2px solid #EA4E32; padding-bottom: 4px">All brands</a>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 32px">
+      <div class="g-mob-2" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 32px">
         <sc-for list="{{ brands }}" as="b" hint-placeholder-count="18">
           <a href="{{ b.href }}" class="brand-card" style="border: 1px solid #d4d4d7; background: #ffffff; padding: 20px 16px 18px; color: #1d1f20; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; min-height: 146px; justify-content: flex-start" style-hover="border-color: #EA4E32; background: #F2F2F3">
             <span style="width: 100%; height: 56px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px">
@@ -602,7 +707,7 @@
         <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 38px; line-height: 1; color: #0B2A4A; margin: 0">Serving California, Nevada, and Arizona</h2>
         <div style="width: 64px; height: 3px; background: #EA4E32; margin: 18px auto 0"></div>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(9, 1fr); gap: 1px; background: #e7e7ea; border: 1px solid #e7e7ea; margin-top: 40px">
+      <div class="g-mob-3 logos" style="display: grid; grid-template-columns: repeat(9, 1fr); gap: 1px; background: #e7e7ea; border: 1px solid #e7e7ea; margin-top: 40px">
         <sc-for list="{{ brandLogos }}" as="l" hint-placeholder-count="18">
           <div style="background: #ffffff; height: 108px; display: flex; align-items: center; justify-content: center; padding: 16px">
             <img src="{{ l.img }}" alt="{{ l.name }}" style="max-width: 100%; max-height: 62px; width: auto; height: auto; object-fit: contain; filter: grayscale(1); opacity: 0.75" style-hover="filter: none; opacity: 1">
@@ -731,7 +836,7 @@
 
 
   <section data-screen-label="Photo Strip" style="background: #2b2b2b">
-    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; line-height: 0">
+    <div class="g-mob-2 strip" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; line-height: 0">
       <img src="uploads/lag-bottom01.webp" alt="Paper cutter knife in a guillotine cutter" style="display: block; width: 100%; height: 240px; object-fit: cover">
       <img src="uploads/lag-bottom02.webp" alt="Bandsaw blade cutting hardwood" style="display: block; width: 100%; height: 240px; object-fit: cover">
       <img src="https://lagrinding.com/wp-content/uploads/2026/05/image002.webp" alt="Serrated tape knives" style="display: block; width: 100%; height: 240px; object-fit: cover">
@@ -741,7 +846,7 @@
   </section>
 
   <footer style="background: #1F1F1F; color: #d5d7d9">
-    <div style="max-width: 1440px; margin: 0 auto; padding: 66px 44px 58px; display: grid; grid-template-columns: 0.85fr 0.9fr 1.25fr 1.75fr 0.9fr; gap: 34px; align-items: start">
+    <div class="f-grid" style="max-width: 1440px; margin: 0 auto; padding: 66px 44px 58px; display: grid; grid-template-columns: 0.85fr 0.9fr 1.25fr 1.75fr 0.9fr; gap: 34px; align-items: start">
       <div>
         <img src="https://lagrinding.com/wp-content/uploads/2022/02/ftr-logo.png" alt="L.A. Grinding" style="display: block; width: 178px; height: auto">
         <div style="display: flex; gap: 22px; margin-top: 26px">
@@ -849,7 +954,7 @@
     </div>
 
     <div style="background: #141414">
-      <div style="max-width: 1440px; margin: 0 auto; padding: 18px 44px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap">
+      <div class="f-legal" style="max-width: 1440px; margin: 0 auto; padding: 18px 44px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap">
         <div style="font-size: 13px; color: #b9bbbd; display: flex; align-items: center; gap: 10px">
           <span>Copyright © 2026 L.A. Grinding. All Rights Reserved</span>
           <span style="color: #6b6d6f">|</span>
@@ -869,7 +974,7 @@
 
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;showMobileConcept&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mockup scope&quot;},&quot;industryTileCaptions&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mockup scope&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;showMobileConcept&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mockup scope&quot;},&quot;industryTileCaptions&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mockup scope&quot;}}">
 const U = "https://lagrinding.com/wp-content/uploads/";
 const IMG = {
   tree: U + "2026/05/lag-tree-industry-hdr_new.webp",
@@ -893,18 +998,49 @@ class Component extends DCLogic {
   componentDidMount() {
     const el = document.getElementById('stickyNav');
     if (!el) return;
+    const sentinel = document.createElement('div');
+    sentinel.style.cssText = 'height:1px;width:100%';
+    el.parentNode.insertBefore(sentinel, el);
+    this._sentinel = sentinel;
+    if (window.IntersectionObserver) {
+      this._io = new IntersectionObserver(function (entries) {
+        el.classList.toggle('is-stuck', !entries[0].isIntersecting);
+      }, { threshold: 0 });
+      this._io.observe(sentinel);
+    }
     this._onScroll = () => {
-      const y = window.pageYOffset || document.documentElement.scrollTop;
-      el.classList.toggle('is-stuck', y > 8);
+      el.classList.toggle('is-stuck', sentinel.getBoundingClientRect().bottom <= 0);
     };
-    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('scroll', this._onScroll, { passive: true, capture: true });
     this._onScroll();
+
+    let paused = false, wired = false;
+    const pause = () => { paused = true; clearTimeout(this._resume); this._resume = setTimeout(() => { paused = false; }, 2500); };
+    this._logoTimer = setInterval(() => {
+      const logos = document.querySelector('#page .logos');
+      if (!logos) return;
+      if (!wired) {
+        wired = true;
+        logos.addEventListener('touchstart', pause, { passive: true });
+        logos.addEventListener('pointerdown', pause, { passive: true });
+      }
+      if (paused || window.innerWidth > 640) return;
+      const item = logos.firstElementChild;
+      if (!item) return;
+      const step = item.getBoundingClientRect().width + 1;
+      const max = logos.scrollWidth - logos.clientWidth - 2;
+      const next = logos.scrollLeft >= max ? 0 : logos.scrollLeft + step;
+      logos.scrollTo({ left: next, behavior: 'smooth' });
+    }, 1000);
   }
   componentWillUnmount() {
-    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll, true);
+    if (this._io) this._io.disconnect();
+    if (this._logoTimer) clearInterval(this._logoTimer);
+    if (this._sentinel && this._sentinel.parentNode) this._sentinel.parentNode.removeChild(this._sentinel);
   }
 
-  state = { menu: null, searchOpen: false };
+  state = { menu: null, searchOpen: false, drawer: false, acc: null };
 
   catsRef = React.createRef();
   prodRef = React.createRef();
@@ -929,23 +1065,23 @@ class Component extends DCLogic {
       { name: "Sanding", href: SHOP + "product_cat=sanding", img: "uploads/2-3-4-x-5-assorted-sandnet-reusable-sanding-sheets-10-piece-600x600.jpg" },
       { name: "Saw Blades", href: SHOP + "product_cat=saw-blades", img: "uploads/12-x-96-teeth-saw-blade-for-medium-aluminum-600x600.jpg" },
       { name: "Screwdriving Bits", href: SHOP + "product_cat=screwdriving-bits", img: "uploads/1-4-hex-to-1-2-square-socket-adapter-600x600.jpg" },
-      { name: "Serrated Tape Knives", href: "https://lagrinding.com/product-category/cutoff-knives/", img: "uploads/tree-care.png" },
-      { name: "Shear Blades", href: SHOP + "product_cat=shear-blades", img: "uploads/shear-blades.png" },
+      { name: "Serrated Tape Knives", href: "https://lagrinding.com/product-category/cutoff-knives/", img: "uploads/tree%20care.png" },
+      { name: "Shear Blades", href: SHOP + "product_cat=shear-blades", img: "uploads/shear%20blades.png" },
       { name: "Tools", href: SHOP + "product_cat=tools", img: "uploads/W74-300x300.webp" },
       { name: "Tree Care", href: SHOP + "product_cat=tree-care", img: IMG.chipper }
     ];
 
     const shopIndustries = [
-      { name: "Construction", href: "https://lagrinding.com/woodworking-and-construction/", icon: "uploads/icon-woodworking.png", menuIcon: "uploads/menu-construction.png" },
-      { name: "Corrugated Knives & Accessories", href: "https://lagrinding.com/corrugated/", icon: "uploads/icon-corrugated.png", menuIcon: "uploads/menu-corrugated.png" },
-      { name: "Food Processing & Packaging", href: "https://lagrinding.com/packaging/", icon: "uploads/icon-food.png", menuIcon: "uploads/menu-food.png" },
-      { name: "Ice Rink Operations", href: "https://lagrinding.com/ice-rinks-products/", icon: "uploads/icon-icerink.png", menuIcon: "uploads/menu-icerink.png" },
-      { name: "Metal Industry", href: "https://lagrinding.com/shear-blades-for-metal-fabrication/", icon: "uploads/icon-metal.png", menuIcon: "uploads/menu-metal.png" },
-      { name: "Plastic", href: "https://lagrinding.com/granulators-for-recycling-plastic/", icon: "uploads/icon-paper.png", menuIcon: "uploads/menu-plastic.png" },
-      { name: "Printing & Bindery", href: "https://lagrinding.com/printing-and-bindery/", icon: "uploads/icon-printing.png", menuIcon: "uploads/menu-printing.png" },
-      { name: "Recycling & Waste Management", href: "https://lagrinding.com/recycling-plastic-industry/", icon: "uploads/icon-plastic.png", menuIcon: "uploads/menu-recycling.png" },
-      { name: "Tree Care", href: "https://lagrinding.com/tree-care-industry/", icon: "uploads/icon-treecare.png", menuIcon: "uploads/menu-treecare.png" },
-      { name: "Woodworking & Construction", href: "https://lagrinding.com/woodworking-and-construction/", icon: "uploads/icon-woodworking.png", menuIcon: "uploads/menu-woodworking.png" }
+      { name: "Construction", href: "https://lagrinding.com/woodworking-and-construction/", icon: "uploads/%20ICON%20WOODWORKING%20and%20construction.png.png", menuIcon: "uploads/menu-construction.png" },
+      { name: "Corrugated Knives & Accessories", href: "https://lagrinding.com/corrugated/", icon: "uploads/CON%20Corrugated.png", menuIcon: "uploads/menu-corrugated.png" },
+      { name: "Food Processing & Packaging", href: "https://lagrinding.com/packaging/", icon: "uploads/ICON%20FOOD%20PROCESS.png", menuIcon: "uploads/menu-food.png" },
+      { name: "Ice Rink Operations", href: "https://lagrinding.com/ice-rinks-products/", icon: "uploads/ICON%20ICE%20RINK.png", menuIcon: "uploads/menu-icerink.png" },
+      { name: "Metal Industry", href: "https://lagrinding.com/shear-blades-for-metal-fabrication/", icon: "uploads/icon%20metal%20indiustry.png", menuIcon: "uploads/menu-metal.png" },
+      { name: "Plastic", href: "https://lagrinding.com/granulators-for-recycling-plastic/", icon: "uploads/ICON%20PAPER%20CONVERTING.png", menuIcon: "uploads/menu-plastic.png" },
+      { name: "Printing & Bindery", href: "https://lagrinding.com/printing-and-bindery/", icon: "uploads/ICON%20PRINTING.png", menuIcon: "uploads/menu-printing.png" },
+      { name: "Recycling & Waste Management", href: "https://lagrinding.com/recycling-plastic-industry/", icon: "uploads/ICON%20PLASTIC.png", menuIcon: "uploads/menu-recycling.png" },
+      { name: "Tree Care", href: "https://lagrinding.com/tree-care-industry/", icon: "uploads/ICON%20TREE%20CARE.png", menuIcon: "uploads/menu-treecare.png" },
+      { name: "Woodworking & Construction", href: "https://lagrinding.com/woodworking-and-construction/", icon: "uploads/%20ICON%20WOODWORKING%20and%20construction.png.png", menuIcon: "uploads/menu-woodworking.png" }
     ];
 
     const UP = "uploads/";
@@ -996,7 +1132,17 @@ class Component extends DCLogic {
       shopOpen: this.state.menu === "shop",
       servicesOpen: this.state.menu === "services",
       searchOpen: this.state.searchOpen,
-      showMobile: this.props.showMobileConcept !== false,
+      drawerOpen: this.state.drawer,
+      accCat: this.state.acc === 'cat',
+      accInd: this.state.acc === 'ind',
+      accBrand: this.state.acc === 'brand',
+      accSvc: this.state.acc === 'svc',
+      toggleDrawer: () => this.setState(s => ({ drawer: !s.drawer, menu: null })),
+      accCatT: () => this.setState(s => ({ acc: s.acc === 'cat' ? null : 'cat' })),
+      accIndT: () => this.setState(s => ({ acc: s.acc === 'ind' ? null : 'ind' })),
+      accBrandT: () => this.setState(s => ({ acc: s.acc === 'brand' ? null : 'brand' })),
+      accSvcT: () => this.setState(s => ({ acc: s.acc === 'svc' ? null : 'svc' })),
+      showMobile: this.props.showMobileConcept === true,
       showCaptions: this.props.industryTileCaptions !== false,
       catsRef: this.catsRef,
       prodRef: this.prodRef,
@@ -1007,7 +1153,7 @@ class Component extends DCLogic {
       techLeft: () => this.nudge(this.techRef, -1, 640),
       techRight: () => this.nudge(this.techRef, 1, 640),
       techCards: [
-        { name: "Chipper Knife Fitting", img: "uploads/tree-care.png", href: "https://lagrinding.com/tree-care-industry/" },
+        { name: "Chipper Knife Fitting", img: "uploads/tree%20care.png", href: "https://lagrinding.com/tree-care-industry/" },
         { name: "Wood Chipper Knives", img: IMG.bandsaw, href: "https://lagrinding.com/wood-chipper-knives/" },
         { name: "Brush Chipper Knives", img: IMG.bladeStack, href: "https://lagrinding.com/brush-chipper-knives/" }
       ],
@@ -1087,10 +1233,10 @@ class Component extends DCLogic {
 
       services: [
         { name: "Professional Sharpening", body: "Experience and the ability to maintain tight tolerances and OEM specifications have been proven to outlast our competition.", cta: "Learn more", img: "uploads/sharpening.png", href: "https://lagrinding.com/sharpening/" },
-        { name: "Paper Knives", body: "Our product specialist can supply you with the proper knife for specific cutting requirements and cutting conditions.", cta: "Learn more", img: "uploads/paper-knives.png", href: "https://lagrinding.com/paper-knife-cutters-accessories/" },
-        { name: "Shear Blades", body: "We can sharpen any shear blades up to 14' within the same precision tolerances as new knives to maintain high productivity and quality cuts.", cta: "Learn more", img: "uploads/shear-blades.png", href: "https://lagrinding.com/arizona-grinding/shear-blades-for-metal-fabrication/" },
+        { name: "Paper Knives", body: "Our product specialist can supply you with the proper knife for specific cutting requirements and cutting conditions.", cta: "Learn more", img: "uploads/paper%20knives.png", href: "https://lagrinding.com/paper-knife-cutters-accessories/" },
+        { name: "Shear Blades", body: "We can sharpen any shear blades up to 14' within the same precision tolerances as new knives to maintain high productivity and quality cuts.", cta: "Learn more", img: "uploads/shear%20blades.png", href: "https://lagrinding.com/arizona-grinding/shear-blades-for-metal-fabrication/" },
         { name: "Granulators", body: "High-performance granulator knives manufactured to exact tolerances and machined to specific OEM specifications, made from D-2 12% chrome material.", cta: "Learn more", img: "uploads/granulators.png", href: "https://lagrinding.com/granulators/" },
-        { name: "Tree Care", body: "Replacement knives and sharpening for brush chippers, mulchers and stump grinders, on weekly, biweekly or monthly service routes.", cta: "Learn more", img: "uploads/tree-care.png", href: "https://lagrinding.com/tree-care-industry/" }
+        { name: "Tree Care", body: "Replacement knives and sharpening for brush chippers, mulchers and stump grinders, on weekly, biweekly or monthly service routes.", cta: "Learn more", img: "uploads/tree%20care.png", href: "https://lagrinding.com/tree-care-industry/" }
       ],
 
       featured: [

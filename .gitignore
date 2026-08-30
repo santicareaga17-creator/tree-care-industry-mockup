@@ -1,6 +1,9 @@
 # Build output — regenerate with `npm run build`
 dist/
 
+# Local QA capture artifacts
+design-source/.rendered/
+
 # Dependencies
 node_modules/
 

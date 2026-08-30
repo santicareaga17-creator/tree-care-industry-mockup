@@ -78,6 +78,9 @@ prerequisite.
 ├── docs/
 │   └── mobile-navigation-reference.md   Reference material only — see below
 │
+├── reference/                    Development reference material. NOT built, NOT deployed
+│   └── mobile-design-v2/         Mobile Design V2 export (source of the responsive rules)
+│
 ├── dist/                         Build output. Generated, git-ignored, safe to delete
 ├── vercel.json                   Build command + output directory for Vercel
 ├── package.json                  Scripts and engine requirement
@@ -421,33 +424,42 @@ Recycling & Waste Management · Tree Care · Woodworking & Construction
 
 ## Responsive Behavior
 
-**This page is a fixed-width desktop layout.** That is the design as delivered, and it was
-preserved deliberately.
+The site is a single responsive page. There are no separate desktop and mobile documents.
 
-| Viewport | Behaviour |
-| --- | --- |
-| Desktop (≥1280px) | Intended experience. Content is centred in a 1360px container with 40px gutters |
-| Tablet / narrow desktop (<1280px) | The page does not reflow. The wrapper carries `min-width: 1280px`, so the browser shows a horizontal scrollbar and the desktop layout is preserved at full size |
-| Mobile | Same as above — the desktop layout is shown, scaled by the device, not re-laid-out |
+| Tier | Range | Behaviour |
+| --- | --- | --- |
+| Desktop | ≥ 1280px | The original fixed layout. `#page` keeps `min-width: 1280px`; content centres in a 1360px container with 40px gutters. **Unchanged from the pre-responsive build.** |
+| Tablet | 641px – 1279px | `min-width` released. 24px gutters, 56px section padding, grids collapse to 2 columns (tiles to 3), mobile header with drawer, carousel items ~42% wide. |
+| Mobile | ≤ 640px | 16px gutters, 44px section padding, grids collapse to 1 column, `h1` 38px / `h2` 28px, stacked hero CTAs, carousel items ~84% wide, photo strip stays a 5-up row, distributor logos become a snap carousel, footer stacks and centres. |
 
-### Breakpoints present in the code
-
-There is exactly one media query in the project:
+### Breakpoints in the code
 
 ```css
-@media (max-width: 900px) {
-  #stickyNav.is-stuck .nav-row { height: auto !important; }
-}
+@media (max-width: 1279px)                      /* tablet + mobile */
+@media (min-width: 641px) and (max-width: 1279px)  /* tablet only */
+@media (max-width: 640px)                       /* mobile only */
 ```
 
-It is defined in the design's stylesheet and emitted to `dist/assets/css/page.css`. It
-allows the condensed header row to grow to its natural height on narrow viewports.
+All of them live in the `<style>` block of `design-source/LA Grinding Homepage.dc.html`
+and are emitted verbatim to `dist/assets/css/page.css`.
 
-A true mobile layout is **not** implemented. A design concept for one is documented under
-*Mobile Navigation - Reference Only*, and would require removing the `min-width: 1280px`
-constraint and introducing real breakpoints.
+Primary mobile reference is 393px (iPhone 14 Pro); the layout is verified from 375px
+through 430px.
 
----
+### Mobile-specific visibility
+
+| Element | Desktop | ≤ 1279px |
+| --- | --- | --- |
+| `.mega` — Shop All / Services mega-menus | shown | hidden |
+| `.m-nav` — cart + hamburger buttons | hidden | shown |
+| `.m-drawer` — slide-down drawer | n/a | opened by the hamburger |
+| Utility-row secondary actions | shown | hidden (they move into the drawer) |
+
+### Horizontal overflow
+
+`html, body` use `overflow-x: clip`. `clip` is deliberate: `hidden` would make `body` a
+scroll container, which breaks `position: sticky` on the header. Verified free of
+horizontal overflow at 375, 390, 393, 414, 430, 1024, 1280 and 1440px.
 
 ## Sticky Navigation
 
@@ -475,6 +487,14 @@ All changes are transitioned over 220 ms. The state is driven by a single class,
 To change the scroll threshold, edit the `y > 8` comparison in `assets/js/site.js`. To
 change the condensed dimensions, edit the `#stickyNav.is-stuck …` rules in the design's
 `<style>` block and rebuild.
+
+Below 1280px the header switches to its mobile form: rows grow to their natural height,
+the mega-menus are hidden and the hamburger drawer takes over. Sticky positioning still
+applies at every width.
+
+> **Do not change `overflow-x: clip` to `hidden`** on `html, body`. `hidden` makes `body`
+> a scroll container, and `position: sticky` on `#stickyNav` silently stops working on
+> mobile — the header scrolls away instead of pinning.
 
 ---
 
@@ -552,13 +572,15 @@ Run before promoting any release to production.
 - [ ] Hero background and headline render correctly
 - [ ] Industry tiles, service cards and featured products display their imagery
 
-**Tablet (768–1279px)**
-- [ ] Fixed desktop layout is preserved with horizontal scroll — expected behaviour
-- [ ] Header remains usable
+**Tablet (641–1279px)**
+- [ ] Two-column grids, 24px gutters, no horizontal overflow
+- [ ] Mobile header and drawer work
 
-**Mobile (<768px)**
-- [ ] Page loads and is legible when zoomed
-- [ ] No JavaScript errors specific to touch devices
+**Mobile (≤640px)**
+- [ ] Verified at 375, 390, 393, 414 and 430px
+- [ ] Single-column stacking, no horizontal overflow
+- [ ] Drawer opens; the four accordions expand one at a time
+- [ ] Sticky header pins (offset 0) while scrolling
 
 **Navigation**
 - [ ] *Shop All* mega-menu opens and closes; 40 links present

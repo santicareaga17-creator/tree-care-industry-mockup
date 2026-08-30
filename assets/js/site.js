@@ -33,6 +33,48 @@
     toggleServices: function () { showMenu(openMenu === "services" ? null : "services"); }
   };
 
+  /* ---------- mobile drawer + accordions ---------- */
+
+  // Only one accordion group is open at a time, matching the design.
+  var ACCORDIONS = { accCatT: "acc-cat", accIndT: "acc-ind", accBrandT: "acc-brand", accSvcT: "acc-svc" };
+  var openAccordion = null;
+
+  function showAccordion(name) {
+    Object.keys(ACCORDIONS).forEach(function (key) {
+      var panel = panels[ACCORDIONS[key]];
+      if (panel) panel.hidden = ACCORDIONS[key] !== name;
+    });
+    openAccordion = name;
+  }
+
+  function setAccordionSign(name) {
+    // The trigger's trailing glyph reads "+" when collapsed and "–" when expanded.
+    Object.keys(ACCORDIONS).forEach(function (key) {
+      var trigger = document.querySelector('[data-on-click="' + key + '"]');
+      if (!trigger) return;
+      var glyph = trigger.lastElementChild;
+      if (glyph) glyph.textContent = ACCORDIONS[key] === name ? "\u2013" : "+";
+    });
+  }
+
+  actions.toggleDrawer = function () {
+    var drawer = panels.drawer;
+    if (!drawer) return;
+    drawer.hidden = !drawer.hidden;
+    if (drawer.hidden) {
+      showAccordion(null);
+      setAccordionSign(null);
+    }
+  };
+
+  Object.keys(ACCORDIONS).forEach(function (key) {
+    actions[key] = function () {
+      var next = openAccordion === ACCORDIONS[key] ? null : ACCORDIONS[key];
+      showAccordion(next);
+      setAccordionSign(next);
+    };
+  });
+
   /* ---------- search suggestions ---------- */
 
   var searchBlurTimer = null;
@@ -85,6 +127,17 @@
       var handler = actions[el.getAttribute(attr)];
       if (handler) el.addEventListener(events[attr], handler);
     });
+  });
+
+  /* ---------- viewport changes ---------- */
+
+  // The drawer only exists below the desktop breakpoint; collapse it on resize past it.
+  window.addEventListener("resize", function () {
+    if (window.innerWidth >= 1280 && panels.drawer && !panels.drawer.hidden) {
+      panels.drawer.hidden = true;
+      showAccordion(null);
+      setAccordionSign(null);
+    }
   });
 
   /* ---------- sticky header ---------- */
