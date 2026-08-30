@@ -163,11 +163,18 @@ Production is served by the Vercel project `tree-care-industry-mockup`.
 | Output directory | `dist` |
 | Install command | none required (no dependencies) |
 | Framework preset | None / Other (`"framework": null`) |
-| Node.js version | 18+ |
+| Node.js version | 18+ (`engines.node` is `>=18`) |
 | Vercel project | `tree-care-industry-mockup` |
 
 These settings are committed in `vercel.json`, so they travel with the repository and do
 not have to be re-entered in the Vercel dashboard.
+
+> **Build advisory.** Vercel warns that `engines: { "node": ">=18" }` lets the build
+> runtime follow new Node.js major releases automatically. This is intentional and safe
+> here — the build script uses only long-stable Node APIs (`node:fs/promises`,
+> `node:path`, `node:url`) and has no dependencies. If your team prefers fully
+> reproducible build runtimes, pin `engines.node` in `package.json` to a specific major
+> (for example `"22.x"`) and keep local Node versions aligned with it.
 
 ### One-time setup still required: connect GitHub to Vercel
 
