@@ -121,6 +121,25 @@
     #page .logos { display: flex !important; grid-template-columns: none !important; overflow-x: auto !important; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; gap: 1px !important; border: 1px solid #e7e7ea !important; }
     #page .logos::-webkit-scrollbar { display: none; }
     #page .logos > div { flex: 0 0 calc(25% - 1px) !important; scroll-snap-align: start; height: 76px !important; padding: 10px !important; }
+
+    /* "One partner makes it easier" becomes a swipeable, auto-advancing carousel.
+       Overrides the generic single-column collapse for this grid only. */
+    #page .p-carousel {
+      display: flex !important;
+      grid-template-columns: none !important;
+      overflow-x: auto !important;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 14px !important;
+      margin-top: 28px !important;
+    }
+    #page .p-carousel::-webkit-scrollbar { display: none; }
+    #page .p-carousel > a {
+      flex: 0 0 84% !important;
+      scroll-snap-align: start;
+      width: auto !important;
+    }
   }
 
   /* ===== mobile footer (matches client footer stack) ===== */
@@ -479,7 +498,7 @@
     <div style="max-width: 1360px; margin: 0 auto; padding: 80px 40px 20px">
       <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 46px; line-height: 1; color: #0B2A4A; margin: 0">One partner makes it easier</h2>
       <p style="font-size: 16px; color: #4b5563; margin: 14px 0 0; max-width: 720px; text-wrap: pretty">Products, sharpening service and factory-authorized distribution — from one supplier serving California, Nevada and Arizona.</p>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px">
+      <div class="p-carousel" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px">
         <sc-for list="{{ partnerCards }}" as="p" hint-placeholder-count="3">
           <a href="{{ p.href }}" class="blueprint" style="position: relative; display: flex; flex-direction: column; background: #ffffff; border-color: #d4d4d7; color: #9a9d9f; transition: color 200ms ease, border-color 200ms ease" style-hover="border-color: #EA4E32; color: #EA4E32">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; top: -8px; left: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; top: -8px; right: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; bottom: -8px; left: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; bottom: -8px; right: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg>

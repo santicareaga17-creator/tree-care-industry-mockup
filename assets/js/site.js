@@ -129,6 +129,74 @@
     });
   });
 
+  /* ---------- mobile auto-advancing carousel ---------- */
+
+  // The partner cards become a swipeable carousel below 640px and step right on their
+  // own. Swiping is always available; only the auto-advance pauses.
+  (function () {
+    var MOBILE_MAX = 640;
+    var STEP_MS = 1000;      // cadence for the auto-advance
+    var RESUME_MS = 4000;    // stay paused this long after the visitor interacts
+
+    var track = document.querySelector(".p-carousel");
+    if (!track) return;
+
+    // Respect the visitor's reduced-motion setting: swiping still works, but nothing
+    // moves on its own.
+    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    var paused = false;
+    var resumeTimer = null;
+    var selfScrolling = false;
+    var visible = true;
+
+    function pause() {
+      paused = true;
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(function () { paused = false; }, RESUME_MS);
+    }
+
+    ["touchstart", "pointerdown", "wheel"].forEach(function (evt) {
+      track.addEventListener(evt, pause, { passive: true });
+    });
+    track.addEventListener("scroll", function () {
+      // A scroll we did not start means the visitor is swiping.
+      if (!selfScrolling) pause();
+    }, { passive: true });
+
+    // Don't run the timer while the section is off-screen.
+    if (window.IntersectionObserver) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+      }, { threshold: 0 }).observe(track);
+    }
+
+    setInterval(function () {
+      if (paused || !visible) return;
+      if (window.innerWidth > MOBILE_MAX) return;
+      if (reduced && reduced.matches) return;
+
+      var cards = track.children;
+      if (cards.length < 2) return;
+      if (track.scrollWidth <= track.clientWidth) return;
+
+      // Derive the position from card offsets rather than accumulating a step, so
+      // scroll-snap corrections and manual swipes can't make it drift.
+      var origin = cards[0].offsetLeft;
+      var current = 0;
+      for (var i = 0; i < cards.length; i += 1) {
+        if (cards[i].offsetLeft - origin <= track.scrollLeft + 8) current = i;
+      }
+
+      var atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+      var next = atEnd || current + 1 >= cards.length ? 0 : current + 1;
+
+      selfScrolling = true;
+      track.scrollTo({ left: cards[next].offsetLeft - origin, behavior: "smooth" });
+      setTimeout(function () { selfScrolling = false; }, 700);
+    }, STEP_MS);
+  })();
+
   /* ---------- viewport changes ---------- */
 
   // The drawer only exists below the desktop breakpoint; collapse it on resize past it.

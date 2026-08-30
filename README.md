@@ -471,6 +471,22 @@ through 430px.
 | `.m-drawer` — slide-down drawer | n/a | opened by the hamburger |
 | Utility-row secondary actions | shown | hidden (they move into the drawer) |
 
+### Auto-advancing carousel
+
+Below 640px the *One partner makes it easier* cards (`.p-carousel`) become a horizontal
+snap carousel that steps one card to the right every second and wraps back to the first.
+
+- Swiping is always available and is never blocked by the timer.
+- Any touch, pointer, wheel or manual scroll pauses the auto-advance for 4 seconds.
+- The timer is idle while the section is off-screen (IntersectionObserver).
+- It does not run at all when the visitor has `prefers-reduced-motion: reduce`, or above
+  640px, where the cards stay a normal grid.
+
+Position is derived from each card's `offsetLeft` rather than by accumulating a step
+width, so scroll-snap corrections and manual swipes cannot make it drift out of
+alignment. The cadence and the pause window are the `STEP_MS` and `RESUME_MS` constants
+at the top of the carousel block in `assets/js/site.js`.
+
 ### Touch input and zoom
 
 The header search input is forced to `font-size: 16px` below 1280px. iOS Safari
@@ -589,6 +605,7 @@ definition. Target elements through the hook classes the build emits:
 | `.logos` | the distributor logo grid, a snap carousel on mobile |
 | `.strip` | the photo strip, kept as a 5-up row |
 | `.hero-cta` | hero buttons, stacked full width on mobile |
+| `.p-carousel` | the *One partner makes it easier* cards — a swipeable, auto-advancing carousel below 640px |
 | `.f-grid` / `.f-legal` | footer grid and legal bar |
 | `.mega` / `.m-nav` / `.m-drawer` | desktop vs mobile navigation |
 
