@@ -74,7 +74,11 @@
     #stickyNav .nav-row { height: auto !important; padding: 8px 16px 10px !important; flex-wrap: wrap !important; gap: 8px !important; }
     #stickyNav .nav-row > a:first-child img { height: 38px !important; }
     #stickyNav .nav-row > div:nth-child(2) { order: 3 !important; flex: 1 0 100% !important; max-width: none !important; }
-    #stickyNav .nav-row > div:nth-child(2) > div { height: 44px !important; }
+    /* Only the search bar shrinks to 44px. The suggestions dropdown is the other child
+       of this wrapper — clamping it too would cut its background off at 44px and let the
+       chips spill out over the hero. Offset it to sit just under the shortened bar. */
+    #stickyNav .nav-row > div:nth-child(2) > div:not([style*="position: absolute"]) { height: 44px !important; }
+    #stickyNav .nav-row > div:nth-child(2) > div[style*="position: absolute"] { top: 48px !important; }
     #stickyNav .nav-row input { font-size: 13px !important; padding: 0 16px !important; }
     #stickyNav .nav-row button[type="button"] { min-height: 0 !important; }
     #stickyNav .nav-menu-col { height: auto !important; margin-left: auto !important; }
