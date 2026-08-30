@@ -97,7 +97,10 @@ const brandLogos = [
 ];
 
 export const data = {
-  showMobile: true,
+  // The design wraps its "Mobile Concept" section in the showMobileConcept switch.
+  // That section is reference material, not production content, so it is not rendered.
+  // Set this to true to bring it back; see docs/mobile-navigation-reference.md.
+  showMobile: false,
   showCaptions: true,
 
   cats,

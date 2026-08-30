@@ -261,8 +261,7 @@ In document order, each marked with `data-screen-label`:
 11. Shop by Brand
 12. 3 Locations
 13. Distributor Logos
-14. Mobile Concept *(reference — see below)*
-15. Photo Strip
+14. Photo Strip
 
 A footer follows the last section.
 
@@ -361,7 +360,8 @@ All local images live in **`assets/uploads/`** (75 files) and are copied to
 `9-5-7-tpi-amped-demo-demon-carbide-teeth-reciprocating-saw-blade-for-nail-embedded-woodd-600x600.jpg`
 
 ### Mobile assets
-The mobile concept section reuses the assets above; it introduces no mobile-only files.
+There are no mobile-only asset files. The mobile navigation concept, when enabled for
+reference, reuses the assets listed above.
 
 ### Fonts
 No font files are stored in the repository. Barlow and Barlow Condensed are loaded from
@@ -484,14 +484,17 @@ change the condensed dimensions, edit the `#stickyNav.is-stuck …` rules in the
 > for future implementation. It is not part of the current production requirements and
 > should not be interpreted as an outstanding implementation task.
 
-The homepage contains a section labelled **"Mobile Concept"** that renders two static
-phone mockups illustrating a proposed mobile navigation pattern: pinned conversion actions
-and search, with *Shop All* and *Services* expanding as accordions rather than listing
-every industry as a top-level item.
+A mobile navigation concept exists in the design: two static phone mockups illustrating a
+proposed pattern with pinned conversion actions and search, and *Shop All* / *Services*
+expanding as accordions rather than listing every industry as a top-level item.
 
-This is presentational only. The mockups are not interactive and do not drive the site's
-navigation. The live page remains a fixed desktop layout, as described under *Responsive
-Behavior*.
+**It is not rendered on the live site.** The design wraps that section in its own
+`showMobileConcept` switch, exposed as `showMobile` in `tools/data.mjs` and set to
+`false`, so the build omits it. The concept is preserved in the design file and
+documented here purely as reference for possible future work.
+
+To view it locally, set `showMobile: true` in `tools/data.mjs` and rebuild. Do not enable
+it in production unless it is explicitly requested and scoped as new work.
 
 Full notes — where the section lives, what each mockup shows, and what implementing it
 would involve — are in **[`docs/mobile-navigation-reference.md`](docs/mobile-navigation-reference.md)**.
@@ -545,7 +548,7 @@ Run before promoting any release to production.
 - [ ] No unresolved template expressions (the build fails on these)
 
 **Desktop (≥1280px)**
-- [ ] All 15 sections render in order, no layout shifts
+- [ ] All 14 sections render in order, no layout shifts
 - [ ] Hero background and headline render correctly
 - [ ] Industry tiles, service cards and featured products display their imagery
 

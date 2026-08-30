@@ -9,16 +9,24 @@
 
 ## Where this lives today
 
-The concept is not a separate mockup file. It is rendered inside the homepage itself as a
-labelled section of the original design:
+**The concept is not rendered on the live site.** It exists in the design file only, and
+the build omits it.
 
 | Property | Value |
 | --- | --- |
+| Source | `design-source/LA Grinding Homepage.dc.html`, the `Mobile Concept` section |
+| Rendered in production | No |
+| Controlled by | `showMobile` in `tools/data.mjs` (currently `false`) |
+| Design's own switch | `showMobileConcept`, declared under "Mockup scope" |
 | Section label | `data-screen-label="Mobile Concept"` |
-| Position | after *Distributor Logos*, before *Photo Strip* |
-| Approximate offset | ~8795px from the top of the page |
-| Height | ~1103px |
+| Would sit | after *Distributor Logos*, before *Photo Strip* |
+| Height when enabled | ~1103px |
 | Heading | "Mobile navigation", kicker "Responsive concept" |
+
+### Viewing it
+
+Set `showMobile: true` in `tools/data.mjs` and run `npm run build`. The section reappears
+between *Distributor Logos* and *Photo Strip*. Set it back to `false` before deploying.
 
 It renders two static phone mockups side by side. It is presentational only — the mockups
 are not interactive, and they do not drive the real navigation.
