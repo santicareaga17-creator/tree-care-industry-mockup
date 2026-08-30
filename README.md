@@ -26,9 +26,11 @@ repository.
 
 | | |
 | --- | --- |
-| **Production URL** | *(see the Deployment section — populated after first deploy)* |
+| **Production URL** | <https://tree-care-industry-mockup.vercel.app> |
 | **Hosting** | Vercel |
 | **Vercel project** | `tree-care-industry-mockup` |
+| **Vercel scope** | `santicareaga17-2681s-projects` |
+| **Repository** | <https://github.com/santicareaga17-creator/tree-care-industry-mockup> (private) |
 | **Production branch** | `main` |
 
 ---
@@ -152,8 +154,7 @@ PORT=8080 npm run serve
 
 ## Deployment
 
-The GitHub repository is connected to the Vercel project, so **production deploys are
-triggered by pushing to `main`**.
+Production is served by the Vercel project `tree-care-industry-mockup`.
 
 | Setting | Value |
 | --- | --- |
@@ -168,22 +169,40 @@ triggered by pushing to `main`**.
 These settings are committed in `vercel.json`, so they travel with the repository and do
 not have to be re-entered in the Vercel dashboard.
 
+### One-time setup still required: connect GitHub to Vercel
+
+Automatic deploy-on-push is **not yet active**. Connecting a Git repository requires a
+GitHub *Login Connection* on the Vercel account, which is an account-level authorization
+that has to be granted interactively by the account owner.
+
+To enable it:
+
+1. Sign in to Vercel and open **Account Settings → Authentication**.
+2. Add **GitHub** as a login connection and authorize access to the
+   `santicareaga17-creator` account.
+3. Open the `tree-care-industry-mockup` project → **Settings → Git** and connect the
+   `santicareaga17-creator/tree-care-industry-mockup` repository.
+4. Confirm the production branch is set to `main`.
+
+Once connected, every push to `main` deploys to production automatically, and pushes to
+other branches create preview deployments.
+
 ### How to redeploy
 
-**Normal path — push to `main`:**
+**After the GitHub connection above is in place — push to `main`:**
 
 ```bash
 git add . && git commit -m "Describe the change" && git push origin main
 ```
 
-Vercel builds and promotes the result to production automatically. Pushes to any other
-branch produce a preview deployment instead.
-
-**Manual path — from a local machine:**
+**Today, and always available — deploy from a local machine:**
 
 ```bash
 npx vercel --prod
 ```
+
+Run this from the repository root. The `.vercel/` directory links the working copy to the
+Vercel project; it is git-ignored, so a new machine runs `npx vercel link` once first.
 
 **Re-run a previous build without code changes:** open the project in the Vercel
 dashboard, go to *Deployments*, and use *Redeploy* on the desired deployment.
