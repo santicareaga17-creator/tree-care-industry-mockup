@@ -79,7 +79,11 @@
        chips spill out over the hero. Offset it to sit just under the shortened bar. */
     #stickyNav .nav-row > div:nth-child(2) > div:not([style*="position: absolute"]) { height: 44px !important; }
     #stickyNav .nav-row > div:nth-child(2) > div[style*="position: absolute"] { top: 48px !important; }
-    #stickyNav .nav-row input { font-size: 13px !important; padding: 0 16px !important; }
+    /* 16px is the floor: iOS Safari auto-zooms into any focused input whose font-size is
+       smaller, which yanks the whole page scale on tap. Fixing it here rather than with
+       maximum-scale/user-scalable=no on the viewport, which would also block the user's
+       own pinch-zoom. Padding trimmed to keep the placeholder length unchanged. */
+    #stickyNav .nav-row input { font-size: 16px !important; padding: 0 14px !important; }
     #stickyNav .nav-row button[type="button"] { min-height: 0 !important; }
     #stickyNav .nav-menu-col { height: auto !important; margin-left: auto !important; }
     #stickyNav .nav-menu-col > div, #stickyNav .nav-menu-col > button { display: none !important; }

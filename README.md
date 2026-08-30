@@ -471,6 +471,22 @@ through 430px.
 | `.m-drawer` — slide-down drawer | n/a | opened by the hamburger |
 | Utility-row secondary actions | shown | hidden (they move into the drawer) |
 
+### Touch input and zoom
+
+The header search input is forced to `font-size: 16px` below 1280px. iOS Safari
+auto-zooms into any focused input whose computed font-size is under 16px, which yanks
+the whole page scale on tap.
+
+The viewport meta stays `width=device-width, initial-scale=1` on purpose. Adding
+`maximum-scale=1` or `user-scalable=no` would also suppress the zoom, but it blocks the
+user's own pinch-zoom and is an accessibility regression. **Do not add them.**
+
+> Known edge case: at 1280px and wider the input keeps its designed 15px, so a
+> large touchscreen (for example an iPad Pro in landscape at 1366px) can still trigger the
+> auto-zoom. Fixing it there would change desktop rendering, so it was left alone. If you
+> ever need it, add `@media (pointer: coarse) { #stickyNav .nav-row input { font-size: 16px !important; } }`
+> — that matches touch devices only and leaves mouse-driven desktop untouched.
+
 ### Horizontal overflow
 
 `html, body` use `overflow-x: clip`. `clip` is deliberate: `hidden` would make `body` a
