@@ -247,6 +247,22 @@ A two-row sticky header (`#stickyNav`):
 - **Search panel** — a suggestions dropdown (`data-panel="search"`) listing popular
   searches; opens on focus and closes 160 ms after blur.
 
+Below 1280px the header switches to its mobile form:
+
+- **`.mega`** — both mega-menus are hidden.
+- **`.m-nav`** — a cart button and a hamburger appear in their place.
+- **`.m-drawer`** (`data-panel="drawer"`) — the hamburger opens a full-width drawer holding
+  four quick actions (Request Quote, Schedule Pickup, Pay My Bill, Credit Application)
+  and four accordions: Shop by Category (15), Shop by Industry (10), Shop by Brand (18)
+  and Services (8), plus a link to the full catalog.
+- **Accordions** — `data-panel="acc-cat" | "acc-ind" | "acc-brand" | "acc-svc"`, opened by
+  `accCatT` / `accIndT` / `accBrandT` / `accSvcT`. Only one is open at a time; the trigger
+  glyph flips between `+` and `–`. Closing the drawer collapses them all.
+- The utility row's secondary actions are hidden on mobile — they live in the drawer.
+
+All of it is wired in `assets/js/site.js`; the drawer is closed automatically if the
+viewport is resized back to 1280px or wider.
+
 ### Page sections
 
 In document order, each marked with `data-screen-label`:
@@ -527,9 +543,11 @@ would involve — are in **[`docs/mobile-navigation-reference.md`](docs/mobile-n
 | --- | --- |
 | **Images** | `assets/uploads/` — copied verbatim to `dist/assets/uploads/` |
 | **Icons** | `assets/uploads/`, prefixed `icon-` (industry cards) and `menu-` (mega-menu) |
-| **Navigation** | Markup in the `#stickyNav` block of `design-source/LA Grinding Homepage.dc.html`; behaviour in `assets/js/site.js`; menu contents in `tools/data.mjs` |
+| **Navigation (desktop)** | Markup in the `#stickyNav` block of `design-source/LA Grinding Homepage.dc.html`; behaviour in `assets/js/site.js`; menu contents in `tools/data.mjs` |
+| **Navigation (mobile)** | The `.m-nav` and `.m-drawer` blocks in the same design file; drawer and accordion logic in the *mobile drawer + accordions* section of `assets/js/site.js`. The drawer reuses `cats`, `shopIndustries` and `brands` from `tools/data.mjs` — edit them once and both desktop and mobile update |
 | **Global styles** | `design-source/_ds/industry-…/styles.css` (design system) and the `<style>` block in the design file. Most layout styling is inline on elements, as authored |
-| **Responsive / mobile behaviour** | The single `@media (max-width: 900px)` rule in the design's `<style>` block, and the `min-width: 1280px` on the page wrapper |
+| **Responsive / mobile behaviour** | The three media queries in the `<style>` block of the design file: `max-width: 1279px` (tablet + mobile), `min-width: 641px and max-width: 1279px` (tablet only) and `max-width: 640px` (mobile only). They are emitted verbatim to `dist/assets/css/page.css` — edit the design file, never the generated CSS. See *Responsive Behavior* |
+| **Breakpoint boundaries** | Desktop starts at 1280px because `#page` carries `min-width: 1280px`. If you move that value, move the `1279px` media queries with it or 1024–1279px viewports will overflow horizontally |
 | **Text and content** | `tools/data.mjs` for anything repeated; the design file for one-off headings and body copy |
 | **Hover and pressed states** | Authored as `style-hover` / `style-active` in the design file; compiled into `dist/assets/css/site.css`. Do not hand-edit that file |
 
@@ -542,6 +560,24 @@ would involve — are in **[`docs/mobile-navigation-reference.md`](docs/mobile-n
 4. Only delete the old file once nothing references it.
 
 Prefer `.webp` for photography, to stay consistent with the existing tiles.
+
+### How to change mobile layout without touching desktop
+
+Every mobile rule lives inside a media query, so desktop (≥1280px) is unaffected by
+definition. Target elements through the hook classes the build emits:
+
+| Hook | What it controls |
+| --- | --- |
+| `.g-mob-2` / `.g-mob-3` | grids that collapse to 2 / 3 columns on tablet, 1 on mobile |
+| `.tiles` | industry tile heights |
+| `.logos` | the distributor logo grid, a snap carousel on mobile |
+| `.strip` | the photo strip, kept as a 5-up row |
+| `.hero-cta` | hero buttons, stacked full width on mobile |
+| `.f-grid` / `.f-legal` | footer grid and legal bar |
+| `.mega` / `.m-nav` / `.m-drawer` | desktop vs mobile navigation |
+
+Add the rule to the appropriate media query in the design file's `<style>` block, run
+`npm run build`, and re-check the widths in the QA Checklist.
 
 ### How to add another industry or card without breaking the layout
 
