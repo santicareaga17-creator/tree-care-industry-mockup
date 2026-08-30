@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-injected>html,body{background:transparent}</style><script data-omelette-injected>(()=>{{const n=new URLSearchParams(location.search).get("theme");if(n==="light"||n==="dark"){document.documentElement.dataset.theme=n}}{if(new URLSearchParams(location.search).get("_omthumb")==="1"){const n=(f)=>{const g=f.focus;if(!g)return;f.focus=function(h){g.call(this,{...h,preventScroll:true})}};n(HTMLElement.prototype);n(SVGElement.prototype);if(typeof MathMLElement!=="undefined"){n(MathMLElement.prototype)}const d=(f)=>{f.removeAttribute("autofocus");f.inert=true;if(!(f instanceof HTMLElement))f.removeAttribute("tabindex")};const p=(f)=>{if(f.hasAttribute("autofocus"))d(f);for(const g of f.querySelectorAll("[autofocus]")){d(g)}};p(document.documentElement);new MutationObserver((f)=>{for(const g of f){for(const h of g.addedNodes){if(h.nodeType===1)p(h)}}}).observe(document,{childList:true,subtree:true})}}{const n=()=>{try{if(document.querySelector('meta[name="color-scheme"]'))return;const d=getComputedStyle(document.documentElement).getPropertyValue("color-scheme").trim();if(d&&d!=="normal")return;const p=(y)=>{if(!y)return null;const m=getComputedStyle(y).backgroundColor.match(/^rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.]+%?))?\s*\)$/);if(!m)return null;const w=m[4]==null?1:parseFloat(m[4])/(m[4].endsWith("%")?100:1);if(w<0.99)return null;return[+m[1],+m[2],+m[3]]};const f=p(document.body)||p(document.documentElement);if(!f)return;const g=(y)=>{const m=y/255;return m<=0.04045?m/12.92:((m+0.055)/1.055)**2.4};const h=0.2126*g(f[0])+0.7152*g(f[1])+0.0722*g(f[2]);document.documentElement.style.setProperty("color-scheme",h<0.4?"dark":"light")}catch{}};if(document.readyState==="complete")n();else window.addEventListener("load",n)}var I=["https://claude.ai","https://preview.claude.ai","https://3e062872-0ca5-4ac8-9eff-97cbfc851137.claudeusercontent.com"];var B=true;var K=false;var C=()=>{};if(K===true){try{const n=setTimeout.bind(window);const d=1e4;const p=15;const f=1e4;const g=120000;const h=200;const y=(o)=>{try{let r;if(typeof o==="string")r=o;else if(o instanceof URL)r=o.href;else if(typeof Request!=="undefined"&&o instanceof Request)r=o.url;else return null;if(!r)return null;const l=document.baseURI;const i=new URL(r,l);if(i.protocol!=="http:"&&i.protocol!=="https:")return null;if(i.origin!==new URL(l).origin)return null;return i.origin+i.pathname}catch{return null}};const m=new Map;const w=(o)=>{let r=m.get(o);if(!r){if(m.size>=h){const l=m.keys().next().value;if(l!==undefined)m.delete(l)}r={fails:[],until:0,cooldown:f,hard:false};m.set(o,r)}return r};const R=(o)=>{const r=m.get(o);return r!==undefined&&r.until>Date.now()};const O=(o,r)=>{const l=Date.now();const i=w(o);if(r)i.hard=true;if(i.until>l)return;i.fails.push(l);while(i.fails.length>0&&i.fails[0]<=l-d)i.fails.shift();if(i.fails.length>=p){i.until=l+i.cooldown;if(i.hard)i.cooldown=Math.min(i.cooldown*2,g);i.fails.length=0;try{n(()=>{try{S(true)}catch{}},i.until-l+100)}catch{}console.warn("[omelette] asset circuit breaker: pausing requests to "+o+" for "+Math.round((i.until-l)/1000)+"s after "+p+" failures in "+d/1000+"s")}};const e=(o)=>{m.delete(o)};const t=100;const a=new WeakMap;const u=new Set;let s=null;const S=(o)=>{for(const r of Array.from(u)){try{const l=a.get(r);if(l===undefined){u.delete(r);continue}if(o){const i=y(l);if(i!==null&&R(i))continue}a.delete(r);u.delete(r);if(s!==null)s.call(r,l)}catch{}}};C=()=>{try{m.clear();S(false)}catch{}};document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")C()});const _=window.fetch;if(typeof _==="function"){const o=function(...r){let l=null;try{l=y(r[0])}catch{}if(l!==null&&R(l)){let c;try{if(r[1]&&r[1].signal!==undefined){c=r[1].signal||undefined}else if(typeof Request!=="undefined"&&r[0]instanceof Request){c=r[0].signal||undefined}}catch{c=undefined}return new Promise((k,b)=>{const E=()=>{try{return c.reason!==undefined?c.reason:new DOMException("The operation was aborted.","AbortError")}catch{return new DOMException("The operation was aborted.","AbortError")}};try{if(c&&c.aborted){b(E());return}}catch{}let T=false;const j=()=>{if(T)return;T=true;b(E())};try{if(c)c.addEventListener("abort",j,{once:true})}catch{}n(()=>{if(T)return;T=true;try{if(c)c.removeEventListener("abort",j)}catch{}let L;try{L=new Response(null,{status:429,statusText:"Too Many Requests",headers:{"Retry-After":"10"}})}catch{L={ok:false,status:429}}k(L)},250)})}const i=_.apply(window,r);if(l!==null){const c=l;i.then((k)=>{try{if(k.ok)e(c);else if(k.status===401||k.status===403||k.status===404||k.status===429){O(c,k.status!==404)}}catch{}},()=>{})}return i};window.fetch=o}const v=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,"src");if(v!==undefined&&v.set!==undefined&&v.get!==undefined){const o=v.set;s=o;Object.defineProperty(HTMLImageElement.prototype,"src",{configurable:true,enumerable:v.enumerable,get:v.get,set(r){const l=`${r}`;try{const i=y(l);if(i!==null&&R(i)){a.set(this,l);if(u.size<t)u.add(this);return}}catch{}try{a.delete(this);u.delete(this)}catch{}o.call(this,l)}})}try{const o=HTMLImageElement.prototype.setAttribute;HTMLImageElement.prototype.setAttribute=function(r,l){if(arguments.length<2){o.apply(this,arguments);return}if(typeof r==="string"&&r.toLowerCase()==="src"){const i=`${l}`;try{const c=y(i);if(c!==null&&R(c)){a.set(this,i);if(u.size<t)u.add(this);return}a.delete(this);u.delete(this)}catch{}o.call(this,r,i);return}o.call(this,r,l)}}catch{}window.addEventListener("error",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)O(l,true)}}catch{}},true);window.addEventListener("load",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)e(l);const i=a.get(r);if(i!==undefined){let c=false;try{c=new URL(i,document.baseURI).href===new URL(r.currentSrc||r.src||"",document.baseURI).href}catch{c=false}if(c){a.delete(r);u.delete(r)}}}}catch{}},true)}catch{}}var J=30000;var G=3000;document.addEventListener("DOMContentLoaded",()=>{const n=window.Babel;const d="om-src-id";if(n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[d])){n.registerPlugin(d,({types:h})=>({visitor:{JSXOpeningElement(y,m){const w=y.node;if(w.name&&w.name.type==="JSXMemberExpression")return;for(let t=0;t<w.attributes.length;t++){const a=w.attributes[t];if(a.type==="JSXAttribute"&&a.name&&a.name.name==="data-om-id")return}const R=m.file&&m.file.opts&&m.file.opts.filename||"?";const O=w.loc&&w.loc.start;const e=`jsx:${R}:${w.start??0}:${O?O.line:0}:${O?O.column+1:0}`;w.attributes.push(h.jsxAttribute(h.jsxIdentifier("data-om-id"),h.stringLiteral(e)))}}}))}const p="om-text-extract";let f=false;if(B&&n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[p])){const h=window.React;if(h&&h.useSyncExternalStore&&h.createElement){f=true;const y={};const m=new Set;let w=0;window.__omTextO=y;window.__omTextSet=(e)=>{for(const t in e){const a=e[t];if(a==null)delete y[t];else y[t]=a}w++;m.forEach((t)=>t())};const R=(e)=>{m.add(e);return()=>m.delete(e)};const O=()=>w;window.__OmT=function e(t){h.useSyncExternalStore(R,O,O);return h.createElement("span",{"data-om-text":t.i,className:"__om-t"},t.i in y?y[t.i]:t.children)};n.registerPlugin(p,({types:e})=>{const t={style:1,script:1,noscript:1,textarea:1,title:1,option:1,text:1,tspan:1,textPath:1};const a={placeholder:1,alt:1,title:1,label:1,"aria-label":1,"aria-description":1,"aria-placeholder":1};const u=(o,r)=>e.logicalExpression("??",e.memberExpression(e.logicalExpression("||",e.memberExpression(e.identifier("window"),e.identifier("__omTextO")),e.objectExpression([])),e.stringLiteral(o),true),r);const s=(o)=>o.file&&o.file.opts&&o.file.opts.filename||"?";const S=(o)=>o.file&&o.file.code||"";const _=(o,r)=>{const l=(c)=>c&&c.start!=null&&c.end!=null&&(c.type==="StringLiteral"||c.type==="TemplateLiteral"&&c.expressions.length===0)?[c.start,c.end]:null;const i=l(r);if(i)return i;if(r&&r.type==="Identifier"){const c=o.scope.getBinding(r.name);if(c&&c.constant&&c.path.node.type==="VariableDeclarator"){return l(c.path.node.init)}}return null};const v=(o,r,l)=>{const i=o.node;let c=false;const k=(E,T)=>{c=true;return e.jsxElement(e.jsxOpeningElement(e.jsxIdentifier("__OmT"),[e.jsxAttribute(e.jsxIdentifier("i"),e.stringLiteral(E))],false),e.jsxClosingElement(e.jsxIdentifier("__OmT")),[T],false)};const b=i.children.map((E)=>{if(E.type==="JSXText"){if(E.start==null||E.end==null)return E;const T=l.slice(E.start,E.end);const j=T.length-T.trimStart().length;const L=T.length-T.trimEnd().length;if(j+L>=T.length)return E;return k(`txt:${r}:${E.start+j}:${E.end-L}`,E)}if(E.type==="JSXExpressionContainer"){const T=_(o,E.expression);if(T)return k(`str:${r}:${T[0]}:${T[1]}`,E)}return E});if(c)i.children=b};return{visitor:{JSXOpeningElement(o,r){const l=o.node;const i=s(r);const c={};for(let k=0;k<l.attributes.length;k++){const b=l.attributes[k];if(b.type!=="JSXAttribute"||!b.name)continue;const E=b.name.name;if(!a[E])continue;if(!b.value||b.value.type!=="StringLiteral")continue;if(b.value.start==null||b.value.end==null)continue;const T=`txt:${i}:${b.value.start}:${b.value.end}`;c[E]=T;b.value=e.jsxExpressionContainer(u(T,e.stringLiteral(b.value.value)))}if(Object.keys(c).length){l.attributes.push(e.jsxAttribute(e.jsxIdentifier("data-om-text-attrs"),e.stringLiteral(JSON.stringify(c))))}},JSXElement(o,r){const l=o.node.openingElement;const i=l&&l.name&&l.name.name;if(i==="__OmT")return;if(typeof i==="string"&&t[i])return;v(o,s(r),S(r))},JSXFragment(o,r){v(o,s(r),S(r))}}}})}}const g=f?["transform-react-jsx-source",d,p]:["transform-react-jsx-source",d];document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((h,y)=>{const m=h.getAttribute("data-plugins")||"";const w=g.filter((R)=>m.indexOf(R)<0);if(w.length){h.setAttribute("data-plugins",m?`${m},${w.join(",")}`:w.join(","))}if(!h.hasAttribute("data-filename")){h.setAttribute("data-filename",h.getAttribute("src")||`inline-${y}`)}})});var A=window.parent;var U="not editable here — open the project in the Claude Design editor to save";var W=()=>Promise.resolve({persisted:false,noHost:true,reason:U});var H=W;var M="data/storage.json";var z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.match(/\/projects\/([^/]+)\/serve\//);if(d)return d[1];return n.hostname.split(".")[0]||""}catch{return location.hostname.split(".")[0]||""}};var Z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.indexOf("/serve/");if(d>=0)return n.origin+n.pathname.slice(0,d+"/serve/".length)+M}catch{}return"./"+M};var x=null;var N=()=>{if(!x){x=fetch(Z(),{cache:"no-store"}).then((n)=>{if(n.ok)return n.text();return n.status===404?"":null}).catch(()=>null).then((n)=>{if(n===null){x=null;return null}const d=new Map;if(!n)return d;let p;try{p=JSON.parse(n)}catch{console.warn("[omelette.storage] "+M+" is not valid JSON; treating the store as unreadable so a save cannot overwrite the "+"hand-edited bytes. Fix the JSON (or delete the file) to re-enable persistence.");x=null;return null}if(p===null||typeof p!=="object"||Array.isArray(p)){console.warn("[omelette.storage] "+M+" doesn't hold a JSON object; treating the store as unreadable so a save cannot "+"overwrite the hand-edited bytes. Make the top level a JSON object to re-enable persistence.");x=null;return null}const f=p;if("data"in f){const g=f.data;if(g===null||typeof g!=="object"||Array.isArray(g)){console.warn("[omelette.storage] "+M+' has a "data" field that is not a JSON object; treating the store as unreadable so a '+'save cannot overwrite the hand-edited bytes. Make "data" a JSON object to re-enable persistence.');x=null;return null}const h=f._meta;const y=h!==null&&typeof h==="object"?h.project:undefined;if(typeof y==="string"&&y!==""&&y!==z())return d;for(const m of Object.keys(g))d.set(m,g[m]);return d}for(const g of Object.keys(f)){if(g!=="_meta")d.set(g,f[g])}return d})}return x};var F=(n)=>H(M,JSON.stringify({_meta:{project:z(),version:1},data:Object.fromEntries(n)},null,2));var D=Promise.resolve();var $=(n)=>{const d=D.then(n);D=d.then(()=>{return},()=>{return});return d};var V=/sk-(?:ant-)?[A-Za-z0-9_-]{16,}|AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{20,}|xox[a-z]-[A-Za-z0-9][A-Za-z0-9-]{9,}|AIza[0-9A-Za-z_-]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----/;var Y=/password|passwd|secret|api[_-]?key|access[_-]?token|auth[_-]?token|credential/i;var Q=(n,d,p)=>{if(V.test(d)||Y.test(n)&&typeof p==="string"&&p.length>=8){console.warn('[omelette.storage] the value for "'+n+'" looks like a credential. The storage file is a plaintext project file — visible to '+"everyone with project access and copied when the project is duplicated. Do not store secrets here.")}};var q={persisted:false,reason:"could not load the existing store — not overwriting it"};var X={persisted:false,reason:"stored value changed since a failed read — re-read this key before saving"};var P=new Set;var ee={get:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.get: key must be a string"))}return $(N).then((d)=>{if(d===null){P.add(n);return null}P.delete(n);if(!d.has(n))return null;const p=d.get(n);return p==null?null:JSON.parse(JSON.stringify(p))})},set:(n,d)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.set: key must be a string"))}let p;try{p=JSON.stringify(d)}catch(g){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable ("+String(g)+")"))}if(p===undefined){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable"))}Q(n,p,d);const f=JSON.parse(p);return $(()=>N().then((g)=>{if(g===null)return q;if(P.has(n)){if(g.has(n))return X;P.delete(n)}g.set(n,f);return F(g)}))},delete:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.delete: key must be a string"))}return $(()=>N().then((d)=>{if(d===null)return q;if(P.has(n)){if(d.has(n))return X;P.delete(n)}d.delete(n);return F(d)}))},keys:()=>$(N).then((n)=>n===null?[]:Array.from(n.keys()))};window.omelette={writeFile:(n,d)=>H(n,d).then((p)=>{if(!p.persisted&&!p.noHost){throw new Error(p.reason||"write failed")}}),storage:ee};if(A&&A!==window){const n=(e,t)=>{try{A.postMessage({__omelette_log:true,type:e,data:t},"*")}catch{}};["log","warn","error"].forEach((e)=>{const t=console[e];console[e]=(...a)=>{const u=a.map((s)=>{try{return typeof s==="object"?JSON.stringify(s):String(s)}catch{try{return String(s)}catch{return"[unstringifiable]"}}}).join(" ");n(e,u);t.apply(console,a)}});window.addEventListener("error",(e)=>{const t=e.target;if(t&&t!==window&&t.tagName){const a=t.src||t.href||"";n("resource_error",`${t.tagName} failed to load: ${a}`)}else{n("error",`${e.message||"Unknown error"} at ${e.filename||"?"}:${e.lineno||0}:${e.colno||0}`)}},true);window.addEventListener("unhandledrejection",(e)=>{const t=e.reason;const a=t instanceof Error?`${t.message} ${t.stack}`:String(t);n("error",`Unhandled rejection: ${a}`)});window.addEventListener("click",(e)=>{if(e.defaultPrevented||e.button!==0)return;if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;const t=e.composedPath?e.composedPath():[];const a=["button","input","select","textarea","summary","label"];let u=null;for(const v of t){if(!(v instanceof Element))continue;if(v.localName==="a"){if(!(v instanceof HTMLAnchorElement))return;u=v;break}if(a.indexOf(v.localName)!==-1)return}if(!u)return;if(u.isContentEditable)return;const s=u.closest("[contenteditable]");if(s&&s.getAttribute("contenteditable")!=="false")return;const S=(u.getAttribute("target")||"_self").toLowerCase();if(S!=="_self"&&S!=="_top"&&S!=="_parent")return;let _;try{_=new URL(u.href)}catch{return}if(_.protocol!=="http:"&&_.protocol!=="https:")return;if(location.origin==="null")return;if(_.origin===location.origin)return;e.preventDefault();window.open(_.href,"_blank","noopener,noreferrer")});const d=()=>{try{A.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(window.ResizeObserver)new ResizeObserver(d).observe(document.documentElement);const p=()=>{d();if(!document.querySelector('script[type="text/babel"],script[type="text/jsx"]'))return;const e=()=>document.getElementById("root")||document.querySelector("body > div[id]");const t=e()?.firstElementChild??null;let a=0;const u=()=>{const s=e();if(s&&s.firstElementChild!==t||++a>30){d();return}setTimeout(u,100)};setTimeout(u,100)};if(document.readyState==="complete")p();else window.addEventListener("load",p);const f={};let g=0;const h=(e)=>new Promise((t,a)=>{if(!I.length){a(new Error("claude.complete: no parent origin"));return}const u=`c${++g}`;const s=()=>setTimeout(()=>{delete f[u];a(new Error(`claude.complete: no data for ${J/1000}s`))},J);const S=s();f[u]={resolve:t,reject:a,text:"",t:S,arm:s};try{for(const _ of I){A.postMessage({__om_api:true,id:u,body:e},_)}}catch(_){clearTimeout(S);delete f[u];a(_)}});const y=8;const m=async(e,t)=>{if(!Array.isArray(e.messages)){throw new Error("claude.complete: tools require a messages array")}const a=e.messages.slice();const u={...e,tools:e.tools.map((_)=>{if(_===null||typeof _!=="object")return _;const v={};for(const o of Object.keys(_)){if(typeof _[o]!=="function")v[o]=_[o]}return v})};const s=u.tool_choice;const S=s!=null&&(s.type==="any"||s.type==="tool")?{...u,tool_choice:s.disable_parallel_tool_use!==undefined?{type:"auto",disable_parallel_tool_use:s.disable_parallel_tool_use}:{type:"auto"}}:u;for(let _=0;_<y;_++){const v=await h({..._===0?u:S,messages:a});const o=v.message;const r=o&&Array.isArray(o.content)?o.content:null;const l=r?r.filter((c)=>c?.type==="tool_use"):[];if(o?.stop_reason!=="tool_use"||l.length===0){return v.text}const i=[];for(const c of l){const k=t.get(c.name);if(!k){i.push({type:"tool_result",tool_use_id:c.id,content:`no handler for tool "${c.name}"`,is_error:true});continue}try{const b=await k(c.input);const E=typeof b==="string"?b:O(b)??"";i.push({type:"tool_result",tool_use_id:c.id,content:E})}catch(b){i.push({type:"tool_result",tool_use_id:c.id,content:String(b?.message??b??"tool handler failed"),is_error:true})}}a.push({role:"assistant",content:r},{role:"user",content:i})}throw new Error(`claude.complete: exceeded ${y} tool turns`)};window.claude={complete(e){const t=e;if(t!==null&&typeof t==="object"&&Array.isArray(t.tools)&&t.tools.some((a)=>a!==null&&typeof a==="object"&&typeof a.run==="function")){const a=new Map;for(const u of t.tools){if(u!==null&&typeof u==="object"&&typeof u.run==="function"){a.set(String(u.name),u.run)}}return m(t,a)}return h(e).then((a)=>a.text)}};const w={};let R=0;H=(e,t)=>new Promise((a)=>{if(!I.length){a({persisted:false,noHost:true,reason:U});return}const u=`f${++R}`;const s=setTimeout(()=>{delete w[u];a({persisted:false,noHost:true,reason:U})},G);w[u]={settle:a,t:s};try{for(const S of I){A.postMessage({__om_file:true,id:u,op:"write",path:e,content:t},S)}}catch{clearTimeout(s);delete w[u];a({persisted:false,noHost:true,reason:U})}});const O=(e)=>{try{return JSON.stringify(e)}catch{return JSON.stringify(String(e))}};window.addEventListener("message",(e)=>{if(I.indexOf(e.origin)<0)return;if(e.source!==A)return;const t=e.data;if(!t)return;if(t.type==="omelette-preview-refresh"){if(typeof t.token!=="string"||!/^[0-9a-f.-]+(\.(rc|pr-[0-9]+))?(\.[0-9]+\.[0-9a-f]{16})?$/.test(t.token))return;const s=Math.max(1,Math.floor((t.expiresAt||0)-Date.now()/1000));document.cookie="__Host-omelette-preview="+t.token+"; Path=/; Secure; SameSite=None; Partitioned; Max-Age="+s;C();return}if(t.__om_file_r){const s=w[t.id];if(!s)return;clearTimeout(s.t);delete w[t.id];s.settle(t.ok?{persisted:true}:{persisted:false,reason:t.error||"write failed"});return}if(t.__om_api_r){const s=f[t.id];if(!s)return;if(t.error!=null){clearTimeout(s.t);delete f[t.id];s.reject(new Error(t.error));return}if(t.chunk!=null){clearTimeout(s.t);s.t=s.arm();s.text+=t.chunk;return}if(t.done){clearTimeout(s.t);delete f[t.id];s.resolve({text:t.text!=null?t.text:s.text,message:t.message});return}return}if(!t.__om_eval)return;const a=t;const u=(s)=>{e.source.postMessage({...s,__om_eval_r:1,id:a.id},e.origin)};try{const s=(0,eval)(a.code);if(s&&typeof s.then==="function"){s.then((S)=>u({ok:1,v:O(S)}),(S)=>u({ok:0,e:String(S)}))}else{u({ok:1,v:O(s)})}}catch(s){u({ok:0,e:String(s)})}})}})();
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="_ds/industry-4d598bcf-ed61-4905-862f-a72479e9ff93/styles.css">
+<script src="_ds/industry-4d598bcf-ed61-4905-862f-a72479e9ff93/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&amp;family=Barlow:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #ffffff; color: #1d1f20; font-family: "Barlow", system-ui, sans-serif; }
+  a { color: #0B2A4A; text-decoration: none; }
+  a:hover { color: #EA4E32; }
+  ::-webkit-scrollbar { height: 8px; width: 8px; }
+  ::-webkit-scrollbar-thumb { background: #c8ccd2; }
+  .brand-card img { filter: grayscale(1); opacity: 0.55; transition: filter 200ms ease, opacity 200ms ease; }
+  .brand-card:hover img, .brand-card:active img, .brand-card:focus-within img { filter: grayscale(0); opacity: 1; }
+  .ind-card img { filter: grayscale(1); opacity: 0.5; transition: filter 200ms ease, opacity 200ms ease; }
+  .ind-card:hover img, .ind-card:focus-within img { filter: grayscale(0); opacity: 1; }
+  .ind-card:active img { filter: brightness(0) saturate(100%) invert(43%) sepia(75%) saturate(2600%) hue-rotate(343deg) brightness(97%) contrast(92%); opacity: 1; }
+  .ind-card:active { border-color: #EA4E32 !important; }
+  .ind-card:active span { color: #EA4E32 !important; }
+  #stickyNav { position: sticky; top: 0; z-index: 90; transition: box-shadow 220ms ease; }
+  #stickyNav.is-stuck { box-shadow: 0 8px 22px rgba(7,31,54,0.26); }
+  #stickyNav .util-row, #stickyNav .nav-row { transition: min-height 220ms ease, height 220ms ease, padding 220ms ease; }
+  #stickyNav.is-stuck .util-row { min-height: 40px !important; padding-top: 2px !important; padding-bottom: 2px !important; }
+  #stickyNav.is-stuck .nav-row { height: 76px !important; }
+  #stickyNav.is-stuck .nav-menu-col { height: 76px !important; }
+  @media (max-width: 900px) { #stickyNav.is-stuck .nav-row { height: auto !important; } }
+</style>
+<meta name="ext-resource-dependency" content="uploads/logo-la-arizona-grinding.webp">
+<meta name="ext-resource-dependency" content="uploads/lag-tree-care-background.png">
+<meta name="ext-resource-dependency" content="uploads/blade-orange.png">
+<meta name="ext-resource-dependency" content="uploads/lag-tree-industry-hdr_new.webp">
+<meta name="ext-resource-dependency" content="uploads/2026/05/lag-bottom04.webp">
+<meta name="ext-resource-dependency" content="uploads/2025/12/map-service.webp">
+<meta name="ext-resource-dependency" content="uploads/2026/05/lag-tree-industry-hdr_new.webp">
+<meta name="ext-resource-dependency" content="uploads/2026/03/Brush-Chipper-Knife.jpg">
+<meta name="ext-resource-dependency" content="uploads/2026/05/bgslide_01-1.webp">
+<meta name="ext-resource-dependency" content="uploads/2026/05/granulators-slide-bg02.webp">
+<meta name="ext-resource-dependency" content="uploads/lag-bottom01.webp">
+<meta name="ext-resource-dependency" content="uploads/lag-bottom02.webp">
+<meta name="ext-resource-dependency" content="uploads/2026/05/image002.webp">
+<meta name="ext-resource-dependency" content="uploads/lag-bottom04.webp">
+<meta name="ext-resource-dependency" content="uploads/lag-bottom05.webp">
+<meta name="ext-resource-dependency" content="uploads/2022/02/ftr-logo.png">
+<meta name="ext-resource-dependency" content="uploads/jast-media-logo-white.png">
+<meta name="ext-resource-dependency" content="uploads/12-x-96-teeth-saw-blade-for-medium-aluminum-600x600-61cfc156.jpg">
+<meta name="ext-resource-dependency" content="uploads/granulator.jpg">
+<meta name="ext-resource-dependency" content="uploads/download-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/3-pc-universal-fit-carbide-oscillating-blade-set-3-piece-600x600.jpg">
+<meta name="ext-resource-dependency" content="uploads/A753-300x300.webp">
+<meta name="ext-resource-dependency" content="uploads/9-5-7-tpi-amped-demo-demon-carbide-teeth-reciprocating-saw-blade-for-nail-embedded-woodd-600x600.jpg">
+<meta name="ext-resource-dependency" content="uploads/1-11-16-dia-premier-adjustable-rail-stile-bit-bevel-600x600.jpg">
+<meta name="ext-resource-dependency" content="uploads/2-3-4-x-5-assorted-sandnet-reusable-sanding-sheets-10-piece-600x600.jpg">
+<meta name="ext-resource-dependency" content="uploads/12-x-96-teeth-saw-blade-for-medium-aluminum-600x600.jpg">
+<meta name="ext-resource-dependency" content="uploads/1-4-hex-to-1-2-square-socket-adapter-600x600.jpg">
+<meta name="ext-resource-dependency" content="uploads/tree-care.png">
+<meta name="ext-resource-dependency" content="uploads/shear-blades.png">
+<meta name="ext-resource-dependency" content="uploads/W74-300x300.webp">
+<meta name="ext-resource-dependency" content="uploads/icon-woodworking.png">
+<meta name="ext-resource-dependency" content="uploads/menu-construction.png">
+<meta name="ext-resource-dependency" content="uploads/icon-corrugated.png">
+<meta name="ext-resource-dependency" content="uploads/menu-corrugated.png">
+<meta name="ext-resource-dependency" content="uploads/icon-food.png">
+<meta name="ext-resource-dependency" content="uploads/menu-food.png">
+<meta name="ext-resource-dependency" content="uploads/icon-icerink.png">
+<meta name="ext-resource-dependency" content="uploads/menu-icerink.png">
+<meta name="ext-resource-dependency" content="uploads/icon-metal.png">
+<meta name="ext-resource-dependency" content="uploads/menu-metal.png">
+<meta name="ext-resource-dependency" content="uploads/icon-paper.png">
+<meta name="ext-resource-dependency" content="uploads/menu-plastic.png">
+<meta name="ext-resource-dependency" content="uploads/icon-printing.png">
+<meta name="ext-resource-dependency" content="uploads/menu-printing.png">
+<meta name="ext-resource-dependency" content="uploads/icon-plastic.png">
+<meta name="ext-resource-dependency" content="uploads/menu-recycling.png">
+<meta name="ext-resource-dependency" content="uploads/icon-treecare.png">
+<meta name="ext-resource-dependency" content="uploads/menu-treecare.png">
+<meta name="ext-resource-dependency" content="uploads/menu-woodworking.png">
+<meta name="ext-resource-dependency" content="uploads/mulcher-teeth-nologo.png">
+<meta name="ext-resource-dependency" content="uploads/8-dial-a-width-stacked-dado-sets-300x300.jpg">
+<meta name="ext-resource-dependency" content="uploads/shopping.webp">
+<meta name="ext-resource-dependency" content="uploads/LA-Corrugated-1.webp">
+<meta name="ext-resource-dependency" content="uploads/LA-Packaging-1.webp">
+<meta name="ext-resource-dependency" content="uploads/LA-MetalIndustry-1.webp">
+<meta name="ext-resource-dependency" content="uploads/LA-Paper-1.webp">
+<meta name="ext-resource-dependency" content="uploads/LA-Printing-1.webp">
+<meta name="ext-resource-dependency" content="uploads/LA-plastic-1.webp">
+<meta name="ext-resource-dependency" content="uploads/LA-IceRinks.webp">
+<meta name="ext-resource-dependency" content="uploads/LA-TreeCare.webp">
+<meta name="ext-resource-dependency" content="uploads/lag-home-construction.webp">
+<meta name="ext-resource-dependency" content="uploads/lag-home-sharpening.webp">
+<meta name="ext-resource-dependency" content="uploads/sharpening.png">
+<meta name="ext-resource-dependency" content="uploads/paper-knives.png">
+<meta name="ext-resource-dependency" content="uploads/granulators.png">
+</helmet>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="400" height="400" fill="#0B2A4A"/><rect x="120" y="120" width="160" height="160" fill="none" stroke="#EA4E32" stroke-width="14"/><text x="200" y="228" text-anchor="middle" font-family="Barlow Condensed, Arial, sans-serif" font-weight="700" font-size="86" fill="#ffffff">LAG</text></svg>
+</template>
+
+
+<div style="min-width: 1280px; background: #ffffff">
+
+  <div id="stickyNav">
+  <div style="background: #071F36; color: #cfd8e3; font-size: 12.5px; letter-spacing: 0.02em">
+    <div class="util-row" style="max-width: 1360px; margin: 0 auto; padding: 6px 40px; min-height: 52px; display: flex; align-items: center; gap: 22px; flex-wrap: nowrap">
+      <div style="display: flex; align-items: center; gap: 22px; margin-right: auto">
+        <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #ffffff; font-size: 12.5px; white-space: nowrap">LA Grinding &amp; Arizona Grinding</span>
+        <span style="width: 1px; height: 16px; background: rgba(255,255,255,0.18)"></span>
+        <div style="display: flex; align-items: center; gap: 18px">
+          <a href="tel:8188469134" style="display: flex; align-items: center; gap: 6px; white-space: nowrap; color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.01em" style-hover="color: #EA4E32"><span>CA:</span><svg width="14" height="14" viewBox="0 0 24 24" fill="#EA4E32" style="flex: 0 0 auto"><path d="M6.6 2h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5l1.4-2 4 1.5v3c0 1.4-1.1 2.6-2.6 2.6A16.4 16.4 0 0 1 4 6.6C4 5.1 5.2 4 6.6 4V2z"></path></svg>818-846-9134</a>
+          <a href="tel:6237809134" style="display: flex; align-items: center; gap: 6px; white-space: nowrap; color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.01em" style-hover="color: #EA4E32"><span>AZ:</span><svg width="14" height="14" viewBox="0 0 24 24" fill="#EA4E32" style="flex: 0 0 auto"><path d="M6.6 2h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5l1.4-2 4 1.5v3c0 1.4-1.1 2.6-2.6 2.6A16.4 16.4 0 0 1 4 6.6C4 5.1 5.2 4 6.6 4V2z"></path></svg>623-780-9134</a>
+          <a href="tel:7028359099" style="display: flex; align-items: center; gap: 6px; white-space: nowrap; color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.01em" style-hover="color: #EA4E32"><span>NV:</span><svg width="14" height="14" viewBox="0 0 24 24" fill="#EA4E32" style="flex: 0 0 auto"><path d="M6.6 2h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5l1.4-2 4 1.5v3c0 1.4-1.1 2.6-2.6 2.6A16.4 16.4 0 0 1 4 6.6C4 5.1 5.2 4 6.6 4V2z"></path></svg>702-835-9099</a>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; flex: 0 0 auto">
+        <a href="#requestModal" style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px; color: #ffffff; background: #EA4E32; padding: 6px 15px; border-radius: 999px; white-space: nowrap" style-hover="background: #c93d24">Request Quote</a>
+        <a href="#pickupModal" style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 12.5px; color: #ffffff; border: 1px solid rgba(255,255,255,0.3); padding: 5px 15px; border-radius: 999px; white-space: nowrap; font-size: 12px" style-hover="border-color: #EA4E32; color: #ffffff">Schedule Pickup</a>
+        <a href="https://pci.jotform.com/form/261734971116661" style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px; color: #cfd8e3; padding: 6px 2px; white-space: nowrap" style-hover="color: #ffffff">Pay My Bill</a>
+        <span style="width: 1px; height: 16px; background: rgba(255,255,255,0.18)"></span>
+        <a href="https://form.jotform.com/240656874741465" style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px; color: #cfd8e3; padding: 6px 2px; white-space: nowrap" style-hover="color: #ffffff">Credit Application</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: #0B2A4A; position: relative; z-index: 40">
+    <div class="nav-row" style="max-width: 1360px; margin: 0 auto; padding: 0 40px; height: 96px; display: flex; align-items: center; gap: 32px">
+      <a href="https://lagrinding.com/" style="flex: 0 0 auto; display: block">
+        <img src="uploads/logo-la-arizona-grinding.webp" alt="L.A. Grinding &amp; Arizona Grinding" style="display: block; height: 56px; width: auto">
+      </a>
+
+      <div style="flex: 1 1 auto; max-width: 720px; position: relative">
+        <div style="display: flex; height: 52px; background: #ffffff; border: 2px solid #EA4E32; border-radius: 999px; overflow: hidden">
+          <input type="text" onFocus="{{ onSearchFocus }}" onBlur="{{ onSearchBlur }}" placeholder="What product, brand or SKU are you looking for?" style="flex: 1 1 auto; border: 0; outline: none; padding: 0 24px; font-family: 'Barlow', sans-serif; font-size: 15px; color: #1d1f20; background: transparent">
+          <button type="button" style="flex: 0 0 auto; width: 70px; border: 0; background: #EA4E32; color: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: center" style-hover="background: #c93d24">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M16.5 16.5 21 21"></path></svg>
+          </button>
+        </div>
+        <sc-if value="{{ searchOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position: absolute; top: 56px; left: 0; right: 0; background: #ffffff; border: 1px solid #d4d4d7; box-shadow: 0 18px 40px rgba(7,31,54,0.18); padding: 18px 20px 20px">
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; font-size: 11.5px; color: #6b7280; margin-bottom: 12px">Jump into the catalog</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px">
+              <sc-for list="{{ popularSearches }}" as="s" hint-placeholder-count="6">
+                <a href="{{ s.href }}" style="border: 1px solid #d4d4d7; padding: 7px 12px; font-size: 13px; color: #0B2A4A" style-hover="border-color: #EA4E32; color: #EA4E32">{{ s.label }}</a>
+              </sc-for>
+            </div>
+            <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid #e7e7ea; font-size: 12.5px; color: #6b7280">Search results open the LA Grinding catalog, filtered by category, industry, brand or compatible machine.</div>
+          </div>
+        </sc-if>
+      </div>
+
+      <div class="nav-menu-col" style="display: flex; align-items: stretch; gap: 4px; margin-left: auto; height: 96px">
+        <div onMouseEnter="{{ openShop }}" onMouseLeave="{{ closeMenus }}" style="display: flex; align-items: center">
+          <button type="button" onClick="{{ toggleShop }}" style="height: 52px; display: flex; align-items: center; gap: 10px; padding: 0 26px; background: #ffffff; border: 0; border-radius: 999px; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 15px; color: #0B2A4A; transition: background 200ms ease, color 200ms ease" style-hover="background: #EA4E32; color: #ffffff">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M1.5 7.5h16.5l4 4.5v4.5H5L1.5 12V7.5z"></path><circle cx="9" cy="12" r="1.5"></circle><circle cx="15" cy="12" r="1.5"></circle></svg>
+            Shop All
+          </button>
+        </div>
+        <div onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeMenus }}" style="display: flex; align-items: center">
+          <button type="button" onClick="{{ toggleServices }}" style="height: 52px; display: flex; align-items: center; gap: 8px; padding: 0 26px; background: transparent; border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 15px; color: #ffffff" style-hover="border-color: #EA4E32">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 7h14M5 12h14M5 17h14"></path></svg>
+            Services
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 9 6 6 6-6"></path></svg>
+          </button>
+        </div>
+        <button type="button" style="height: 52px; align-self: center; display: flex; align-items: center; gap: 10px; padding: 0 24px; background: transparent; border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; cursor: pointer; color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 15px" style-hover="border-color: #EA4E32">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3.5h2v11h13"></path><path d="M6.5 7.5h12v6.5h-12z"></path><circle cx="9.5" cy="19" r="1.5"></circle><circle cx="17" cy="19" r="1.5"></circle></svg>
+          Cart
+        </button>
+      </div>
+    </div>
+
+    <sc-if value="{{ shopOpen }}" hint-placeholder-val="{{ false }}">
+      <div onMouseEnter="{{ openShop }}" onMouseLeave="{{ closeMenus }}" style="position: absolute; left: 0; right: 0; top: 100%; background: #ffffff; border-top: 3px solid #EA4E32; box-shadow: 0 24px 48px rgba(7,31,54,0.22)">
+        <div style="max-width: 1360px; margin: 0 auto; padding: 34px 40px 36px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 44px">
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12.5px; color: #EA4E32; padding-bottom: 10px; border-bottom: 1px solid #d4d4d7">Shop by Category</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px 24px; margin-top: 14px">
+              <sc-for list="{{ cats }}" as="c" hint-placeholder-count="15">
+                <a href="{{ c.href }}" style="font-size: 14px; color: #1d1f20; padding: 6px 0" style-hover="color: #EA4E32">{{ c.name }}</a>
+              </sc-for>
+            </div>
+          </div>
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12.5px; color: #EA4E32; padding-bottom: 10px; border-bottom: 1px solid #d4d4d7">Shop by Industry</div>
+            <div style="display: flex; flex-direction: column; margin-top: 14px">
+              <sc-for list="{{ shopIndustries }}" as="i" hint-placeholder-count="10">
+                <a href="{{ i.href }}" style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #1d1f20; padding: 6px 0" style-hover="color: #EA4E32"><img src="{{ i.menuIcon }}" alt="" style="width: 24px; height: 24px; object-fit: contain; flex: 0 0 24px">{{ i.name }}</a>
+              </sc-for>
+            </div>
+          </div>
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12.5px; color: #EA4E32; padding-bottom: 10px; border-bottom: 1px solid #d4d4d7">Shop by Brand</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px 20px; margin-top: 14px">
+              <sc-for list="{{ menuBrands }}" as="b" hint-placeholder-count="14">
+                <a href="{{ b.href }}" style="font-size: 14px; color: #1d1f20; padding: 6px 0" style-hover="color: #EA4E32">{{ b.name }}</a>
+              </sc-for>
+            </div>
+            <a href="https://lagrinding.com/shop/" style="display: inline-block; margin-top: 16px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 13px; color: #0B2A4A; border-bottom: 2px solid #EA4E32; padding-bottom: 3px">View the full catalog</a>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
+      <div onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeMenus }}" style="position: absolute; right: 0; left: 0; top: 100%; background: #ffffff; border-top: 3px solid #EA4E32; box-shadow: 0 24px 48px rgba(7,31,54,0.22)">
+        <div style="max-width: 1360px; margin: 0 auto; padding: 32px 40px 34px; display: grid; grid-template-columns: 1fr 1fr 1.1fr; gap: 44px">
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12.5px; color: #EA4E32; padding-bottom: 10px; border-bottom: 1px solid #d4d4d7">Sharpening</div>
+            <div style="display: flex; flex-direction: column; margin-top: 14px">
+              <a href="https://lagrinding.com/sharpening/" style="font-size: 14px; padding: 6px 0; color: #1d1f20" style-hover="color: #EA4E32">All Sharpening Services</a>
+              <a href="https://lagrinding.com/shear-blades-for-metal-fabrication/" style="font-size: 14px; padding: 6px 0; color: #1d1f20" style-hover="color: #EA4E32">Shear Blade Sharpening</a>
+              <a href="https://lagrinding.com/paper-knife-cutters-accessories/" style="font-size: 14px; padding: 6px 0; color: #1d1f20" style-hover="color: #EA4E32">Paper Knife Cutters &amp; Accessories</a>
+              <a href="https://lagrinding.com/granulators/" style="font-size: 14px; padding: 6px 0; color: #1d1f20" style-hover="color: #EA4E32">Granulator Knives</a>
+              <a href="https://lagrinding.com/tree-care-industry/" style="font-size: 14px; padding: 6px 0; color: #1d1f20" style-hover="color: #EA4E32">Chipper Knife Fitting</a>
+              <a href="https://lagrinding.com/stitching-wire-despooling/" style="font-size: 14px; padding: 6px 0; color: #1d1f20" style-hover="color: #EA4E32">Stitching Wire DeSpooling</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12.5px; color: #EA4E32; padding-bottom: 10px; border-bottom: 1px solid #d4d4d7">Account &amp; Service Requests</div>
+            <div style="display: flex; flex-direction: column; margin-top: 14px">
+              <a href="#requestModal" style="font-size: 14px; padding: 6px 0; color: #1d1f20" style-hover="color: #EA4E32">Request Quote</a>
+              <a href="#pickupModal" style="font-size: 14px; padding: 6px 0; color: #1d1f20" style-hover="color: #EA4E32">Schedule Pickup</a>
+              <a href="https://form.jotform.com/240656874741465" style="font-size: 14px; padding: 6px 0; color: #1d1f20" style-hover="color: #EA4E32">Credit Application</a>
+              <a href="https://pci.jotform.com/form/261734971116661" style="font-size: 14px; padding: 6px 0; color: #1d1f20" style-hover="color: #EA4E32">Pay My Bill</a>
+              <a href="https://lagrinding.com/contact/" style="font-size: 14px; padding: 6px 0; color: #1d1f20" style-hover="color: #EA4E32">Contact</a>
+              <a href="https://lagrinding.com/hours-and-directions/" style="font-size: 14px; padding: 6px 0; color: #1d1f20" style-hover="color: #EA4E32">Hours &amp; Directions</a>
+            </div>
+          </div>
+          <div style="background: #F2F2F3; padding: 24px 26px">
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 24px; text-transform: uppercase; letter-spacing: 0.01em; color: #0B2A4A; line-height: 1.05">Pickup &amp; delivery across CA, NV and AZ</div>
+            <p style="font-size: 14px; color: #4b5563; margin: 12px 0 18px; text-wrap: pretty">LA Grinding offers pickup and delivery service throughout California, Nevada and Arizona.</p>
+            <a href="#pickupModal" style="display: inline-block; background: #0B2A4A; color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 13px; padding: 12px 24px; border-radius: 999px" style-hover="background: #EA4E32">Schedule a pickup</a>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+  </div>
+
+  <section data-screen-label="Hero — Tree Care" style="position: relative; background: #071F36; overflow: hidden">
+    <img src="uploads/lag-tree-care-background.png" alt="Brush chipper knife on a log" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, #0A1E33 0%, rgba(10,30,51,0.92) 26%, rgba(10,30,51,0.55) 44%, rgba(10,30,51,0) 62%)"></div>
+    <div style="position: relative; max-width: 1360px; margin: 0 auto; padding: 56px 40px 92px">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 640px">
+        <a href="#requestModal" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.05; background: #12325A; color: #ffffff; border-radius: 999px; padding: 12px 18px; min-height: 62px; transition: background 200ms ease; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase" style-hover="background: #EA4E32; color: #ffffff" style-active="background: #c8480f; color: #ffffff"><span style="font-size: 14px; letter-spacing: 0.04em; white-space: nowrap">Request</span><span style="font-size: 25px; letter-spacing: 0.01em; white-space: nowrap">Quote</span></a>
+        <a href="#pickupModal" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.05; background: #12325A; color: #ffffff; border-radius: 999px; padding: 12px 18px; min-height: 62px; transition: background 200ms ease; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase" style-hover="background: #EA4E32; color: #ffffff" style-active="background: #c8480f; color: #ffffff"><span style="font-size: 14px; letter-spacing: 0.04em; white-space: nowrap">Schedule</span><span style="font-size: 25px; letter-spacing: 0.01em; white-space: nowrap">Pickup</span></a>
+        <a href="https://pci.jotform.com/form/261734971116661" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.05; background: #12325A; color: #ffffff; border-radius: 999px; padding: 12px 18px; min-height: 62px; transition: background 200ms ease; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase" style-hover="background: #EA4E32; color: #ffffff" style-active="background: #c8480f; color: #ffffff"><span style="font-size: 14px; letter-spacing: 0.04em; white-space: nowrap">Have a card on file?</span><span style="font-size: 25px; letter-spacing: 0.01em; white-space: nowrap">Pay My Bill</span></a>
+        <a href="https://form.jotform.com/240656874741465" style="display: flex; align-items: center; justify-content: center; grid-column: 1 / -1; min-height: 56px; background: #12325A; color: #ffffff; border-radius: 999px; padding: 12px 26px; transition: background 200ms ease; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 27px; letter-spacing: 0.01em" style-hover="background: #EA4E32; color: #ffffff" style-active="background: #c8480f; color: #ffffff">Credit Application</a>
+      </div>
+      <div style="max-width: 660px; margin-top: 52px">
+        <h1 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; color: #ffffff; font-size: 104px; line-height: 0.9; letter-spacing: -0.01em; margin: 0; text-transform: uppercase">Tree Care<br>Industry</h1>
+        <p style="color: #ffffff; font-size: 25px; line-height: 1.35; max-width: 600px; margin: 34px 0 18px; text-wrap: pretty">LA Grinding is a premier source for industry-grade professional sharpening services.</p>
+        <p style="color: #b9c6d4; font-size: 17px; line-height: 1.55; max-width: 600px; margin: 0 0 40px; text-wrap: pretty">Replacement parts, blades, fitting, and more - everything for the Tree Care Industry. Shop our precision ground exact match OEM replacement parts, now shipping nationwide!</p>
+        <div style="display: flex; align-items: center; gap: 18px">
+          <a href="https://lagrinding.com/shop/?swoof=1&amp;product_cat=tree-care" style="display: inline-flex; align-items: center; gap: 10px; background: #EA4E32; color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 24px; padding: 18px 42px" style-hover="background: #c93d24; color: #ffffff">Shop Now</a>
+          <a href="https://lagrinding.com/contact/" style="display: inline-flex; align-items: center; background: transparent; border: 1px solid rgba(255,255,255,0.6); color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 24px; padding: 17px 38px" style-hover="border-color: #EA4E32; color: #ffffff">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div style="position: relative; background: #ffffff">
+      <div style="max-width: 1360px; margin: 0 auto; padding: 11px 40px; display: flex; align-items: center; justify-content: flex-start; gap: 7px; flex-wrap: wrap">
+        <span style="font-size: 14.5px; color: #1d1f20">Orders placed on website receive</span>
+        <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; font-size: 16px; color: #EA4E32">Free shipping with standard Fedex 2-day delivery</span>
+      </div>
+    </div>
+    <div style="position: relative; background: #232323">
+      <div style="max-width: 1360px; margin: 0 auto; padding: 0 40px">
+        <a href="https://lagrinding.com/sharpening/" style="display: flex; align-items: center; justify-content: flex-start; gap: 10px; padding: 11px 0; color: #ffffff; flex-wrap: wrap" style-hover="color: #ffffff">
+          <img src="uploads/blade-orange.png" alt="" style="width: 22px; height: 22px; object-fit: contain">
+          <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; font-size: 16px; color: #EA4E32">I need sharpening or service</span>
+          <span style="font-size: 14.5px; color: #c9ccd0">Request a quote or schedule a pickup route</span>
+        </a>
+      </div>
+    </div>
+    </section>
+  
+
+  <section data-screen-label="Now You Can Order Online" style="background: #0B2A4A">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 64px 40px 68px">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px">
+        <div style="min-width: 0">
+          <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 62px; line-height: 0.94; color: #FFFFFF; margin: 0">Now you can<br></h2><h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 62px; line-height: 0.94; color: #EA4E31; margin: 0">ORDER ONLINE!<br></h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 12px; margin-top: 24px">
+            <a href="https://lagrinding.com/shop/?swoof=1&amp;product_cat=brush-chipper-knives" style="border: 1px solid rgba(255,255,255,0.35); font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 14px; padding: 8px 14px; transition: background 180ms ease, border-color 180ms ease, color 180ms ease; color: #ffffff" style-hover="background: #EA4E32; border-color: #EA4E32; color: #ffffff" style-active="background: #c8480f; border-color: #c8480f; color: #ffffff">Brush Chipper Knives</a>
+            <a href="https://lagrinding.com/shop/?swoof=1&amp;product_cat=mulcher-teeth" style="border: 1px solid rgba(255,255,255,0.35); font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 14px; padding: 8px 14px; transition: background 180ms ease, border-color 180ms ease, color 180ms ease; color: #ffffff" style-hover="background: #EA4E32; border-color: #EA4E32; color: #ffffff" style-active="background: #c8480f; border-color: #c8480f; color: #ffffff">Mulcher Teeth</a>
+            <a href="https://lagrinding.com/shop/?swoof=1&amp;product_cat=stump-grinding-teeth" style="border: 1px solid rgba(255,255,255,0.35); font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 14px; padding: 8px 14px; transition: background 180ms ease, border-color 180ms ease, color 180ms ease; color: #ffffff" style-hover="background: #EA4E32; border-color: #EA4E32; color: #ffffff" style-active="background: #c8480f; border-color: #c8480f; color: #ffffff">Stump Grinder Teeth</a>
+            <a href="https://lagrinding.com/shop/" style="border: 1px solid rgba(255,255,255,0.35); font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 14px; padding: 8px 14px; transition: background 180ms ease, border-color 180ms ease, color 180ms ease; color: #cfd8e3" style-hover="background: #EA4E32; border-color: #EA4E32; color: #ffffff" style-active="background: #c8480f; border-color: #c8480f; color: #ffffff">and More</a>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px; flex: 0 0 auto">
+          
+          
+        </div>
+      </div>
+      <div ref="{{ heroRef }}" style="min-width: 0; display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; scroll-padding: 12px; margin: 24px -12px 0; padding: 12px 12px 20px">
+        <sc-for list="{{ heroCards }}" as="h" hint-placeholder-count="3">
+          <a href="{{ h.href }}" class="blueprint" style="flex: 0 0 300px; scroll-snap-align: start; position: relative; border-color: rgba(255,255,255,0.35); background: rgba(7,31,54,0.4); color: #9aa5b1; display: block; transition: color 200ms ease, border-color 200ms ease" style-hover="border-color: #EA4E32; color: #EA4E32">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; top: -8px; left: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; top: -8px; right: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; bottom: -8px; left: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; bottom: -8px; right: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg>
+            <img src="{{ h.img }}" alt="{{ h.name }}" style="display: block; width: 100%; height: 208px; object-fit: cover">
+            <div style="padding: 16px 16px 18px; display: flex; align-items: center; justify-content: space-between; gap: 10px">
+              <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 17px; line-height: 1.1; color: #ffffff">{{ h.name }}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA4E32" stroke-width="2" style="flex: 0 0 auto"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section><section data-screen-label="Now You Can Order Online" style="background-color: #232323">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 64px 40px 68px">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px">
+        <div style="min-width: 0">
+          <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 62px; line-height: 0.94; color: #FFFFFF; margin: 0">Technical Data</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 12px; margin-top: 24px">
+            
+            
+            
+            
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px; flex: 0 0 auto">
+          
+          
+        </div>
+      </div>
+      <div ref="{{ techRef }}" style="min-width: 0; display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; scroll-padding: 12px; margin: 24px -12px 0; padding: 12px 12px 20px">
+        <sc-for list="{{ techCards }}" as="h" hint-placeholder-count="3">
+          <a href="{{ h.href }}" class="blueprint" style="flex: 0 0 300px; scroll-snap-align: start; position: relative; border-color: rgba(255,255,255,0.35); background: rgba(7,31,54,0.4); color: #9aa5b1; display: block; transition: color 200ms ease, border-color 200ms ease" style-hover="border-color: #EA4E32; color: #EA4E32">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; top: -8px; left: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; top: -8px; right: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; bottom: -8px; left: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; bottom: -8px; right: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg>
+            <img src="{{ h.img }}" alt="{{ h.name }}" style="display: block; width: 100%; height: 208px; object-fit: cover">
+            <div style="padding: 16px 16px 18px; display: flex; align-items: center; justify-content: space-between; gap: 10px">
+              <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 17px; line-height: 1.1; color: #ffffff">{{ h.name }}</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#EA4E32" aria-hidden="true" style="flex: 0 0 auto"><path d="M12 1.6a10.4 10.4 0 1 0 0 20.8 10.4 10.4 0 0 0 0-20.8zm0 2.2a8.2 8.2 0 1 1 0 16.4 8.2 8.2 0 0 1 0-16.4zm.7 3.9L11.15 9.25 12.9 11H7.4v2h5.5l-1.75 1.75L12.7 16.3 17 12z"></path></svg>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 26px; max-width: 420px; margin-top: 44px">
+        <a href="https://lagrinding.com/tree-care-industry/#requestModal" style="display: block; color: #ffffff" style-hover="color: #EA4E32">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 40px; font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 19px">Get A Quote
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 5l7 7-7 7z"></path></svg>
+          </div>
+          <div style="height: 5px; background: #EA4E32; margin-top: 10px"></div>
+        </a>
+        <a href="https://lagrinding.com/product-category/tree-care/" style="display: block; color: #ffffff" style-hover="color: #EA4E32">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 40px; font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 19px">See Tree Care Blades &amp; Parts
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 5l7 7-7 7z"></path></svg>
+          </div>
+          <div style="height: 5px; background: #EA4E32; margin-top: 10px"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="One Partner Makes It Easier" style="background: #ffffff">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 80px 40px 20px">
+      <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 46px; line-height: 1; color: #0B2A4A; margin: 0">One partner makes it easier</h2>
+      <p style="font-size: 16px; color: #4b5563; margin: 14px 0 0; max-width: 720px; text-wrap: pretty">Products, sharpening service and factory-authorized distribution — from one supplier serving California, Nevada and Arizona.</p>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px">
+        <sc-for list="{{ partnerCards }}" as="p" hint-placeholder-count="3">
+          <a href="{{ p.href }}" class="blueprint" style="position: relative; display: flex; flex-direction: column; background: #ffffff; border-color: #d4d4d7; color: #9a9d9f; transition: color 200ms ease, border-color 200ms ease" style-hover="border-color: #EA4E32; color: #EA4E32">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; top: -8px; left: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; top: -8px; right: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; bottom: -8px; left: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; bottom: -8px; right: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg>
+            <img src="{{ p.img }}" alt="{{ p.title }}" style="display: block; width: 100%; height: 240px; object-fit: cover">
+            <div style="padding: 24px 26px 28px; display: flex; flex-direction: column; flex: 1 1 auto">
+              <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 11.5px; color: #EA4E32">{{ p.kicker }}</div>
+              <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 27px; line-height: 1.04; color: #0B2A4A; margin: 10px 0 12px">{{ p.title }}</div>
+              <p style="font-size: 14.5px; line-height: 1.55; color: #4b5563; margin: 0 0 20px; text-wrap: pretty">{{ p.body }}</p>
+              <span style="margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 14px; color: #0B2A4A">{{ p.cta }}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA4E32" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
+              </span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Industries We Support" style="background: #ffffff">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 76px 40px 0">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px">
+        <div>
+          <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 46px; line-height: 1; color: #0B2A4A; margin: 0">How we support your industry</h2>
+          <p style="font-size: 16px; color: #4b5563; margin: 14px 0 0; max-width: 760px; text-wrap: pretty">Knives, blades, parts and sharpening built to O.E.M. specifications for the industries we have served since 1903.</p>
+        </div>
+        <a href="https://lagrinding.com/contact/" style="flex: 0 0 auto; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 14px; color: #0B2A4A; border-bottom: 2px solid #EA4E32; padding-bottom: 4px">Talk to a specialist</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 36px">
+        <sc-for list="{{ industryTiles }}" as="t" hint-placeholder-count="10">
+          <a href="{{ t.href }}" style="position: relative; display: block; height: 230px; overflow: hidden; background: #0B2A4A">
+            <img src="{{ t.img }}" alt="{{ t.name }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.82" style-hover="opacity: 1">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,31,54,0.15) 20%, rgba(7,31,54,0.88) 100%)"></div>
+            <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 18px 20px">
+              <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 21px; line-height: 1.06; color: #ffffff">{{ t.name }}</div>
+              <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}">
+                <div style="font-size: 12.5px; color: #cfd8e3; margin-top: 6px">{{ t.note }}</div>
+              </sc-if>
+              <div style="width: 34px; height: 3px; background: #EA4E32; margin-top: 12px"></div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Our Services" style="background: #F2F2F3; margin-top: 76px">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 72px 40px 76px">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px">
+        <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 46px; line-height: 1; color: #0B2A4A; margin: 0">Our services</h2>
+        <a href="https://lagrinding.com/sharpening/" style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 14px; color: #0B2A4A; border-bottom: 2px solid #EA4E32; padding-bottom: 4px">All sharpening services</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 36px">
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="5">
+          <a href="{{ s.href }}" class="blueprint" style="position: relative; display: flex; flex-direction: column; background: #ffffff; border-color: #d4d4d7; color: #9a9d9f; transition: color 200ms ease, border-color 200ms ease" style-hover="border-color: #EA4E32; color: #EA4E32">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; top: -8px; left: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; top: -8px; right: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; bottom: -8px; left: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="position: absolute; bottom: -8px; right: -8px; transition: color 200ms ease"><path fill-rule="evenodd" d="M23.40 12.00L20.37 12.75L20.16 14.00L23.01 14.95L19.89 14.89L19.36 16.05L21.87 17.70L18.87 16.83L18.06 17.81L20.06 20.06L17.39 18.44L16.35 19.19L17.70 21.87L15.54 19.62L14.34 20.07L14.95 23.01L13.44 20.27L12.18 20.40L12.00 23.40L11.25 20.37L10.00 20.16L9.05 23.01L9.11 19.89L7.95 19.36L6.30 21.87L7.17 18.87L6.19 18.06L3.94 20.06L5.56 17.39L4.81 16.35L2.13 17.70L4.38 15.54L3.93 14.34L0.99 14.95L3.73 13.44L3.60 12.18L0.60 12.00L3.63 11.25L3.84 10.00L0.99 9.05L4.11 9.11L4.64 7.95L2.13 6.30L5.13 7.17L5.94 6.19L3.94 3.94L6.61 5.56L7.65 4.81L6.30 2.13L8.46 4.38L9.66 3.93L9.05 0.99L10.56 3.73L11.82 3.60L12.00 0.60L12.75 3.63L14.00 3.84L14.95 0.99L14.89 4.11L16.05 4.64L17.70 2.13L16.83 5.13L17.81 5.94L20.06 3.94L18.44 6.61L19.19 7.65L21.87 6.30L19.62 8.46L20.07 9.66L23.01 9.05L20.27 10.56L20.40 11.82Z M12 9.6 A2.4 2.4 0 1 0 12 14.4 A2.4 2.4 0 1 0 12 9.6 Z"></path></svg>
+            <img src="{{ s.img }}" alt="{{ s.name }}" style="display: block; width: 100%; height: 150px; object-fit: cover">
+            <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; flex: 1 1 auto">
+              <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 22px; line-height: 1.05; color: #0B2A4A">{{ s.name }}</div>
+              <p style="font-size: 13.5px; line-height: 1.5; color: #4b5563; margin: 10px 0 18px; text-wrap: pretty">{{ s.body }}</p>
+              <span style="margin-top: auto; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 13px; color: #EA4E32">{{ s.cta }}</span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Featured Products" style="position: relative; background: #0B2A4A; overflow: hidden">
+    <img src="uploads/lag-tree-industry-hdr_new.webp" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+    <div style="position: absolute; inset: 0; background: rgba(13,31,53,0.82)"></div>
+    <div style="position: relative; max-width: 1360px; margin: 0 auto; padding: 70px 40px 60px">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px">
+        <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 46px; line-height: 1; color: #ffffff; margin: 0">Shop featured products</h2>
+        <div style="display: flex; align-items: center; gap: 10px">
+          <button type="button" onClick="{{ scrollProdLeft }}" style="width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.5); border-radius: 999px; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center" style-hover="border-color: #EA4E32">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8"><path d="M20 12H5M11 6l-6 6 6 6"></path></svg>
+          </button>
+          <button type="button" onClick="{{ scrollProdRight }}" style="width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.5); border-radius: 999px; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center" style-hover="border-color: #EA4E32">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
+          </button>
+        </div>
+      </div>
+      <div ref="{{ prodRef }}" style="display: flex; gap: 18px; margin-top: 30px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 14px">
+        <sc-for list="{{ featured }}" as="p" hint-placeholder-count="6">
+          <a href="{{ p.href }}" style="flex: 0 0 282px; border: 1px solid #d4d4d7; background: #ffffff; color: #1d1f20; display: flex; flex-direction: column" style-hover="border-color: #EA4E32">
+            <div style="height: 190px; background: #F2F2F3; overflow: hidden">
+              <img src="{{ p.img }}" alt="{{ p.name }}" style="display: block; width: 100%; height: 100%; object-fit: cover">
+            </div>
+            <div style="padding: 16px 18px 20px; display: flex; flex-direction: column; flex: 1 1 auto">
+              <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 11px; color: #EA4E32">{{ p.cat }}</div>
+              <div style="font-size: 14.5px; line-height: 1.4; color: #1d1f20; margin: 8px 0 14px; font-weight: 500">{{ p.name }}</div>
+              <span style="margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 13px; color: #0B2A4A">View product
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EA4E32" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
+              </span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Commercial Orders" style="position: relative; background: #0B2A4A; overflow: hidden">
+    <img src="https://lagrinding.com/wp-content/uploads/2026/05/lag-bottom04.webp" alt="Industrial blades stacked in a workshop" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35">
+    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, #0B2A4A 30%, rgba(11,42,74,0.55) 100%)"></div>
+    <div style="position: relative; max-width: 1360px; margin: 0 auto; padding: 66px 40px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center">
+      <div>
+        <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; font-size: 12.5px; color: #EA4E32">Built for commercial orders</div>
+        <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 54px; line-height: 0.98; color: #ffffff; margin: 14px 0 16px">Buying in volume?<br>Talk to us directly.</h2>
+        <p style="font-size: 16.5px; line-height: 1.55; color: #dfe6ee; margin: 0; max-width: 620px; text-wrap: pretty">LA Grinding supports recurring sharpening programs, scheduled pickup and delivery routes, and larger replacement-blade orders across California, Nevada and Arizona. Send us your part numbers and specifications and our product specialists will quote them.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <a href="#requestModal" style="display: flex; align-items: center; justify-content: space-between; background: #EA4E32; color: #ffffff; padding: 18px 26px; border-radius: 999px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 17px" style-hover="background: #ffffff; color: #0B2A4A">Request Quote
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
+        </a>
+        <a href="https://lagrinding.com/shop/" style="display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(255,255,255,0.45); color: #ffffff; padding: 17px 26px; border-radius: 999px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 17px" style-hover="border-color: #EA4E32">Shop the catalog
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
+        </a>
+        <a href="https://form.jotform.com/240656874741465" style="display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(255,255,255,0.2); color: #cfd8e3; padding: 15px 26px; border-radius: 999px; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; font-size: 15px" style-hover="border-color: #EA4E32; color: #ffffff">Credit Application</a>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Shop by Category" style="background: #ffffff">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 76px 40px 0">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px">
+        <div>
+          <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 46px; line-height: 1; color: #0B2A4A; margin: 0">Shop by category</h2>
+          <p style="font-size: 16px; color: #4b5563; margin: 12px 0 0">Straight from the LA Grinding catalog.</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px">
+          <button type="button" onClick="{{ scrollCatsLeft }}" style="width: 44px; height: 44px; border: 1px solid #d4d4d7; border-radius: 999px; background: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: center" style-hover="border-color: #EA4E32">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B2A4A" stroke-width="1.8"><path d="M20 12H5M11 6l-6 6 6 6"></path></svg>
+          </button>
+          <button type="button" onClick="{{ scrollCatsRight }}" style="width: 44px; height: 44px; border: 1px solid #d4d4d7; border-radius: 999px; background: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: center" style-hover="border-color: #EA4E32">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B2A4A" stroke-width="1.8"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
+          </button>
+        </div>
+      </div>
+      <div ref="{{ catsRef }}" style="display: flex; gap: 18px; margin-top: 32px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 14px; scroll-snap-type: x mandatory">
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="15">
+          <a href="{{ c.href }}" style="flex: 0 0 236px; scroll-snap-align: start; border: 1px solid #d4d4d7; background: #ffffff; color: #1d1f20; display: block" style-hover="border-color: #EA4E32">
+            <div style="height: 150px; background: #F2F2F3; overflow: hidden">
+              <img src="{{ c.img }}" alt="{{ c.name }}" style="display: block; width: 100%; height: 100%; object-fit: cover">
+            </div>
+            <div style="padding: 16px 16px 18px; display: flex; align-items: center; justify-content: space-between; gap: 10px">
+              <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 18px; line-height: 1.08; color: #0B2A4A">{{ c.name }}</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA4E32" stroke-width="2" style="flex: 0 0 auto"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Shop by Industry" style="background: #ffffff">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 64px 40px 0">
+      <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 46px; line-height: 1; color: #0B2A4A; margin: 0">Shop by industry</h2>
+      <p style="font-size: 16px; color: #4b5563; margin: 12px 0 0">Filter the catalog to the products your operation runs.</p>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 32px">
+        <sc-for list="{{ shopIndustries }}" as="i" hint-placeholder-count="10">
+          <a href="{{ i.href }}" class="ind-card" style="border: 1px solid #d4d4d7; background: #ffffff; padding: 24px 16px 22px; color: #1d1f20; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; min-height: 250px; justify-content: flex-start" style-hover="border-color: #EA4E32; background: #F2F2F3">
+            <span style="width: 100%; height: 156px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px">
+              <img src="{{ i.icon }}" alt="{{ i.name }}" style="max-height: 156px; max-width: 100%; width: auto; height: auto; object-fit: contain">
+            </span>
+            <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 18px; line-height: 1.08; color: #0B2A4A">{{ i.name }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Shop by Brand" style="background: #ffffff">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 64px 40px 0">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px">
+        <div>
+          <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 46px; line-height: 1; color: #0B2A4A; margin: 0">Shop by brand</h2>
+          <p style="font-size: 16px; color: #4b5563; margin: 12px 0 0">Machine-matched blades and parts by manufacturer.</p>
+        </div>
+        <a href="https://lagrinding.com/shop/" style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 14px; color: #0B2A4A; border-bottom: 2px solid #EA4E32; padding-bottom: 4px">All brands</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 32px">
+        <sc-for list="{{ brands }}" as="b" hint-placeholder-count="18">
+          <a href="{{ b.href }}" class="brand-card" style="border: 1px solid #d4d4d7; background: #ffffff; padding: 20px 16px 18px; color: #1d1f20; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; min-height: 146px; justify-content: flex-start" style-hover="border-color: #EA4E32; background: #F2F2F3">
+            <span style="width: 100%; height: 56px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px">
+              <img src="{{ b.logo }}" alt="{{ b.name }}" style="max-height: 46px; max-width: 88%; width: auto; height: auto; object-fit: contain">
+            </span>
+            <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 18px; line-height: 1.08; color: #0B2A4A">{{ b.name }}</span>
+            <span style="font-size: 12px; color: #6b7280; letter-spacing: 0.04em">{{ b.meta }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+
+  <section data-screen-label="3 Locations" style="position: relative; background: #F2F2F3; margin-top: 70px; overflow: hidden">
+    <img src="https://lagrinding.com/wp-content/uploads/2026/05/lag-bottom04.webp" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.16; filter: grayscale(1) brightness(1.5)">
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.82) 42%, rgba(255,255,255,0.9) 100%)"></div>
+    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: 96px 60px 104px; display: grid; grid-template-columns: 1fr 1.05fr; gap: 72px; align-items: center">
+      <div>
+        <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; font-size: 26px; color: #12325A">3 Locations to Serve Your Needs</div>
+        <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 52px; line-height: 1.28; font-weight: 500; color: #12325A; margin: 22px 0 26px; max-width: 680px">The largest provider of new and sharpened industrial knives and blades in the Western United States.</h2>
+        <p style="font-size: 16.5px; line-height: 1.75; color: #3f4a56; margin: 0 0 30px; max-width: 640px; text-wrap: pretty">Founded in 1903, L.A. Grinding Company is the largest provider in printing, paper converting, plastics, and corrugated industries. Research and development have given L.A. Grinding the ability to provide solutions to complex problems, which are an integral part of our customer's success, providing our customers with an appreciable competitive advantage.</p>
+        <a href="https://lagrinding.com/contact/" style="display: inline-flex; align-items: center; justify-content: space-between; gap: 60px; min-width: 240px; color: #12325A; font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 18px; padding-bottom: 10px; border-bottom: 4px solid #EA4E32" style-hover="color: #EA4E32">Learn More<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 5l7 7-7 7z"></path></svg></a>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 38px; border-top: 1px solid #d4d4d7; padding-top: 26px">
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 13px; color: #0B2A4A">California</div>
+            <div style="font-size: 13.5px; color: #4b5563; margin-top: 8px; line-height: 1.5">305 N. Victory Blvd.<br>Burbank, CA 91502</div>
+            <a href="tel:8188469134" style="display: inline-block; margin-top: 8px; font-size: 14px; font-weight: 600; color: #0B2A4A">818-846-9134</a>
+          </div>
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 13px; color: #0B2A4A">Arizona</div>
+            <div style="font-size: 13.5px; color: #4b5563; margin-top: 8px; line-height: 1.5">319 W. Lone Cactus, Unit #D<br>Phoenix, AZ 85027</div>
+            <a href="tel:6237809134" style="display: inline-block; margin-top: 8px; font-size: 14px; font-weight: 600; color: #0B2A4A">623-780-9134</a>
+          </div>
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 13px; color: #0B2A4A">Nevada</div>
+            <div style="font-size: 13.5px; color: #4b5563; margin-top: 8px; line-height: 1.5">Pickup &amp; delivery routes<br>statewide</div>
+            <a href="tel:7028359099" style="display: inline-block; margin-top: 8px; font-size: 14px; font-weight: 600; color: #0B2A4A">702-835-9099</a>
+          </div>
+        </div>
+      </div>
+      <div style="position: relative">
+
+        <img src="https://lagrinding.com/wp-content/uploads/2025/12/map-service.webp" alt="Service coverage map showing locations in California, Nevada, and Arizona" style="display: block; width: 112%; max-width: none; margin-left: -6%; height: auto">
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Distributor Logos" style="background: #ffffff">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 70px 40px 74px">
+      <div style="text-align: center">
+        <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 38px; line-height: 1; color: #0B2A4A; margin: 0">Serving California, Nevada, and Arizona</h2>
+        <div style="width: 64px; height: 3px; background: #EA4E32; margin: 18px auto 0"></div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(9, 1fr); gap: 1px; background: #e7e7ea; border: 1px solid #e7e7ea; margin-top: 40px">
+        <sc-for list="{{ brandLogos }}" as="l" hint-placeholder-count="18">
+          <div style="background: #ffffff; height: 108px; display: flex; align-items: center; justify-content: center; padding: 16px">
+            <img src="{{ l.img }}" alt="{{ l.name }}" style="max-width: 100%; max-height: 62px; width: auto; height: auto; object-fit: contain; filter: grayscale(1); opacity: 0.75" style-hover="filter: none; opacity: 1">
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showMobile }}" hint-placeholder-val="{{ true }}">
+    <section data-screen-label="Mobile Concept" style="background: #071F36">
+      <div style="max-width: 1360px; margin: 0 auto; padding: 70px 40px 78px">
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px">
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; font-size: 12.5px; color: #EA4E32">Responsive concept</div>
+            <h2 style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 40px; line-height: 1; color: #ffffff; margin: 12px 0 0">Mobile navigation</h2>
+          </div>
+          <p style="font-size: 14.5px; color: #a9b7c6; max-width: 460px; margin: 0; text-wrap: pretty">Conversion actions and search stay pinned; Shop All and Services expand as accordions instead of listing every industry as a top-level item.</p>
+        </div>
+        <div style="display: flex; gap: 28px; margin-top: 40px; align-items: flex-start; overflow-x: auto; padding-bottom: 12px">
+          <div style="flex: 0 0 360px; background: #ffffff; border: 1px solid rgba(255,255,255,0.2)">
+            <div style="background: #071F36; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; gap: 8px">
+              <div style="display: flex; gap: 10px; font-size: 11px; color: #cfd8e3">
+                <span>CA 818-846-9134</span><span style="color: #EA4E32">AZ</span><span style="color: #EA4E32">NV</span>
+              </div>
+              <span style="font-size: 11px; color: #cfd8e3">Pay My Bill</span>
+            </div>
+            <div style="background: #0B2A4A; padding: 12px 14px; display: flex; align-items: center; gap: 12px">
+              <img src="uploads/logo-la-arizona-grinding.webp" alt="L.A. Grinding" style="height: 34px; width: auto">
+              <div style="display: flex; gap: 10px; margin-left: auto; color: #ffffff">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 8H6"></path></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+              </div>
+            </div>
+            <div style="background: #0B2A4A; padding: 0 14px 14px">
+              <div style="display: flex; height: 44px; background: #ffffff; border: 2px solid #EA4E32">
+                <div style="flex: 1 1 auto; display: flex; align-items: center; padding: 0 12px; font-size: 12.5px; color: #9aa3ad">What product, brand or SKU…</div>
+                <div style="width: 46px; background: #EA4E32; display: flex; align-items: center; justify-content: center">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M16.5 16.5 21 21"></path></svg>
+                </div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #e7e7ea">
+              <div style="background: #EA4E32; color: #ffffff; text-align: center; padding: 13px 8px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 13px">Request Quote</div>
+              <div style="background: #F2F2F3; color: #0B2A4A; text-align: center; padding: 13px 8px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 13px">Schedule Pickup</div>
+            </div>
+            <div style="position: relative; height: 250px; background: #071F36; overflow: hidden">
+              <img src="https://lagrinding.com/wp-content/uploads/2026/05/lag-tree-industry-hdr_new.webp" alt="Tree Care Industry" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5">
+              <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,31,54,0.3), rgba(7,31,54,0.9))"></div>
+              <div style="position: absolute; inset: 0; padding: 18px; display: flex; flex-direction: column; justify-content: flex-end">
+                <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 30px; line-height: 0.98; color: #ffffff">Now you can order online!</div>
+                <div style="font-size: 12.5px; color: #cfd8e3; margin-top: 8px">Brush Chipper Knives · Mulcher Teeth · Stump Grinder Teeth</div>
+                <div style="margin-top: 14px; background: #EA4E32; color: #ffffff; text-align: center; padding: 12px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 14px">Shop Now</div>
+              </div>
+            </div>
+            <div style="padding: 16px 14px 20px">
+              <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 11.5px; color: #6b7280">Shop by category</div>
+              <div style="display: flex; gap: 10px; margin-top: 12px; overflow: hidden">
+                <div style="flex: 0 0 130px; border: 1px solid #d4d4d7">
+                  <img src="https://lagrinding.com/wp-content/uploads/2026/03/Brush-Chipper-Knife.jpg" alt="Tree Care" style="display: block; width: 100%; height: 78px; object-fit: cover">
+                  <div style="padding: 8px 10px 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 14px; color: #0B2A4A">Tree Care</div>
+                </div>
+                <div style="flex: 0 0 130px; border: 1px solid #d4d4d7">
+                  <img src="https://lagrinding.com/wp-content/uploads/2026/05/bgslide_01-1.webp" alt="Shear Blades" style="display: block; width: 100%; height: 78px; object-fit: cover">
+                  <div style="padding: 8px 10px 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 14px; color: #0B2A4A">Shear Blades</div>
+                </div>
+                <div style="flex: 0 0 130px; border: 1px solid #d4d4d7">
+                  <img src="https://lagrinding.com/wp-content/uploads/2026/05/granulators-slide-bg02.webp" alt="Granulators" style="display: block; width: 100%; height: 78px; object-fit: cover">
+                  <div style="padding: 8px 10px 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 14px; color: #0B2A4A">Granulators</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="flex: 0 0 360px; background: #ffffff; border: 1px solid rgba(255,255,255,0.2)">
+            <div style="background: #0B2A4A; padding: 12px 14px; display: flex; align-items: center; gap: 12px">
+              <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 14px; color: #ffffff">Menu</span>
+              <span style="margin-left: auto; color: #ffffff; font-size: 20px; line-height: 1">×</span>
+            </div>
+            <div style="background: #0B2A4A; padding: 0 14px 14px">
+              <div style="display: flex; height: 42px; background: #ffffff; border: 2px solid #EA4E32">
+                <div style="flex: 1 1 auto; display: flex; align-items: center; padding: 0 12px; font-size: 12.5px; color: #9aa3ad">Search products, brands, SKU…</div>
+              </div>
+            </div>
+            <div style="border-bottom: 1px solid #e7e7ea; padding: 14px; display: flex; align-items: center; justify-content: space-between; background: #F2F2F3">
+              <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 15px; color: #0B2A4A">Shop All</span>
+              <span style="color: #EA4E32; font-size: 18px">−</span>
+            </div>
+            <div style="padding: 12px 14px 4px">
+              <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 11px; color: #EA4E32">Shop by category</div>
+            </div>
+            <div style="display: flex; flex-direction: column">
+              <sc-for list="{{ mobileCats }}" as="c" hint-placeholder-count="6">
+                <a href="{{ c.href }}" style="padding: 10px 14px; font-size: 14px; color: #1d1f20; border-bottom: 1px solid #f1f1f3" style-hover="color: #EA4E32">{{ c.name }}</a>
+              </sc-for>
+            </div>
+            <div style="padding: 14px 14px 4px">
+              <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 11px; color: #EA4E32">Shop by industry / brand</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px">
+                <span style="border: 1px solid #d4d4d7; padding: 6px 10px; font-size: 12.5px; color: #0B2A4A">Tree Care</span>
+                <span style="border: 1px solid #d4d4d7; padding: 6px 10px; font-size: 12.5px; color: #0B2A4A">Metal</span>
+                <span style="border: 1px solid #d4d4d7; padding: 6px 10px; font-size: 12.5px; color: #0B2A4A">Printing &amp; Bindery</span>
+                <span style="border: 1px solid #d4d4d7; padding: 6px 10px; font-size: 12.5px; color: #0B2A4A">Freud</span>
+                <span style="border: 1px solid #d4d4d7; padding: 6px 10px; font-size: 12.5px; color: #0B2A4A">Diablo</span>
+              </div>
+            </div>
+            <div style="border-top: 1px solid #e7e7ea; margin-top: 16px; padding: 14px; display: flex; align-items: center; justify-content: space-between">
+              <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 15px; color: #0B2A4A">Services</span>
+              <span style="color: #EA4E32; font-size: 18px">+</span>
+            </div>
+            <div style="border-top: 1px solid #e7e7ea; padding: 14px; display: flex; align-items: center; justify-content: space-between">
+              <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 15px; color: #0B2A4A">Cart</span>
+              <span style="color: #6b7280; font-size: 13px">0 items</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #e7e7ea; border-top: 1px solid #e7e7ea">
+              <div style="background: #EA4E32; color: #ffffff; text-align: center; padding: 13px 8px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 13px">Request Quote</div>
+              <div style="background: #0B2A4A; color: #ffffff; text-align: center; padding: 13px 8px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 13px">Schedule Pickup</div>
+              <div style="background: #F2F2F3; color: #0B2A4A; text-align: center; padding: 13px 8px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 13px">Pay My Bill</div>
+              <div style="background: #F2F2F3; color: #0B2A4A; text-align: center; padding: 13px 8px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 13px">Credit Application</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+
+  <section data-screen-label="Photo Strip" style="background: #2b2b2b">
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; line-height: 0">
+      <img src="uploads/lag-bottom01.webp" alt="Paper cutter knife in a guillotine cutter" style="display: block; width: 100%; height: 240px; object-fit: cover">
+      <img src="uploads/lag-bottom02.webp" alt="Bandsaw blade cutting hardwood" style="display: block; width: 100%; height: 240px; object-fit: cover">
+      <img src="https://lagrinding.com/wp-content/uploads/2026/05/image002.webp" alt="Serrated tape knives" style="display: block; width: 100%; height: 240px; object-fit: cover">
+      <img src="uploads/lag-bottom04.webp" alt="Sharpened blades tagged and ready for delivery" style="display: block; width: 100%; height: 240px; object-fit: cover">
+      <img src="uploads/lag-bottom05.webp" alt="Tire recycling yard" style="display: block; width: 100%; height: 240px; object-fit: cover">
+    </div>
+  </section>
+
+  <footer style="background: #1F1F1F; color: #d5d7d9">
+    <div style="max-width: 1440px; margin: 0 auto; padding: 66px 44px 58px; display: grid; grid-template-columns: 0.85fr 0.9fr 1.25fr 1.75fr 0.9fr; gap: 34px; align-items: start">
+      <div>
+        <img src="https://lagrinding.com/wp-content/uploads/2022/02/ftr-logo.png" alt="L.A. Grinding" style="display: block; width: 178px; height: auto">
+        <div style="display: flex; gap: 22px; margin-top: 26px">
+          <a href="https://www.facebook.com/people/LA-Grinding-Co/100066426712226/" aria-label="Facebook" style="color: #EA4E32; display: block" style-hover="color: #ffffff">
+            <svg width="27" height="27" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-1.6 19.9v-7h-2.5V12h2.5v-1.9c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 12 2z"></path></svg>
+          </a>
+          <a href="https://www.instagram.com/lagrinding1/" aria-label="Instagram" style="color: #EA4E32; display: block" style-hover="color: #ffffff">
+            <svg width="27" height="27" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4A5.8 5.8 0 0 1 16.2 22H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.5-2.8a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"></path></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/los-angeles-grinding-co" aria-label="LinkedIn" style="color: #EA4E32; display: block" style-hover="color: #ffffff">
+            <svg width="27" height="27" viewBox="0 0 24 24" fill="currentColor"><path d="M3.2 8.6h3.5V21H3.2V8.6zM5 3a2.1 2.1 0 1 0 0 4.2A2.1 2.1 0 0 0 5 3zM9.3 8.6h3.35v1.7h.05c.55-.95 1.85-1.95 3.85-1.95 2.85 0 4.25 1.85 4.25 5.25V21h-3.5v-6.6c0-1.7-.65-2.65-2-2.65-1.3 0-2.15.9-2.15 2.6V21H9.3V8.6z"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 17px; color: #EA4E32">Quick Links</div>
+        <div style="display: flex; flex-direction: column; gap: 11px; margin-top: 18px">
+          <sc-for list="{{ quickLinks }}" as="q" hint-placeholder-count="13">
+            <a href="{{ q.href }}" style="font-size: 14.5px; color: #ffffff" style-hover="color: #EA4E32">{{ q.name }}</a>
+          </sc-for>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 17px; color: #EA4E32">Locations</div>
+        <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 22px">
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 16px; color: #9a9d9f">California</div>
+            <div style="font-size: 14.5px; line-height: 1.5; color: #ffffff; margin-top: 10px">305 N. Victory Blvd.<br>Burbank, CA 91502</div>
+            <a href="tel:8188469134" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 19px; color: #ffffff; white-space: nowrap" style-hover="color: #EA4E32">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex: 0 0 auto"><path d="M6.6 2h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5l1.4-2 4 1.5v3c0 1.4-1.1 2.6-2.6 2.6A16.4 16.4 0 0 1 4 6.6C4 5.1 5.2 4 6.6 4V2z"></path></svg>
+              818-846-9134
+            </a>
+          </div>
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 16px; color: #9a9d9f">Arizona</div>
+            <div style="font-size: 14.5px; line-height: 1.5; color: #ffffff; margin-top: 10px">319 W. Lone Cactus, Unit #D<br>Phoenix, AZ 85027</div>
+            <a href="tel:6237809134" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 19px; color: #ffffff; white-space: nowrap" style-hover="color: #EA4E32">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex: 0 0 auto"><path d="M6.6 2h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5l1.4-2 4 1.5v3c0 1.4-1.1 2.6-2.6 2.6A16.4 16.4 0 0 1 4 6.6C4 5.1 5.2 4 6.6 4V2z"></path></svg>
+              623-780-9134
+            </a>
+          </div>
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 16px; color: #9a9d9f">Nevada</div>
+            <a href="tel:7028359099" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 19px; color: #ffffff; white-space: nowrap" style-hover="color: #EA4E32">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex: 0 0 auto"><path d="M6.6 2h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5l1.4-2 4 1.5v3c0 1.4-1.1 2.6-2.6 2.6A16.4 16.4 0 0 1 4 6.6C4 5.1 5.2 4 6.6 4V2z"></path></svg>
+              702-835-9099
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; font-size: 17px; line-height: 1.25; color: #EA4E32; max-width: 470px">LA Grinding offers pickup and delivery service throughout California, Nevada and Arizona</div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 22px">
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 16px; color: #9a9d9f">California</div>
+            <ul style="list-style: disc; padding-left: 18px; margin: 12px 0 0; display: flex; flex-direction: column; gap: 8px">
+              <sc-for list="{{ caCities }}" as="c" hint-placeholder-count="14">
+                <li style="font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: #9a9d9f">{{ c }}</li>
+              </sc-for>
+            </ul>
+          </div>
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 16px; color: #9a9d9f">Arizona</div>
+            <ul style="list-style: disc; padding-left: 18px; margin: 12px 0 0; display: flex; flex-direction: column; gap: 8px">
+              <sc-for list="{{ azCities }}" as="c" hint-placeholder-count="6">
+                <li style="font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: #9a9d9f">{{ c }}</li>
+              </sc-for>
+            </ul>
+          </div>
+          <div>
+            <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 16px; color: #9a9d9f">Nevada</div>
+            <ul style="list-style: disc; padding-left: 18px; margin: 12px 0 0; display: flex; flex-direction: column; gap: 8px">
+              <sc-for list="{{ nvCities }}" as="c" hint-placeholder-count="6">
+                <li style="font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: #9a9d9f">{{ c }}</li>
+              </sc-for>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 22px">
+        <a href="#requestModal" style="display: block; color: #ffffff" style-hover="color: #EA4E32">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 19px">Request Quote
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 5l7 7-7 7z"></path></svg>
+          </div>
+          <div style="height: 3px; background: #EA4E32; margin-top: 10px"></div>
+        </a>
+        <a href="#pickupModal" style="display: block; color: #ffffff" style-hover="color: #EA4E32">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 19px">Schedule Pickup
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 5l7 7-7 7z"></path></svg>
+          </div>
+          <div style="height: 3px; background: #EA4E32; margin-top: 10px"></div>
+        </a>
+        <a href="https://lagrinding.com/return-policy/" style="display: block; color: #ffffff" style-hover="color: #EA4E32">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 19px">Return Policy
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 5l7 7-7 7z"></path></svg>
+          </div>
+          <div style="height: 3px; background: #EA4E32; margin-top: 10px"></div>
+        </a>
+        <a href="https://form.jotform.com/221251653532650" style="margin-top: 6px; align-self: stretch; text-align: center; background: #EA4E32; color: #ffffff; border-radius: 999px; padding: 18px 22px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 19px" style-hover="background: #c93d24; color: #ffffff">Pay My Bill</a>
+      </div>
+    </div>
+
+    <div style="background: #141414">
+      <div style="max-width: 1440px; margin: 0 auto; padding: 18px 44px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap">
+        <div style="font-size: 13px; color: #b9bbbd; display: flex; align-items: center; gap: 10px">
+          <span>Copyright © 2026 L.A. Grinding. All Rights Reserved</span>
+          <span style="color: #6b6d6f">|</span>
+          <a href="https://lagrinding.com/terms-and-conditions/" style="color: #b9bbbd" style-hover="color: #EA4E32">Terms &amp; Conditions</a>
+          <a href="https://lagrinding.com/cookie-policy/" style="color: #b9bbbd" style-hover="color: #EA4E32">Cookie Policy</a>
+        </div>
+        <div style="margin-left: auto; display: flex; align-items: center; gap: 14px">
+          <span style="font-size: 13px; color: #b9bbbd">Site Powered By:</span>
+          <a href="https://www.jastmedia.com/" style="display: block">
+            <img src="uploads/jast-media-logo-white.png" alt="JAST Media" style="display: block; height: 22px; width: auto">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showMobileConcept&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mockup scope&quot;},&quot;industryTileCaptions&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mockup scope&quot;}}">
+const U = "https://lagrinding.com/wp-content/uploads/";
+const IMG = {
+  tree: U + "2026/05/lag-tree-industry-hdr_new.webp",
+  chipper: U + "2026/03/Brush-Chipper-Knife.jpg",
+  stump: U + "2026/03/stump-grinder-teeth.jpg",
+  freud: U + "2026/05/blade_diablo_freud.webp",
+  gran: U + "2026/05/granulators-slide-bg02.webp",
+  paper: U + "2026/05/paper-knives-slide-1.webp",
+  shear: U + "2026/05/bgslide_01-1.webp",
+  shearMachine: U + "2026/05/lag-bottom01.webp",
+  bandsaw: U + "2026/05/lag-bottom02.webp",
+  accessories: U + "2026/05/image002.webp",
+  bladeStack: U + "2026/05/lag-bottom04.webp",
+  tires: U + "2026/05/lag-bottom05.webp",
+  ice: U + "2022/03/AZ-IceRinks.png",
+  iceKnives: U + "2022/03/knives-ice-rinks.png"
+};
+const SHOP = "https://lagrinding.com/shop/?swoof=1&";
+
+class Component extends DCLogic {
+  componentDidMount() {
+    const el = document.getElementById('stickyNav');
+    if (!el) return;
+    this._onScroll = () => {
+      const y = window.pageYOffset || document.documentElement.scrollTop;
+      el.classList.toggle('is-stuck', y > 8);
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+  }
+
+  state = { menu: null, searchOpen: false };
+
+  catsRef = React.createRef();
+  prodRef = React.createRef();
+  heroRef = React.createRef();
+  techRef = React.createRef();
+
+  nudge(ref, dir, amount) {
+    const el = ref.current;
+    if (el) el.scrollBy({ left: dir * (amount || 780), behavior: "smooth" });
+  }
+
+  renderVals() {
+    const cats = [
+      { name: "Circular Saw Blades", href: SHOP + "product_cat=circular-saw-blades", img: "uploads/12-x-96-teeth-saw-blade-for-medium-aluminum-600x600-61cfc156.jpg" },
+      { name: "Granulators", href: "https://lagrinding.com/product-category/granulators/", img: "uploads/granulator.jpg" },
+      { name: "Ice Rink", href: "https://lagrinding.com/product-category/ice-rinks/", img: IMG.ice },
+      { name: "LA Grinding Catalog", href: "https://lagrinding.com/shop/", img: "uploads/download-1.jpg" },
+      { name: "Oscillating Multi-Tool Blades", href: SHOP + "product_cat=oscillating-multi-tool-blades", img: "uploads/3-pc-universal-fit-carbide-oscillating-blade-set-3-piece-600x600.jpg" },
+      { name: "Paper Knife Accessories", href: "https://lagrinding.com/product-category/la-grinding-catalog/paper-knife-cutters-accessories/", img: "uploads/A753-300x300.webp" },
+      { name: "Reciprocating Blades", href: SHOP + "product_cat=reciprocating-blades", img: "uploads/9-5-7-tpi-amped-demo-demon-carbide-teeth-reciprocating-saw-blade-for-nail-embedded-woodd-600x600.jpg" },
+      { name: "Router Bits", href: SHOP + "product_cat=router-bits", img: "uploads/1-11-16-dia-premier-adjustable-rail-stile-bit-bevel-600x600.jpg" },
+      { name: "Sanding", href: SHOP + "product_cat=sanding", img: "uploads/2-3-4-x-5-assorted-sandnet-reusable-sanding-sheets-10-piece-600x600.jpg" },
+      { name: "Saw Blades", href: SHOP + "product_cat=saw-blades", img: "uploads/12-x-96-teeth-saw-blade-for-medium-aluminum-600x600.jpg" },
+      { name: "Screwdriving Bits", href: SHOP + "product_cat=screwdriving-bits", img: "uploads/1-4-hex-to-1-2-square-socket-adapter-600x600.jpg" },
+      { name: "Serrated Tape Knives", href: "https://lagrinding.com/product-category/cutoff-knives/", img: "uploads/tree-care.png" },
+      { name: "Shear Blades", href: SHOP + "product_cat=shear-blades", img: "uploads/shear-blades.png" },
+      { name: "Tools", href: SHOP + "product_cat=tools", img: "uploads/W74-300x300.webp" },
+      { name: "Tree Care", href: SHOP + "product_cat=tree-care", img: IMG.chipper }
+    ];
+
+    const shopIndustries = [
+      { name: "Construction", href: "https://lagrinding.com/woodworking-and-construction/", icon: "uploads/icon-woodworking.png", menuIcon: "uploads/menu-construction.png" },
+      { name: "Corrugated Knives & Accessories", href: "https://lagrinding.com/corrugated/", icon: "uploads/icon-corrugated.png", menuIcon: "uploads/menu-corrugated.png" },
+      { name: "Food Processing & Packaging", href: "https://lagrinding.com/packaging/", icon: "uploads/icon-food.png", menuIcon: "uploads/menu-food.png" },
+      { name: "Ice Rink Operations", href: "https://lagrinding.com/ice-rinks-products/", icon: "uploads/icon-icerink.png", menuIcon: "uploads/menu-icerink.png" },
+      { name: "Metal Industry", href: "https://lagrinding.com/shear-blades-for-metal-fabrication/", icon: "uploads/icon-metal.png", menuIcon: "uploads/menu-metal.png" },
+      { name: "Plastic", href: "https://lagrinding.com/granulators-for-recycling-plastic/", icon: "uploads/icon-paper.png", menuIcon: "uploads/menu-plastic.png" },
+      { name: "Printing & Bindery", href: "https://lagrinding.com/printing-and-bindery/", icon: "uploads/icon-printing.png", menuIcon: "uploads/menu-printing.png" },
+      { name: "Recycling & Waste Management", href: "https://lagrinding.com/recycling-plastic-industry/", icon: "uploads/icon-plastic.png", menuIcon: "uploads/menu-recycling.png" },
+      { name: "Tree Care", href: "https://lagrinding.com/tree-care-industry/", icon: "uploads/icon-treecare.png", menuIcon: "uploads/menu-treecare.png" },
+      { name: "Woodworking & Construction", href: "https://lagrinding.com/woodworking-and-construction/", icon: "uploads/icon-woodworking.png", menuIcon: "uploads/menu-woodworking.png" }
+    ];
+
+    const UP = "uploads/";
+    const brands = [
+      { name: "Freud", meta: "Official distributor", logo: UP + "logo_freud.webp", href: SHOP + "pa_main-brand=freud" },
+      { name: "Diablo", meta: "Official distributor", logo: UP + "diablo-logo.webp", href: SHOP + "pa_main-brand=diablo" },
+      { name: "Wysong & Miles", meta: "56 products", logo: UP + "wysong-clean.png", href: SHOP + "pa_brand=wysong-miles" },
+      { name: "Accurshear", meta: "36 products", logo: UP + "Accurshear.png", href: SHOP + "pa_brand=accurshear" },
+      { name: "Pexto", meta: "30 products", logo: UP + "Pexto-hammertone-blue-140x.png", href: SHOP + "pa_brand=pexto" },
+      { name: "Tennsmith", meta: "22 products", logo: UP + "tennsmith-clean.png", href: SHOP + "pa_brand=tennsmith" },
+      { name: "Niagara", meta: "15 products", logo: UP + "NIAGARA%20.png", href: SHOP + "pa_brand=niagara" },
+      { name: "Roper Whitney", meta: "15 products", logo: UP + "Roper-Whitney-Logo-Brands-You-Know-Trust-150x38.png", href: SHOP + "pa_brand=roper-whitney" },
+      { name: "Di-Acro Elga", meta: "15 products", logo: UP + "diacro-clean.png", href: SHOP + "pa_brand=di-acro-elga" },
+      { name: "Atlantic/Haco", meta: "14 products", logo: UP + "ATLANTIC%3AHACO.png", href: SHOP + "pa_brand=atlantic-haco" },
+      { name: "Famco", meta: "12 products", logo: UP + "famco-dark.png", href: SHOP + "pa_brand=famco" },
+      { name: "Amada", meta: "11 products", logo: UP + "amada-clean.png", href: SHOP + "pa_brand=amada" },
+      { name: "Pearson", meta: "8 products", logo: UP + "PEARSON.png", href: SHOP + "pa_brand=pearson" },
+      { name: "Summit", meta: "8 products", logo: UP + "summit-clean.png", href: SHOP + "pa_brand=summit" },
+      { name: "Durma", meta: "7 products", logo: UP + "DURMA%20%3A%20DURMAZLAR.png", href: SHOP + "pa_brand=durma" },
+      { name: "Dreis & Krump", meta: "5 products", logo: UP + "CHICAGO%20DREIS%20%26%20KRUMP.jpg", href: SHOP + "pa_brand=dreis-krump" },
+      { name: "Adira", meta: "4 products", logo: UP + "adira-dark.png", href: SHOP + "pa_brand=adira" },
+      { name: "Edwards - Besco", meta: "4 products", logo: UP + "Edwards%20-%20Besco.png", href: SHOP + "pa_brand=edwards-besco" }
+    ];
+
+    const L = U + "2025/12/";
+    const brandLogos = [
+      { name: "Freud", img: L + "logo_freud.webp" },
+      { name: "Diablo", img: L + "diablo-logo.webp" },
+      { name: "Accurshear", img: L + "logo-AccurShear.webp" },
+      { name: "Bobst", img: L + "logo-BOBST.webp" },
+      { name: "Challenge Machinery", img: L + "logo-Challenge-Machinery.webp" },
+      { name: "Cumberland", img: L + "logo-cumberladns-plastics.webp" },
+      { name: "FS Tool", img: L + "logo-fs-tool.webp" },
+      { name: "Herbold USA", img: L + "logo-herbold-usa.webp" },
+      { name: "Lenox", img: L + "logo-lenox.webp" },
+      { name: "Multivac", img: L + "logo-multivac.webp" },
+      { name: "National Equipment", img: L + "logo-national-equipment.webp" },
+      { name: "Polar Mohr", img: L + "logo-polar-mohr.webp" },
+      { name: "Reiser", img: L + "logo-reiser-packaging.webp" },
+      { name: "Tidland", img: L + "logo-tidland-slitter.webp" },
+      { name: "Eldan Recycling", img: L + "unnamed.webp" },
+      { name: "Columbus McKinnon", img: L + "unnamed_1.webp" },
+      { name: "Barclay Shredders", img: L + "unnamed_2.webp" },
+      { name: "Granutech Saturn", img: L + "unnamed_3.webp" }
+    ];
+
+    return {
+      shopOpen: this.state.menu === "shop",
+      servicesOpen: this.state.menu === "services",
+      searchOpen: this.state.searchOpen,
+      showMobile: this.props.showMobileConcept !== false,
+      showCaptions: this.props.industryTileCaptions !== false,
+      catsRef: this.catsRef,
+      prodRef: this.prodRef,
+      heroRef: this.heroRef,
+      heroLeft: () => this.nudge(this.heroRef, -1, 640),
+      heroRight: () => this.nudge(this.heroRef, 1, 640),
+      techRef: this.techRef,
+      techLeft: () => this.nudge(this.techRef, -1, 640),
+      techRight: () => this.nudge(this.techRef, 1, 640),
+      techCards: [
+        { name: "Chipper Knife Fitting", img: "uploads/tree-care.png", href: "https://lagrinding.com/tree-care-industry/" },
+        { name: "Wood Chipper Knives", img: IMG.bandsaw, href: "https://lagrinding.com/wood-chipper-knives/" },
+        { name: "Brush Chipper Knives", img: IMG.bladeStack, href: "https://lagrinding.com/brush-chipper-knives/" }
+      ],
+      heroCards: [
+        { name: "Shop Brush Chipper Knives", img: IMG.chipper, href: SHOP + "product_cat=brush-chipper-knives" },
+        { name: "Shop Mulcher Teeth", img: "uploads/mulcher-teeth-nologo.png", href: SHOP + "product_cat=mulcher-teeth" },
+        { name: "Shop Stump Grinder Teeth", img: IMG.stump, href: SHOP + "product_cat=stump-grinding-teeth" }
+      ],
+      openShop: () => this.setState({ menu: "shop" }),
+      openServices: () => this.setState({ menu: "services" }),
+      closeMenus: () => this.setState({ menu: null }),
+      toggleShop: () => this.setState(s => ({ menu: s.menu === "shop" ? null : "shop" })),
+      toggleServices: () => this.setState(s => ({ menu: s.menu === "services" ? null : "services" })),
+      onSearchFocus: () => this.setState({ searchOpen: true }),
+      onSearchBlur: () => setTimeout(() => this.setState({ searchOpen: false }), 160),
+      scrollCatsLeft: () => this.nudge(this.catsRef, -1),
+      scrollCatsRight: () => this.nudge(this.catsRef, 1),
+      scrollProdLeft: () => this.nudge(this.prodRef, -1),
+      scrollProdRight: () => this.nudge(this.prodRef, 1),
+
+      cats: cats,
+      mobileCats: cats.slice(12).concat(cats.slice(0, 4)),
+      shopIndustries: shopIndustries,
+      brands: brands,
+      menuBrands: brands.slice(0, 14),
+      brandLogos: brandLogos,
+
+      popularSearches: [
+        { label: "Brush chipper knives", href: SHOP + "product_cat=brush-chipper-knives" },
+        { label: "Stump grinder teeth", href: SHOP + "product_cat=stump-grinding-teeth" },
+        { label: "Shear blades", href: SHOP + "product_cat=shear-blades" },
+        { label: "Granulator knives", href: "https://lagrinding.com/product-category/granulators/" },
+        { label: "Paper knives", href: "https://lagrinding.com/paper-knife-cutters-accessories/" },
+        { label: "Freud & Diablo", href: SHOP + "pa_main-brand=diablo%2Cfreud" },
+        { label: "Ice rink parts", href: "https://lagrinding.com/product-category/ice-rinks/" }
+      ],
+
+      partnerCards: [
+        {
+          kicker: "Order online",
+          title: "Tree care parts, shipping nationwide",
+          body: "Brush Chipper Knives, Mulcher Teeth, Stump Grinder Teeth and more — precision ground exact match OEM replacement parts.",
+          cta: "Shop Tree Care",
+          img: IMG.chipper,
+          href: SHOP + "product_cat=tree-care"
+        },
+        {
+          kicker: "Professional sharpening & services",
+          title: "Sharpening held to OEM tolerances",
+          body: "L.A. Grinding has the product knowledge and the state-of-the-art equipment necessary to provide professional grade sharpening, with pickup and delivery across CA, NV and AZ.",
+          cta: "Explore services",
+          img: "uploads/8-dial-a-width-stacked-dado-sets-300x300.jpg",
+          href: "https://lagrinding.com/sharpening/"
+        },
+        {
+          kicker: "Official distributor",
+          title: "Freud & Diablo cutting tools",
+          body: "We are proud distributors of Freud & Diablo's high-quality woodworking tools including saw blades, router bits, shaper cutters, abrasives, power tool accessories and more.",
+          cta: "Order now",
+          img: "uploads/shopping.webp",
+          href: SHOP + "pa_main-brand=diablo%2Cfreud"
+        }
+      ],
+
+      industryTiles: [
+        { name: "Corrugated Cardboard", note: "Male & female slotters, razor slitters", img: "uploads/LA-Corrugated-1.webp", href: "https://lagrinding.com/corrugated/" },
+        { name: "Food Processing and Packaging", note: "Knives, punches and blades", img: "uploads/LA-Packaging-1.webp", href: "https://lagrinding.com/packaging/" },
+        { name: "Metal", note: "Shear blades up to 14'", img: "uploads/LA-MetalIndustry-1.webp", href: "https://lagrinding.com/shear-blades-for-metal-fabrication/" },
+        { name: "Paper Converting Label Manufacturing", note: "Paper knives & cutter accessories", img: "uploads/LA-Paper-1.webp", href: "https://lagrinding.com/paper-knife-cutters-accessories/" },
+        { name: "Printing & Bindery", note: "Stitching wire, cutting sticks, parts", img: "uploads/LA-Printing-1.webp", href: "https://lagrinding.com/printing-and-bindery/" },
+        { name: "Recycling Plastic Industry", note: "Granulator & shredder knives", img: "uploads/LA-plastic-1.webp", href: "https://lagrinding.com/recycling-plastic-industry/" },
+        { name: "Ice Rink Products", note: "Edger blades & resurfacing knives", img: "uploads/LA-IceRinks.webp", href: "https://lagrinding.com/ice-rinks-products/" },
+        { name: "Tree Care Industry", note: "Chipper knives, mulcher & stump teeth", img: "uploads/LA-TreeCare.webp", href: "https://lagrinding.com/tree-care-industry/" },
+        { name: "Woodworking & Construction", note: "Bandsaw fitting, carbide saw blades", img: "uploads/lag-home-construction.webp", href: "https://lagrinding.com/woodworking-and-construction/" },
+        { name: "Sharpening", note: "Scheduled pickup & delivery routes", img: "uploads/lag-home-sharpening.webp", href: "https://lagrinding.com/sharpening/" }
+      ],
+
+      services: [
+        { name: "Professional Sharpening", body: "Experience and the ability to maintain tight tolerances and OEM specifications have been proven to outlast our competition.", cta: "Learn more", img: "uploads/sharpening.png", href: "https://lagrinding.com/sharpening/" },
+        { name: "Paper Knives", body: "Our product specialist can supply you with the proper knife for specific cutting requirements and cutting conditions.", cta: "Learn more", img: "uploads/paper-knives.png", href: "https://lagrinding.com/paper-knife-cutters-accessories/" },
+        { name: "Shear Blades", body: "We can sharpen any shear blades up to 14' within the same precision tolerances as new knives to maintain high productivity and quality cuts.", cta: "Learn more", img: "uploads/shear-blades.png", href: "https://lagrinding.com/arizona-grinding/shear-blades-for-metal-fabrication/" },
+        { name: "Granulators", body: "High-performance granulator knives manufactured to exact tolerances and machined to specific OEM specifications, made from D-2 12% chrome material.", cta: "Learn more", img: "uploads/granulators.png", href: "https://lagrinding.com/granulators/" },
+        { name: "Tree Care", body: "Replacement knives and sharpening for brush chippers, mulchers and stump grinders, on weekly, biweekly or monthly service routes.", cta: "Learn more", img: "uploads/tree-care.png", href: "https://lagrinding.com/tree-care-industry/" }
+      ],
+
+      featured: [
+        { cat: "Tree Care", name: "Brush Chipper Knives — precision ground OEM match", img: IMG.chipper, href: SHOP + "product_cat=brush-chipper-knives" },
+        { cat: "Tree Care", name: "Stump Grinder Teeth — replacement options", img: IMG.stump, href: "https://lagrinding.com/product-category/tree-care/stump-grinding-teeth/" },
+        { cat: "Saw Blades", name: "Freud & Diablo Carbide Tipped Saw Blades", img: IMG.freud, href: SHOP + "pa_main-brand=freud%2Cdiablo&product_cat=saw-blades" }
+      ],
+
+      quickLinks: [
+        { name: "Arizona Grinding", href: "https://lagrinding.com/arizona" },
+        { name: "Packaging", href: "https://lagrinding.com/packaging/" },
+        { name: "Metal", href: "https://lagrinding.com/metal/" },
+        { name: "Shear Blades", href: "https://lagrinding.com/shear-blades-for-metal-fabrication/" },
+        { name: "Paper Knife Cutter Accessories", href: "https://lagrinding.com/paper-knife-cutters-accessories/" },
+        { name: "Diablo", href: SHOP + "pa_main-brand=diablo" },
+        { name: "Freud", href: SHOP + "pa_main-brand=freud" },
+        { name: "Brush Chippers", href: SHOP + "product_cat=brush-chipper-knives" },
+        { name: "Granulators", href: "https://lagrinding.com/product-category/granulators/" },
+        { name: "Ice Rink Products", href: "https://lagrinding.com/product-category/ice-rinks/" },
+        { name: "Stump Grinder Teeth", href: SHOP + "product_cat=stump-grinding-teeth" },
+        { name: "Shop Shear Blades", href: SHOP + "product_cat=shear-blades" },
+        { name: "Contact", href: "https://lagrinding.com/contact/" }
+      ],
+
+      caCities: ["Anaheim", "Bakersfield", "Bay Area", "Fresno", "Inland Empire", "Long Beach", "Los Angeles", "Modesto", "Orange County", "Sacramento", "San Diego", "Santa Ana", "Stockton", "Riverside County"],
+      azCities: ["Goodyear", "Mesa", "Phoenix", "Scottsdale", "Tempe", "Tucson"],
+      nvCities: ["Carson City", "Fernley", "Henderson", "Las Vegas", "Sparks", "Reno"]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
